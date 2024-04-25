@@ -1,1 +1,0 @@
-/home/kaisar/tricicle_ws/src/tricycle_test/launch/rsp.launch.py

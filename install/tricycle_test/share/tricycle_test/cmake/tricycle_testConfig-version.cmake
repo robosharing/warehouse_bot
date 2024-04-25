@@ -1,1 +1,0 @@
-/home/kaisar/tricicle_ws/build/tricycle_test/ament_cmake_core/tricycle_testConfig-version.cmake
