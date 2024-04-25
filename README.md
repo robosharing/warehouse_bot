@@ -8,7 +8,7 @@
 
 5. cd src
 
-6. git clone
+6. git clone 
 
 7. cd ../..
 
@@ -16,6 +16,6 @@
 
 9. source install/setup.bash
 
-10. ros2 launch tricycle_controller launch_sim.launch.py (FOR GAZEBO VISUALISATION)
+10. ros2 launch warehouse_bot launch_sim.launch.py (FOR GAZEBO VISUALISATION)
 
 11. move with teleop twist keyboard
