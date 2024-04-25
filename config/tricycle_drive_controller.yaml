@@ -18,7 +18,7 @@ tricycle_controller:
     # Model
     traction_joint_name: traction_joint # Name of traction joint in URDF
     steering_joint_name: steering_joint # Name of steering joint in URDF
-    wheel_radius: 0.3 # Radius of front wheel
+    wheel_radius: 0.15 # Radius of front wheel
     wheelbase: 1.7 # Distance between center of back wheels and front wheel
 
     # Odometry
@@ -45,7 +45,7 @@ tricycle_controller:
       min_position: -1.57
       max_position: 1.57
       # min_velocity: 0.0
-      max_velocity: 1.0
+      max_velocity: 2.0
       # min_acceleration: 0.0
       # max_acceleration: 1000.0
 

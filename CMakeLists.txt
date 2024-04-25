@@ -1,55 +1,40 @@
 cmake_minimum_required(VERSION 3.5)
-project(tricycle_test)  # Ensure this matches exactly with your package.xml name
+project(warehouse_bot)
 
-# Set the C99 standard for C and C++14 for C++
+# Default to C99
 if(NOT CMAKE_C_STANDARD)
   set(CMAKE_C_STANDARD 99)
 endif()
 
+# Default to C++14
 if(NOT CMAKE_CXX_STANDARD)
   set(CMAKE_CXX_STANDARD 14)
-  set(CMAKE_CXX_STANDARD_REQUIRED ON)  # Enforces C++14 compatibility
 endif()
 
-# Compiler options for better code quality
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
 
-# # Finding required ROS 2 packages
-# find_package(ament_cmake REQUIRED)
-# find_package(rclcpp REQUIRED)
-# find_package(geometry_msgs REQUIRED)
+# find dependencies
+find_package(ament_cmake REQUIRED)
+# uncomment the following section in order to fill in
+# further dependencies manually.
+# find_package(<dependency> REQUIRED)
 
-# # Define the executable for the tricycle drive example
-# add_executable(example_tricycle_drive src/examples/example_tricycle_drive.cpp)
-
-# # Link ROS 2 dependencies
-# ament_target_dependencies(example_tricycle_drive
-#   rclcpp
-#   geometry_msgs
-# )
-
-# # Installation of the executable
-# install(TARGETS
-#   example_tricycle_drive
-#   DESTINATION lib/${PROJECT_NAME}
-# )
-
-# Install other directories if they contain necessary resources
-install(DIRECTORY
-  launch
-  config
-  urdf
-  meshes
-  DESTINATION share/${PROJECT_NAME}/
-)
-
-# Setup testing configurations if BUILD_TESTING is enabled
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
+  # the following line skips the linter which checks for copyrights
+  # uncomment the line when a copyright and license is not present in all source files
+  #set(ament_cmake_copyright_FOUND TRUE)
+  # the following line skips cpplint (only works in a git repo)
+  # uncomment the line when this package is not in a git repo
+  #set(ament_cmake_cpplint_FOUND TRUE)
   ament_lint_auto_find_test_dependencies()
 endif()
 
-# Final packaging
+install(
+  DIRECTORY config urdf launch meshes src
+  DESTINATION share/${PROJECT_NAME}
+)
+
 ament_package()
