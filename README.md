@@ -8,7 +8,7 @@
 
 5. cd src
 
-6. git clone 
+6. git clone https://github.com/robosharing/warehouse_bot.git
 
 7. cd ../..
 
