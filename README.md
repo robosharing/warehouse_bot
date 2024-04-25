@@ -10,7 +10,7 @@
 
 6. git clone https://github.com/robosharing/warehouse_bot.git
 
-7. cd ../..
+7. cd .. ..
 
 8. colcon build --symlink-install
 
