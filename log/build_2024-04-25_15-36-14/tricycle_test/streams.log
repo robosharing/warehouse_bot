@@ -1,0 +1,37 @@
+[0.158s] Invoking command in '/home/kaisar/tricicle_ws/build/tricycle_test': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/kaisar/tricicle_ws/build/tricycle_test -- -j12 -l12
+[0.215s] Invoked command in '/home/kaisar/tricicle_ws/build/tricycle_test' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/kaisar/tricicle_ws/build/tricycle_test -- -j12 -l12
+[0.265s] Invoking command in '/home/kaisar/tricicle_ws/build/tricycle_test': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/kaisar/tricicle_ws/build/tricycle_test
+[0.276s] -- Install configuration: ""
+[0.276s] -- Up-to-date: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test//launch
+[0.276s] -- Up-to-date: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test//config
+[0.277s] -- Up-to-date: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test//urdf
+[0.277s] -- Up-to-date: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test//meshes
+[0.277s] -- Up-to-date: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test//meshes/1line_lidar_1.stl
+[0.277s] -- Up-to-date: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test//meshes/drive_1.stl
+[0.277s] -- Up-to-date: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test//meshes/Intel_Realsense_D435_2.stl
+[0.277s] -- Up-to-date: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test//meshes/load_bearing_wheel_2.stl
+[0.277s] -- Up-to-date: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test//meshes/drive_wheel_1.stl
+[0.278s] -- Up-to-date: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test//meshes/chassis.stl
+[0.278s] -- Up-to-date: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test//meshes/mid-360-asm_1.stl
+[0.278s] -- Up-to-date: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test//meshes/Intel_Realsense_D435_1.stl
+[0.278s] -- Up-to-date: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test//meshes/load_bearing_wheel_1.stl
+[0.278s] -- Up-to-date: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test//meshes/Intel_Realsense_D435_3.stl
+[0.278s] -- Up-to-date: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test//meshes/16line_lidar_1.stl
+[0.279s] -- Up-to-date: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test//meshes/fork_1.stl
+[0.279s] -- Execute custom install script
+[0.279s] -- Up-to-date symlink: /home/kaisar/tricicle_ws/install/tricycle_test/share/ament_index/resource_index/package_run_dependencies/tricycle_test
+[0.279s] -- Up-to-date symlink: /home/kaisar/tricicle_ws/install/tricycle_test/share/ament_index/resource_index/parent_prefix_path/tricycle_test
+[0.279s] -- Up-to-date symlink: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test/environment/ament_prefix_path.sh
+[0.279s] -- Up-to-date symlink: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test/environment/ament_prefix_path.dsv
+[0.279s] -- Up-to-date symlink: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test/environment/path.sh
+[0.279s] -- Up-to-date symlink: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test/environment/path.dsv
+[0.280s] -- Up-to-date symlink: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test/local_setup.bash
+[0.280s] -- Up-to-date symlink: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test/local_setup.sh
+[0.280s] -- Up-to-date symlink: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test/local_setup.zsh
+[0.280s] -- Up-to-date symlink: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test/local_setup.dsv
+[0.280s] -- Symlinking: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test/package.dsv
+[0.291s] -- Up-to-date symlink: /home/kaisar/tricicle_ws/install/tricycle_test/share/ament_index/resource_index/packages/tricycle_test
+[0.292s] -- Up-to-date symlink: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test/cmake/tricycle_testConfig.cmake
+[0.292s] -- Up-to-date symlink: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test/cmake/tricycle_testConfig-version.cmake
+[0.292s] -- Up-to-date symlink: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test/package.xml
+[0.296s] Invoked command in '/home/kaisar/tricicle_ws/build/tricycle_test' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/kaisar/tricicle_ws/build/tricycle_test

@@ -1,0 +1,87 @@
+[0.223s] Invoking command in '/home/kaisar/tricicle_ws/build/tricycle_test': CMAKE_PREFIX_PATH=/home/kaisar/tricicle_ws/install/tricycle_test:/home/kaisar/ros2_ws/install/depthimage_to_laserscan:/opt/ros/foxy:/opt/ros/noetic /usr/bin/cmake /home/kaisar/tricicle_ws/src/tricycle_test -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/kaisar/tricicle_ws/install/tricycle_test
+[0.290s] -- The C compiler identification is GNU 9.4.0
+[0.350s] -- The CXX compiler identification is GNU 9.4.0
+[0.354s] -- Check for working C compiler: /usr/bin/cc
+[0.446s] -- Check for working C compiler: /usr/bin/cc -- works
+[0.448s] -- Detecting C compiler ABI info
+[0.541s] -- Detecting C compiler ABI info - done
+[0.556s] -- Detecting C compile features
+[0.557s] -- Detecting C compile features - done
+[0.559s] -- Check for working CXX compiler: /usr/bin/c++
+[0.668s] -- Check for working CXX compiler: /usr/bin/c++ -- works
+[0.670s] -- Detecting CXX compiler ABI info
+[0.775s] -- Detecting CXX compiler ABI info - done
+[0.792s] -- Detecting CXX compile features
+[0.792s] -- Detecting CXX compile features - done
+[0.795s] -- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.831s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+[0.831s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[1.019s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[1.055s] -- Found rclcpp: 2.4.3 (/opt/ros/foxy/share/rclcpp/cmake)
+[1.097s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.103s] -- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[1.259s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1f")  
+[1.294s] -- Found FastRTPS: /opt/ros/foxy/include  
+[1.380s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.430s] -- Found rmw_implementation_cmake: 1.0.4 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[1.432s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.432s] -- Looking for pthread.h
+[1.524s] -- Looking for pthread.h - found
+[1.525s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[1.618s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+[1.618s] -- Looking for pthread_create in pthreads
+[1.707s] -- Looking for pthread_create in pthreads - not found
+[1.707s] -- Looking for pthread_create in pthread
+[1.795s] -- Looking for pthread_create in pthread - found
+[1.797s] -- Found Threads: TRUE  
+[1.944s] -- Found geometry_msgs: 2.0.5 (/opt/ros/foxy/share/geometry_msgs/cmake)
+[1.976s] -- Found ament_lint_auto: 0.9.8 (/opt/ros/foxy/share/ament_lint_auto/cmake)
+[2.053s] -- Added test 'copyright' to check source files copyright and LICENSE
+[2.053s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[2.054s] -- Configured cppcheck include dirs: 
+[2.054s] -- Configured cppcheck exclude dirs and/or files: 
+[2.055s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[2.055s] -- Configured cpplint exclude dirs and/or files: 
+[2.055s] -- Added test 'flake8' to check Python code syntax and style conventions
+[2.056s] -- Added test 'lint_cmake' to check CMake code style
+[2.056s] -- Added test 'pep257' to check Python code against some of the style conventions in PEP 257
+[2.057s] -- Added test 'uncrustify' to check C / C++ code style
+[2.057s] -- Configured uncrustify additional arguments: 
+[2.057s] -- Added test 'xmllint' to check XML markup files
+[2.060s] -- Configuring done
+[2.066s] -- Generating done
+[2.067s] -- Build files have been written to: /home/kaisar/tricicle_ws/build/tricycle_test
+[2.075s] Invoked command in '/home/kaisar/tricicle_ws/build/tricycle_test' returned '0': CMAKE_PREFIX_PATH=/home/kaisar/tricicle_ws/install/tricycle_test:/home/kaisar/ros2_ws/install/depthimage_to_laserscan:/opt/ros/foxy:/opt/ros/noetic /usr/bin/cmake /home/kaisar/tricicle_ws/src/tricycle_test -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/kaisar/tricicle_ws/install/tricycle_test
+[2.079s] Invoking command in '/home/kaisar/tricicle_ws/build/tricycle_test': CMAKE_PREFIX_PATH=/home/kaisar/tricicle_ws/install/tricycle_test:/home/kaisar/ros2_ws/install/depthimage_to_laserscan:/opt/ros/foxy:/opt/ros/noetic /usr/bin/cmake --build /home/kaisar/tricicle_ws/build/tricycle_test -- -j12 -l12
+[2.130s] [35m[1mScanning dependencies of target example_tricycle_drive[0m
+[2.170s] [ 50%] [32mBuilding CXX object CMakeFiles/example_tricycle_drive.dir/src/examples/example_tricycle_drive.cpp.o[0m
+[4.471s] [100%] [32m[1mLinking CXX executable example_tricycle_drive[0m
+[4.630s] [100%] Built target example_tricycle_drive
+[4.646s] Invoked command in '/home/kaisar/tricicle_ws/build/tricycle_test' returned '0': CMAKE_PREFIX_PATH=/home/kaisar/tricicle_ws/install/tricycle_test:/home/kaisar/ros2_ws/install/depthimage_to_laserscan:/opt/ros/foxy:/opt/ros/noetic /usr/bin/cmake --build /home/kaisar/tricicle_ws/build/tricycle_test -- -j12 -l12
+[4.701s] Invoking command in '/home/kaisar/tricicle_ws/build/tricycle_test': CMAKE_PREFIX_PATH=/home/kaisar/tricicle_ws/install/tricycle_test:/home/kaisar/ros2_ws/install/depthimage_to_laserscan:/opt/ros/foxy:/opt/ros/noetic /usr/bin/cmake --install /home/kaisar/tricicle_ws/build/tricycle_test
+[4.715s] -- Install configuration: ""
+[4.715s] -- Execute custom install script
+[4.716s] -- Symlinking: /home/kaisar/tricicle_ws/install/tricycle_test/lib/tricycle_test/example_tricycle_drive
+[4.731s] -- Symlinking: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test//launch/g.launch.py
+[4.738s] -- Symlinking: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test//launch/tricycle_drive.launch.py
+[4.747s] -- Symlinking: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test//config/config.rviz
+[4.755s] -- Symlinking: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test//config/tricycle_drive_controller.yaml
+[4.763s] -- Symlinking: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test//urdf/ros2_control.xacro
+[4.772s] -- Symlinking: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test//urdf/test_tricycle_drive.xacro.urdf
+[4.785s] -- Symlinking: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test//examples/example_tricycle_drive.cpp
+[4.795s] -- Symlinking: /home/kaisar/tricicle_ws/install/tricycle_test/share/ament_index/resource_index/package_run_dependencies/tricycle_test
+[4.809s] -- Symlinking: /home/kaisar/tricicle_ws/install/tricycle_test/share/ament_index/resource_index/parent_prefix_path/tricycle_test
+[4.819s] -- Symlinking: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test/environment/ament_prefix_path.sh
+[4.834s] -- Symlinking: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test/environment/ament_prefix_path.dsv
+[4.842s] -- Symlinking: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test/environment/path.sh
+[4.850s] -- Symlinking: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test/environment/path.dsv
+[4.864s] -- Symlinking: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test/local_setup.bash
+[4.872s] -- Symlinking: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test/local_setup.sh
+[4.880s] -- Symlinking: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test/local_setup.zsh
+[4.892s] -- Symlinking: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test/local_setup.dsv
+[4.908s] -- Symlinking: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test/package.dsv
+[4.923s] -- Symlinking: /home/kaisar/tricicle_ws/install/tricycle_test/share/ament_index/resource_index/packages/tricycle_test
+[4.937s] -- Symlinking: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test/cmake/tricycle_testConfig.cmake
+[4.947s] -- Symlinking: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test/cmake/tricycle_testConfig-version.cmake
+[4.955s] -- Symlinking: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test/package.xml
+[4.973s] Invoked command in '/home/kaisar/tricicle_ws/build/tricycle_test' returned '0': CMAKE_PREFIX_PATH=/home/kaisar/tricicle_ws/install/tricycle_test:/home/kaisar/ros2_ws/install/depthimage_to_laserscan:/opt/ros/foxy:/opt/ros/noetic /usr/bin/cmake --install /home/kaisar/tricicle_ws/build/tricycle_test

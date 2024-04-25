@@ -1,0 +1,12 @@
+/home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test//meshes/1line_lidar_1.stl
+/home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test//meshes/drive_1.stl
+/home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test//meshes/Intel_Realsense_D435_2.stl
+/home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test//meshes/load_bearing_wheel_2.stl
+/home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test//meshes/drive_wheel_1.stl
+/home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test//meshes/chassis.stl
+/home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test//meshes/mid-360-asm_1.stl
+/home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test//meshes/Intel_Realsense_D435_1.stl
+/home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test//meshes/load_bearing_wheel_1.stl
+/home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test//meshes/Intel_Realsense_D435_3.stl
+/home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test//meshes/16line_lidar_1.stl
+/home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test//meshes/fork_1.stl

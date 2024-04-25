@@ -1,0 +1,4 @@
+Invoking command in '/home/kaisar/tricicle_ws/build/tricycle_test': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/kaisar/tricicle_ws/build/tricycle_test -- -j12 -l12
+Invoked command in '/home/kaisar/tricicle_ws/build/tricycle_test' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/kaisar/tricicle_ws/build/tricycle_test -- -j12 -l12
+Invoking command in '/home/kaisar/tricicle_ws/build/tricycle_test': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/kaisar/tricicle_ws/build/tricycle_test
+Invoked command in '/home/kaisar/tricicle_ws/build/tricycle_test' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/kaisar/tricicle_ws/build/tricycle_test

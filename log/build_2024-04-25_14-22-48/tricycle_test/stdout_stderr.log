@@ -1,0 +1,29 @@
+[35m[1mScanning dependencies of target example_tricycle_drive[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/example_tricycle_drive.dir/src/examples/example_tricycle_drive.cpp.o[0m
+[100%] [32m[1mLinking CXX executable example_tricycle_drive[0m
+[100%] Built target example_tricycle_drive
+-- Install configuration: ""
+-- Execute custom install script
+-- Up-to-date symlink: /home/kaisar/tricicle_ws/install/tricycle_test/lib/tricycle_test/example_tricycle_drive
+-- Up-to-date symlink: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test//launch/g.launch.py
+-- Up-to-date symlink: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test//launch/tricycle_drive.launch.py
+-- Up-to-date symlink: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test//config/config.rviz
+-- Up-to-date symlink: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test//config/tricycle_drive_controller.yaml
+-- Up-to-date symlink: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test//urdf/ros2_control.xacro
+-- Up-to-date symlink: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test//urdf/test_tricycle_drive.urdf.xacro
+-- Up-to-date symlink: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test//examples/example_tricycle_drive.cpp
+-- Up-to-date symlink: /home/kaisar/tricicle_ws/install/tricycle_test/share/ament_index/resource_index/package_run_dependencies/tricycle_test
+-- Up-to-date symlink: /home/kaisar/tricicle_ws/install/tricycle_test/share/ament_index/resource_index/parent_prefix_path/tricycle_test
+-- Up-to-date symlink: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test/environment/ament_prefix_path.sh
+-- Up-to-date symlink: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test/environment/ament_prefix_path.dsv
+-- Up-to-date symlink: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test/environment/path.sh
+-- Up-to-date symlink: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test/environment/path.dsv
+-- Up-to-date symlink: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test/local_setup.bash
+-- Up-to-date symlink: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test/local_setup.sh
+-- Up-to-date symlink: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test/local_setup.zsh
+-- Up-to-date symlink: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test/local_setup.dsv
+-- Symlinking: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test/package.dsv
+-- Up-to-date symlink: /home/kaisar/tricicle_ws/install/tricycle_test/share/ament_index/resource_index/packages/tricycle_test
+-- Up-to-date symlink: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test/cmake/tricycle_testConfig.cmake
+-- Up-to-date symlink: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test/cmake/tricycle_testConfig-version.cmake
+-- Up-to-date symlink: /home/kaisar/tricicle_ws/install/tricycle_test/share/tricycle_test/package.xml
