@@ -18,4 +18,4 @@
 
 10. ros2 warehouse_bot launch_sim.launch.py (FOR GAZEBO VISUALISATION)
 
-11. move with teleop twist keyboard: 
+11. move with teleop twist keyboard: ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/tricycle_controller/cmd_vel
