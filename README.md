@@ -16,6 +16,6 @@
 
 9. source install/setup.bash
 
-10. ros2 launch tricycle_controller launch_sim.launch.py (FOR GAZEBO VISUALISATION)
+10. ros2 warehouse_bot launch_sim.launch.py (FOR GAZEBO VISUALISATION)
 
-11. move with teleop twist keyboard
+11. move with teleop twist keyboard: 
