@@ -8,14 +8,14 @@
 
 5. cd src
 
-6. git clone https://github.com/robosharing/warehouse_bot.git
+6. git clone
 
-7. cd .. ..
+7. cd ../..
 
 8. colcon build --symlink-install
 
 9. source install/setup.bash
 
-10. ros2 launch warehouse_bot launch_sim.launch.py (FOR GAZEBO VISUALISATION)
+10. ros2 launch tricycle_controller launch_sim.launch.py (FOR GAZEBO VISUALISATION)
 
 11. move with teleop twist keyboard

@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <robot name="tricycle_drive" xmlns:xacro="http://ros.org/wiki/xacro">
 
-
-  <xacro:include filename="$(find warehouse_bot)/urdf/ros2_control.xacro" />
   <material name="Black">
     <color rgba="0 0 0 1" />
   </material>
@@ -25,7 +23,7 @@
       <geometry>
         <mesh filename="file://$(find warehouse_bot)/meshes/chassis.stl" scale="0.002 0.002 0.002"/>
       </geometry>
-      <material name="silver"/>
+      <material name="Orange"/>
     </visual>
     <collision>
       <origin xyz="0 0 -0.04" rpy="0 0 0"/>
@@ -149,6 +147,180 @@
     <origin xyz="0 0 0" rpy="-1.57 1.57 0" />
     <axis xyz="0 0 1" />
   </joint>
+
+
+
+
+
+
+
+
+
+  <link name="Intel_Realsense_D435_1">
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="0.01"/>
+    <inertia ixx="0.000238" iyy="3.5e-05" izz="0.00024" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.92 0.38 0.12" rpy="3.14 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find warehouse_bot)/meshes/Intel_Realsense_D435_1.stl" scale="0.002 0.002 0.002"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.92 0.38 0.12" rpy="3.14 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find warehouse_bot)/meshes/Intel_Realsense_D435_1.stl" scale="0.002 0.002 0.002"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Intel_Realsense_D435_2">
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="0.01"/>
+    <inertia ixx="0.000238" iyy="3.5e-05" izz="0.00024" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.92 -0.38 0.12" rpy="3.14 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find warehouse_bot)/meshes/Intel_Realsense_D435_2.stl" scale="0.002 0.002 0.002"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.92 -0.38 0.12" rpy="3.14 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find warehouse_bot)/meshes/Intel_Realsense_D435_2.stl" scale="0.002 0.002 0.002"/>
+    </geometry>
+  </collision>
+</link>
+
+ <link name="Intel_Realsense_D435_3">
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="0.01"/>
+    <inertia ixx="0.000238" iyy="3.5e-05" izz="0.00024" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-2.0 0 -3.54" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find warehouse_bot)/meshes/Intel_Realsense_D435_3.stl" scale="0.002 0.002 0.002"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-2.0 0 -3.54" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find warehouse_bot)/meshes/Intel_Realsense_D435_3.stl" scale="0.002 0.002 0.002"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="16line_lidar_1">
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="0.01"/>
+    <inertia ixx="0.008817" iyy="0.008817" izz="0.007464" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-2.2 0 -4.36" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find warehouse_bot)/meshes/16line_lidar_1.stl" scale="0.002 0.002 0.002"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-2.2 0 -4.36" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find warehouse_bot)/meshes/16line_lidar_1.stl" scale="0.002 0.002 0.002"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="mid-360-asm_1">
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="0.01"/>
+    <inertia ixx="0.00052" iyy="0.000561" izz="0.000556" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="2.39 0 -3.437" rpy="0 0 3.14"/>
+    <geometry>
+      <mesh filename="file://$(find warehouse_bot)/meshes/mid-360-asm_1.stl" scale="0.002 0.002 0.002"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="2.39 0 -3.437" rpy="0 0 3.14"/>
+    <geometry>
+      <mesh filename="file://$(find warehouse_bot)/meshes/mid-360-asm_1.stl" scale="0.002 0.002 0.002"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="laser_frame">
+  <inertial>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <mass value="0.01"/>
+    <inertia ixx="0.00068" iyy="0.00068" izz="0.000389" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-2.95 0 -0.11" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find warehouse_bot)/meshes/1line_lidar_1.stl" scale="0.002 0.002 0.002"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-2.95 0 -0.11" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find warehouse_bot)/meshes/1line_lidar_1.stl" scale="0.002 0.002 0.002"/>
+    </geometry>
+  </collision>
+</link> 
+
+
+
+
+ 
+<joint name="left_rs_joint" type="fixed">
+  <origin xyz="-0.3 0.4 0.05" rpy="0 0 3.14"/>
+  <parent link="chassis"/>
+  <child link="Intel_Realsense_D435_1"/>
+</joint>
+
+<joint name="right_rs_joint" type="fixed">
+  <origin xyz="-0.3 -0.4 0.05" rpy="0 0 3.14"/>
+  <parent link="chassis"/>
+  <child link="Intel_Realsense_D435_2"/>
+</joint>
+
+<joint name="top_rs_joint" type="fixed">
+  <origin xyz="2.0 0 3.52" rpy="0 0.39 3.14"/>
+  <parent link="chassis"/>
+  <child link="Intel_Realsense_D435_3"/>
+</joint>
+
+<joint name="16line_lidar_joint" type="fixed">
+  <origin xyz="2.2 0 4.36" rpy="0 0 0"/>
+  <parent link="chassis"/>
+  <child link="16line_lidar_1"/>
+</joint>
+
+<joint name="mid360_joint" type="fixed">
+  <origin xyz="2.35 0 3.39" rpy="0 0 0"/>
+  <parent link="chassis"/>
+  <child link="mid-360-asm_1"/>
+</joint>
+
+<joint name="laser_frame_joint" type="fixed">
+  <origin xyz="3.2 0 0.02" rpy="0 0 0"/>
+  <parent link="chassis"/>
+  <child link="laser_frame"/>
+</joint> 
 
   
 
