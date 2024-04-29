@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<robot name="tricycle_drive" xmlns:xacro="http://ros.org/wiki/xacro">
+<robot name="warehouse_bot" xmlns:xacro="http://ros.org/wiki/xacro">
     <ros2_control name="GazeboSystem" type="system">
         <hardware>
             <plugin>gazebo_ros2_control/GazeboSystem</plugin>

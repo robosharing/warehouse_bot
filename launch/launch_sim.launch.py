@@ -18,6 +18,8 @@ def generate_launch_description():
     # !!! MAKE SURE YOU SET THE PACKAGE NAME CORRECTLY !!!
 
     package_name='warehouse_bot' #<--- CHANGE ME
+    pkg_path = os.path.join(get_package_share_directory('warehouse_bot'))
+    rviz_file = os.path.join(pkg_path,'launch','test2.rviz')
 
     rsp = IncludeLaunchDescription(
                 PythonLaunchDescriptionSource([os.path.join(
@@ -52,7 +54,14 @@ def generate_launch_description():
         arguments=["joint_state_broadcaster"],
     )
 
-   
+       # Add the RViz2 node with your configuration file
+    rviz_node = Node(
+        package='rviz2',
+        executable='rviz2',
+        name='rviz2',
+        output='screen',
+        arguments=['-d', rviz_file]
+    )
 
 
 
@@ -62,5 +71,6 @@ def generate_launch_description():
         gazebo,
         spawn_entity,
         load_tricycle_controller,
-        joint_broad_spawner
+        joint_broad_spawner,
+        rviz_node
     ])

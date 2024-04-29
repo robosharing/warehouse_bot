@@ -1,326 +1,338 @@
 <?xml version="1.0"?>
-<robot name="tricycle_drive" xmlns:xacro="http://ros.org/wiki/xacro">
+<robot name="warehouse_bot" xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <material name="Black">
-    <color rgba="0 0 0 1" />
-  </material>
-  <material name="Grey">
-    <color rgba="0.8 0.8 0.8 1" />
-  </material>
-  <material name="Orange">
-    <color rgba="1 0.6 0 1" />
-  </material>
-  <material name="White">
-    <color rgba="1 1 1 1" />
-  </material>
+    <material name="Black">
+      <color rgba="0 0 0 1" />
+    </material>
+    <material name="Grey">
+      <color rgba="0.8 0.8 0.8 1" />
+    </material>
+    <material name="Orange">
+      <color rgba="1 0.6 0 1" />
+    </material>
+    <material name="White">
+      <color rgba="1 1 1 1" />
+    </material>
 
-  <link name="base_link" />
+    <link name="base_link">
+    </link>
 
-  <!-- Chassis -->
-  <link name="chassis">
-    <visual>
-      <origin xyz="0 0 -0.04" rpy="0 0 0"/>
-      <geometry>
-        <mesh filename="file://$(find warehouse_bot)/meshes/chassis.stl" scale="0.002 0.002 0.002"/>
-      </geometry>
-      <material name="Orange"/>
-    </visual>
-    <collision>
-      <origin xyz="0 0 -0.04" rpy="0 0 0"/>
-      <geometry>
-        <mesh filename="file://$(find warehouse_bot)/meshes/chassis.stl" scale="0.002 0.002 0.002"/>
-      </geometry>
-    </collision>
-    <inertial>
+    <link name="base_footprint">
+    </link>
+    
+    <joint name="base_footprint_joint" type="fixed">
+      <parent link="base_link"/>
+      <child link="base_footprint"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+
+    <!-- Chassis -->
+    <link name="chassis">
+      <visual>
+        <origin xyz="0 0 -0.04" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find warehouse_bot)/meshes/chassis.stl" scale="0.002 0.002 0.002"/>
+        </geometry>
+        <material name="Orange"/>
+      </visual>
+      <collision>
+        <origin xyz="0 0 -0.04" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find warehouse_bot)/meshes/chassis.stl" scale="0.002 0.002 0.002"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <mass value="70" />
+        <inertia ixx="0.126164" ixy="0.0" ixz="0.0" iyy="0.416519" iyz="0.0" izz="0.481014" />
+      </inertial>
+    </link>
+
+    <joint name="chassis_joint" type="fixed">
       <origin xyz="0 0 0" rpy="0 0 0" />
-      <mass value="70" />
-      <inertia ixx="0.126164" ixy="0.0" ixz="0.0" iyy="0.416519" iyz="0.0" izz="0.481014" />
+      <parent link="base_link" />
+      <child link="chassis" />
+    </joint>
+
+    <!-- left wheel Link -->
+    <link name="left_wheel">
+      <collision>
+        <geometry>
+          <cylinder length="0.08" radius="0.15" />
+        </geometry>
+      </collision>
+      <visual>
+        <geometry>
+          <cylinder length="0.08" radius="0.15" />
+        </geometry>
+        <material name="Black" />
+      </visual>
+      <inertial>
+        <mass value="10" />
+        <inertia ixx="0.145833" ixy="0.0" ixz="0.0" iyy="0.145833" iyz="0.0" izz="0.125" />
+      </inertial>
+    </link>
+
+    <joint name="left_wheel_joint" type="continuous">
+      <origin xyz="0 0.4 0" rpy="-1.57 0 0" />
+      <parent link="chassis" />
+      <child link="left_wheel" />
+      <axis xyz="0 0 1" />
+      <dynamics damping="0.2" />
+    </joint>
+
+    <!-- right wheel Link -->
+    <link name="right_wheel">
+      <collision>
+        <geometry>
+          <cylinder length="0.08" radius="0.15" />
+        </geometry>
+      </collision>
+      <visual>
+        <geometry>
+          <cylinder length="0.08" radius="0.15" />
+        </geometry>
+        <material name="Black" />
+      </visual>
+
+      <inertial>
+        <mass value="10" />
+        <inertia ixx="0.145833" ixy="0.0" ixz="0.0" iyy="0.145833" iyz="0.0" izz="0.125" />
+      </inertial>
+    </link>
+
+    <joint name="right_wheel_joint" type="continuous">
+      <origin xyz="0 -0.4 0" rpy="-1.57 0 0" />
+      <parent link="chassis" />
+      <child link="right_wheel" />
+      <axis xyz="0 0 1" />
+      <dynamics damping="0.2" />
+    </joint>
+
+    <!-- Steering Link -->
+    <link name="steering_link">
+      <visual>
+        <geometry>
+          <box size="0.01 0.01 0.01" />
+        </geometry>
+        <material name="Black" />
+      </visual>
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <mass value="0.005" />
+        <inertia ixx="0.1" ixy="0.0" ixz="0.0" iyy="0.1" iyz="0.0" izz="0.1" />
+      </inertial>
+    </link>
+
+    <joint name="steering_joint" type="continuous">
+      <origin xyz="2.2 0 0" rpy="0 0 0" />
+      <parent link="chassis" />
+      <child link="steering_link" />
+      <axis xyz="0 0 1" />
+    </joint>
+
+    <!-- traction wheel link -->
+    <link name="wheel_front_link">
+      <visual>
+        <geometry>
+          <cylinder length="0.08" radius="0.15" />
+        </geometry>
+        <material name="Black" />
+      </visual>
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <mass value="20" />
+        <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1" />
+      </inertial>
+      <collision>
+        <geometry>
+          <cylinder length="0.08" radius="0.15" />
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="traction_joint" type="continuous">
+      <parent link="steering_link" />
+      <child link="wheel_front_link" />
+      <origin xyz="0 0 0" rpy="-1.57 1.57 0" />
+      <axis xyz="0 0 1" />
+    </joint>
+
+
+
+
+
+
+
+
+<!-- 
+    <link name="Intel_Realsense_D435_1">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="0.000238" iyy="3.5e-05" izz="0.00024" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
     </inertial>
-  </link>
-
-  <joint name="chassis_joint" type="fixed">
-    <origin xyz="0 0 0" rpy="0 0 0" />
-    <parent link="base_link" />
-    <child link="chassis" />
-  </joint>
-
-  <!-- left wheel Link -->
-  <link name="left_wheel">
-    <collision>
+    <visual>
+      <origin xyz="0.92 0.38 0.12" rpy="3.14 0 0"/>
       <geometry>
-        <cylinder length="0.08" radius="0.15" />
+        <mesh filename="file://$(find warehouse_bot)/meshes/Intel_Realsense_D435_1.stl" scale="0.002 0.002 0.002"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin xyz="0.92 0.38 0.12" rpy="3.14 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find warehouse_bot)/meshes/Intel_Realsense_D435_1.stl" scale="0.002 0.002 0.002"/>
       </geometry>
     </collision>
-    <visual>
-      <geometry>
-        <cylinder length="0.08" radius="0.15" />
-      </geometry>
-      <material name="Black" />
-    </visual>
-    <inertial>
-      <mass value="10" />
-      <inertia ixx="0.145833" ixy="0.0" ixz="0.0" iyy="0.145833" iyz="0.0" izz="0.125" />
-    </inertial>
   </link>
 
-  <joint name="left_wheel_joint" type="continuous">
-    <origin xyz="0 0.4 0" rpy="-1.57 0 0" />
-    <parent link="chassis" />
-    <child link="left_wheel" />
-    <axis xyz="0 0 1" />
-    <dynamics damping="0.2" />
-  </joint>
-
-  <!-- right wheel Link -->
-  <link name="right_wheel">
+  <link name="Intel_Realsense_D435_2">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="0.000238" iyy="3.5e-05" izz="0.00024" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+    </inertial>
+    <visual>
+      <origin xyz="0.92 -0.38 0.12" rpy="3.14 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find warehouse_bot)/meshes/Intel_Realsense_D435_2.stl" scale="0.002 0.002 0.002"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
     <collision>
+      <origin xyz="0.92 -0.38 0.12" rpy="3.14 0 0"/>
       <geometry>
-        <cylinder length="0.08" radius="0.15" />
-      </geometry>
-    </collision>
-    <visual>
-      <geometry>
-        <cylinder length="0.08" radius="0.15" />
-      </geometry>
-      <material name="Black" />
-    </visual>
-
-    <inertial>
-      <mass value="10" />
-      <inertia ixx="0.145833" ixy="0.0" ixz="0.0" iyy="0.145833" iyz="0.0" izz="0.125" />
-    </inertial>
-  </link>
-
-  <joint name="right_wheel_joint" type="continuous">
-    <origin xyz="0 -0.4 0" rpy="-1.57 0 0" />
-    <parent link="chassis" />
-    <child link="right_wheel" />
-    <axis xyz="0 0 1" />
-    <dynamics damping="0.2" />
-  </joint>
-
-  <!-- Steering Link -->
-  <link name="steering_link">
-    <visual>
-      <geometry>
-        <box size="0.01 0.01 0.01" />
-      </geometry>
-      <material name="Black" />
-    </visual>
-    <inertial>
-      <origin xyz="0 0 0" rpy="0 0 0" />
-      <mass value="0.005" />
-      <inertia ixx="0.1" ixy="0.0" ixz="0.0" iyy="0.1" iyz="0.0" izz="0.1" />
-    </inertial>
-  </link>
-
-  <joint name="steering_joint" type="continuous">
-    <origin xyz="2.2 0 0" rpy="0 0 0" />
-    <parent link="chassis" />
-    <child link="steering_link" />
-    <axis xyz="0 0 1" />
-  </joint>
-
-  <!-- traction wheel link -->
-  <link name="wheel_front_link">
-    <visual>
-      <geometry>
-        <cylinder length="0.08" radius="0.15" />
-      </geometry>
-      <material name="Black" />
-    </visual>
-    <inertial>
-      <origin xyz="0 0 0" rpy="0 0 0" />
-      <mass value="20" />
-      <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1" />
-    </inertial>
-    <collision>
-      <geometry>
-        <cylinder length="0.08" radius="0.15" />
+        <mesh filename="file://$(find warehouse_bot)/meshes/Intel_Realsense_D435_2.stl" scale="0.002 0.002 0.002"/>
       </geometry>
     </collision>
   </link>
 
-  <joint name="traction_joint" type="continuous">
-    <parent link="steering_link" />
-    <child link="wheel_front_link" />
-    <origin xyz="0 0 0" rpy="-1.57 1.57 0" />
-    <axis xyz="0 0 1" />
+  <link name="Intel_Realsense_D435_3">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="0.000238" iyy="3.5e-05" izz="0.00024" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+    </inertial>
+    <visual>
+      <origin xyz="-2.0 0 -3.54" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find warehouse_bot)/meshes/Intel_Realsense_D435_3.stl" scale="0.002 0.002 0.002"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin xyz="-2.0 0 -3.54" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find warehouse_bot)/meshes/Intel_Realsense_D435_3.stl" scale="0.002 0.002 0.002"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="16line_lidar_1">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="0.008817" iyy="0.008817" izz="0.007464" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+    </inertial>
+    <visual>
+      <origin xyz="-2.2 0 4.37" rpy="3.14 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find warehouse_bot)/meshes/16line_lidar_1.stl" scale="0.002 0.002 0.002"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin xyz="-2.2 0 4.37" rpy="3.14 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find warehouse_bot)/meshes/16line_lidar_1.stl" scale="0.002 0.002 0.002"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="mid-360-asm_1">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="0.00052" iyy="0.000561" izz="0.000556" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+    </inertial>
+    <visual>
+      <origin xyz="2.39 0 -3.4" rpy="0 0 3.14"/>
+      <geometry>
+        <mesh filename="file://$(find warehouse_bot)/meshes/mid-360-asm_1.stl" scale="0.002 0.002 0.002"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin xyz="2.39 0 -3.4" rpy="0 0 3.14"/>
+      <geometry>
+        <mesh filename="file://$(find warehouse_bot)/meshes/mid-360-asm_1.stl" scale="0.002 0.002 0.002"/>
+      </geometry>
+    </collision>
+  </link> -->
+
+  <link name="laser_frame">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.01"/>
+      <inertia ixx="0.00068" iyy="0.00068" izz="0.000389" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+    </inertial>
+    <visual>
+      <origin xyz="-2.95 0 0.01" rpy="3.14 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find warehouse_bot)/meshes/1line_lidar_1.stl" scale="0.002 0.002 0.002"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin xyz="-2.95 0 0.01" rpy="3.14 0 0"/>
+      <geometry>
+        <mesh filename="file://$(find warehouse_bot)/meshes/1line_lidar_1.stl" scale="0.002 0.002 0.002"/>
+      </geometry>
+    </collision>
+  </link> 
+
+
+
+
+  
+  <!-- <joint name="left_rs_joint" type="fixed">
+    <origin xyz="-0.3 0.4 0.05" rpy="0 0 3.14"/>
+    <parent link="chassis"/>
+    <child link="Intel_Realsense_D435_1"/>
+  </joint>
+
+  <joint name="right_rs_joint" type="fixed">
+    <origin xyz="-0.3 -0.4 0.05" rpy="0 0 3.14"/>
+    <parent link="chassis"/>
+    <child link="Intel_Realsense_D435_2"/>
+  </joint>
+
+  <joint name="top_rs_joint" type="fixed">
+    <origin xyz="2.0 0 3.52" rpy="0 0.39 3.14"/>
+    <parent link="chassis"/>
+    <child link="Intel_Realsense_D435_3"/>
   </joint>
 
 
 
+  <joint name="mid360_joint" type="fixed">
+    <origin xyz="2.35 0 3.3404" rpy="0 0 0"/>
+    <parent link="chassis"/>
+    <child link="mid-360-asm_1"/>
+  </joint>  -->
 
+  <!-- <joint name="16line_lidar_joint" type="fixed">
+    <origin xyz="2.2 0 4.37" rpy="0 0 0"/>
+    <parent link="chassis"/>
+    <child link="16line_lidar_1"/>
+  </joint> -->
 
-
-
-
-
-  <link name="Intel_Realsense_D435_1">
-  <inertial>
-    <origin xyz="0 0 0" rpy="0 0 0"/>
-    <mass value="0.01"/>
-    <inertia ixx="0.000238" iyy="3.5e-05" izz="0.00024" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
-  </inertial>
-  <visual>
-    <origin xyz="0.92 0.38 0.12" rpy="3.14 0 0"/>
-    <geometry>
-      <mesh filename="file://$(find warehouse_bot)/meshes/Intel_Realsense_D435_1.stl" scale="0.002 0.002 0.002"/>
-    </geometry>
-    <material name="silver"/>
-  </visual>
-  <collision>
-    <origin xyz="0.92 0.38 0.12" rpy="3.14 0 0"/>
-    <geometry>
-      <mesh filename="file://$(find warehouse_bot)/meshes/Intel_Realsense_D435_1.stl" scale="0.002 0.002 0.002"/>
-    </geometry>
-  </collision>
-</link>
-
-<link name="Intel_Realsense_D435_2">
-  <inertial>
-    <origin xyz="0 0 0" rpy="0 0 0"/>
-    <mass value="0.01"/>
-    <inertia ixx="0.000238" iyy="3.5e-05" izz="0.00024" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
-  </inertial>
-  <visual>
-    <origin xyz="0.92 -0.38 0.12" rpy="3.14 0 0"/>
-    <geometry>
-      <mesh filename="file://$(find warehouse_bot)/meshes/Intel_Realsense_D435_2.stl" scale="0.002 0.002 0.002"/>
-    </geometry>
-    <material name="silver"/>
-  </visual>
-  <collision>
-    <origin xyz="0.92 -0.38 0.12" rpy="3.14 0 0"/>
-    <geometry>
-      <mesh filename="file://$(find warehouse_bot)/meshes/Intel_Realsense_D435_2.stl" scale="0.002 0.002 0.002"/>
-    </geometry>
-  </collision>
-</link>
-
- <link name="Intel_Realsense_D435_3">
-  <inertial>
-    <origin xyz="0 0 0" rpy="0 0 0"/>
-    <mass value="0.01"/>
-    <inertia ixx="0.000238" iyy="3.5e-05" izz="0.00024" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
-  </inertial>
-  <visual>
-    <origin xyz="-2.0 0 -3.54" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="file://$(find warehouse_bot)/meshes/Intel_Realsense_D435_3.stl" scale="0.002 0.002 0.002"/>
-    </geometry>
-    <material name="silver"/>
-  </visual>
-  <collision>
-    <origin xyz="-2.0 0 -3.54" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="file://$(find warehouse_bot)/meshes/Intel_Realsense_D435_3.stl" scale="0.002 0.002 0.002"/>
-    </geometry>
-  </collision>
-</link>
-
-<link name="16line_lidar_1">
-  <inertial>
-    <origin xyz="0 0 0" rpy="0 0 0"/>
-    <mass value="0.01"/>
-    <inertia ixx="0.008817" iyy="0.008817" izz="0.007464" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
-  </inertial>
-  <visual>
-    <origin xyz="-2.2 0 -4.36" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="file://$(find warehouse_bot)/meshes/16line_lidar_1.stl" scale="0.002 0.002 0.002"/>
-    </geometry>
-    <material name="silver"/>
-  </visual>
-  <collision>
-    <origin xyz="-2.2 0 -4.36" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="file://$(find warehouse_bot)/meshes/16line_lidar_1.stl" scale="0.002 0.002 0.002"/>
-    </geometry>
-  </collision>
-</link>
-
-<link name="mid-360-asm_1">
-  <inertial>
-    <origin xyz="0 0 0" rpy="0 0 0"/>
-    <mass value="0.01"/>
-    <inertia ixx="0.00052" iyy="0.000561" izz="0.000556" ixy="0.0" iyz="-0.0" ixz="0.0"/>
-  </inertial>
-  <visual>
-    <origin xyz="2.39 0 -3.437" rpy="0 0 3.14"/>
-    <geometry>
-      <mesh filename="file://$(find warehouse_bot)/meshes/mid-360-asm_1.stl" scale="0.002 0.002 0.002"/>
-    </geometry>
-    <material name="silver"/>
-  </visual>
-  <collision>
-    <origin xyz="2.39 0 -3.437" rpy="0 0 3.14"/>
-    <geometry>
-      <mesh filename="file://$(find warehouse_bot)/meshes/mid-360-asm_1.stl" scale="0.002 0.002 0.002"/>
-    </geometry>
-  </collision>
-</link>
-
-<link name="laser_frame">
-  <inertial>
-    <origin xyz="0 0 0" rpy="0 0 0"/>
-    <mass value="0.01"/>
-    <inertia ixx="0.00068" iyy="0.00068" izz="0.000389" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
-  </inertial>
-  <visual>
-    <origin xyz="-2.95 0 -0.11" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="file://$(find warehouse_bot)/meshes/1line_lidar_1.stl" scale="0.002 0.002 0.002"/>
-    </geometry>
-    <material name="silver"/>
-  </visual>
-  <collision>
-    <origin xyz="-2.95 0 -0.11" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="file://$(find warehouse_bot)/meshes/1line_lidar_1.stl" scale="0.002 0.002 0.002"/>
-    </geometry>
-  </collision>
-</link> 
-
-
-
-
- 
-<joint name="left_rs_joint" type="fixed">
-  <origin xyz="-0.3 0.4 0.05" rpy="0 0 3.14"/>
-  <parent link="chassis"/>
-  <child link="Intel_Realsense_D435_1"/>
-</joint>
-
-<joint name="right_rs_joint" type="fixed">
-  <origin xyz="-0.3 -0.4 0.05" rpy="0 0 3.14"/>
-  <parent link="chassis"/>
-  <child link="Intel_Realsense_D435_2"/>
-</joint>
-
-<joint name="top_rs_joint" type="fixed">
-  <origin xyz="2.0 0 3.52" rpy="0 0.39 3.14"/>
-  <parent link="chassis"/>
-  <child link="Intel_Realsense_D435_3"/>
-</joint>
-
-<joint name="16line_lidar_joint" type="fixed">
-  <origin xyz="2.2 0 4.36" rpy="0 0 0"/>
-  <parent link="chassis"/>
-  <child link="16line_lidar_1"/>
-</joint>
-
-<joint name="mid360_joint" type="fixed">
-  <origin xyz="2.35 0 3.39" rpy="0 0 0"/>
-  <parent link="chassis"/>
-  <child link="mid-360-asm_1"/>
-</joint>
-
-<joint name="laser_frame_joint" type="fixed">
-  <origin xyz="3.2 0 0.02" rpy="0 0 0"/>
-  <parent link="chassis"/>
-  <child link="laser_frame"/>
-</joint> 
+  <joint name="laser_frame_joint" type="fixed">
+    <origin xyz="3.2 0 0.04" rpy="0 0 0"/>
+    <parent link="chassis"/>
+    <child link="laser_frame"/>
+  </joint> 
 
   
 

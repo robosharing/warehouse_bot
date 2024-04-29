@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
-<robot name="warehouse_bot" xmlns:xacro="http://ros.org/wiki/xacro">
+<robot>
 
     <gazebo reference="laser_frame">
 
         <sensor name="laser" type="ray">
             <pose> 0 0 0 0 0 0 </pose>
             <visualize>false</visualize>
-            <update_rate>30</update_rate>
+            <update_rate>50</update_rate>
             <ray>
                 <scan>
                     <horizontal>
                         <samples>360</samples>
-                        <min_angle>-3.14</min_angle>
-                        <max_angle>3.14</max_angle>
+                        <min_angle>-1.57</min_angle>
+                        <max_angle>1.57</max_angle>
                     </horizontal>
                 </scan>
                 <range>
