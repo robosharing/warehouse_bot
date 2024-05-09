@@ -26,7 +26,7 @@ move with teleop twist keyboard:
 
 (FOR SLAM)
 
-12. ros2 launch slam_toolbox online_async_launch.py params_file:=./src/delevery_bot/config/mapper_params_online_async.yaml use_sim_time:=true 
+12. ros2 launch slam_toolbox online_async_launch.py params_file:=./src/warehouse_bot/config/mapper_params_online_async.yaml use_sim_time:=true 
 
 (TWIX_MUX FOR NAV2)
 
