@@ -1,6 +1,6 @@
 controller_manager:
   ros__parameters:
-    update_rate: 50 # Hz
+    update_rate: 100 # Hz
     use_sim_time: true
 
     tricycle_controller:
@@ -18,8 +18,8 @@ tricycle_controller:
     # Model
     traction_joint_name: traction_joint # Name of traction joint in URDF
     steering_joint_name: steering_joint # Name of steering joint in URDF
-    wheel_radius: 0.15 # Radius of front wheel
-    wheelbase: 2.2 # Distance between center of back wheels and front wheel
+    wheel_radius: 0.075 # Radius of front wheel
+    wheelbase: 1.1 # Distance between center of back wheels and front wheel
 
     # Odometry
     odom_frame_id: odom
@@ -36,14 +36,14 @@ tricycle_controller:
       # min_velocity: 0.0
       # max_velocity: 1000.0
       # min_acceleration: 0.0
-      max_acceleration: 5.0
+      max_acceleration: 2.5
       # min_deceleration: 0.0
-      max_deceleration: 8.0
+      max_deceleration: 4.0
       # min_jerk: 0.0
       # max_jerk: 1000.0
     steering:
-      min_position: -1.57
-      max_position: 1.57
+      min_position: -1.4
+      max_position: 1.4
       # min_velocity: 0.0
       max_velocity: 1.0
       # min_acceleration: 0.0

@@ -33,8 +33,9 @@ if(BUILD_TESTING)
 endif()
 
 install(
-  DIRECTORY config urdf launch meshes src
+  DIRECTORY config urdf launch meshes src world
   DESTINATION share/${PROJECT_NAME}
 )
+
 
 ament_package()

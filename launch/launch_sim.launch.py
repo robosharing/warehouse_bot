@@ -8,7 +8,7 @@ from launch.actions import IncludeLaunchDescription
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 
 from launch_ros.actions import Node
-
+from launch.actions import SetEnvironmentVariable
 
 
 def generate_launch_description():
@@ -67,6 +67,7 @@ def generate_launch_description():
 
     # Launch them all!
     return LaunchDescription([
+        #SetEnvironmentVariable(name='GAZEBO_MODEL_PATH', value='/home/warehouse_ws/src/warehouse_bot/models'),
         rsp,
         gazebo,
         spawn_entity,
