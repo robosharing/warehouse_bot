@@ -30,5 +30,22 @@ move with teleop twist keyboard:
 (FOR NAV2)
 14. ros2 launch nav2_bringup navigation_launch.py use_sim_time:=true
 
+
+
+
+
+=========================================================================================
+
+инструкция для GAZEBO 
+
+1. распаковываем models.zip в папку home/.gazebo (по умолчанию она скрыта, чтобы увидеть нажимаем ctrl+h)
+
+2.заходим в каждую папку и исправляем файл .sdf -> Там меняем путь к файлу  .DAE -> <uri>file:///home/меняем тут на имя компьютера/.gazebo/models/aws_robomaker_warehouse_WallB_01/meshes/aws_robomaker_warehouse_WallB_01_collision.DAE</uri>
+3. нужно исправить в каждой папке, иначе не заработает в дальнейшем
+
+
+==========================================================================================
+
+
 for launch in world
 15. ros2 warehouse_bot launch_sim.launch.py world:=./src/warehouse_bot/world/test.world
