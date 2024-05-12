@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot>
 
-    <gazebo reference="laser_frame">
+    <gazebo reference="line_lidar_1">
 
         <sensor name="laser" type="ray">
             <pose> 0 0 0 0 0 0 </pose>
@@ -11,8 +11,8 @@
                 <scan>
                     <horizontal>
                         <samples>360</samples>
-                        <min_angle>-2.2</min_angle>
-                        <max_angle>2.2</max_angle>
+                        <min_angle>-3.14</min_angle>
+                        <max_angle>3.14</max_angle>
                     </horizontal>
                 </scan>
                 <range>
@@ -25,7 +25,7 @@
                     <argument>~/out:=scan</argument>
                 </ros>
                 <output_type>sensor_msgs/LaserScan</output_type>
-                <frame_name>laser_frame</frame_name>
+                <frame_name>line_lidar_1</frame_name>
             </plugin>
         </sensor>
     </gazebo>
