@@ -18,7 +18,7 @@
 
 (FOR GAZEBO VISUALISATION)
 
-10. ros2 warehouse_bot launch_sim.launch.py 
+10. ros2 launch warehouse_bot launch_sim.launch.py 
 
 move with teleop twist keyboard:
 
