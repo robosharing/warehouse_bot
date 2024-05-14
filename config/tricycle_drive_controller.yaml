@@ -19,7 +19,7 @@ tricycle_controller:
     traction_joint_name: traction_joint # Name of traction joint in URDF
     steering_joint_name: steering_joint # Name of steering joint in URDF
     wheel_radius: 0.075 # Radius of front wheel
-    wheelbase: 1.3 # Distance between center of back wheels and front wheel
+    wheelbase: 1.1 # Distance between center of back wheels and front wheel
 
     # Odometry
     odom_frame_id: odom
@@ -33,25 +33,25 @@ tricycle_controller:
 
     # Rate Limiting
     traction: # All values should be positive
-      # min_velocity: 0.0
-      # max_velocity: 1000.0
-      # min_acceleration: 0.0
-      max_acceleration: 1.5
-      # min_deceleration: 0.0
-      max_deceleration: 6.0
+      min_velocity: 0.0
+      max_velocity: 22.5
+      min_acceleration: 0.0
+      max_acceleration: 5.0
+      min_deceleration: 0.0
+      max_deceleration: 5.0
       # min_jerk: 0.0
       # max_jerk: 1000.0
     steering:
       min_position: -1.57
       max_position: 1.57
-      # min_velocity: 0.0
-      max_velocity: 1.5
-      # min_acceleration: 0.0
-      # max_acceleration: 1000.0
+      min_velocity: 0.0
+      max_velocity: 22.5
+      min_acceleration: 0.0
+      max_acceleration: 5.0
 
     # cmd_vel input
     cmd_vel_timeout: 550 # In milliseconds. Timeout to stop if no cmd_vel is received
     use_stamped_vel: False # Set to True if using TwistStamped.
 
     # Debug
-    publish_ackermann_command: False # Publishes AckermannDrive. The speed does not comply to the msg definition, it the wheel angular speed in rad/s.
+    publish_ackermann_command: True # Publishes AckermannDrive. The speed does not comply to the msg definition, it the wheel angular speed in rad/s.
