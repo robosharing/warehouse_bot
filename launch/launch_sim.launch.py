@@ -67,7 +67,6 @@ def generate_launch_description():
 
     # Launch them all!
     return LaunchDescription([
-        #SetEnvironmentVariable(name='GAZEBO_MODEL_PATH', value='/home/warehouse_ws/src/warehouse_bot/models'),
         rsp,
         gazebo,
         spawn_entity,

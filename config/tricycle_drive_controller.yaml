@@ -34,24 +34,24 @@ tricycle_controller:
     # Rate Limiting
     traction: # All values should be positive
       min_velocity: 0.0
-      max_velocity: 22.5
+      max_velocity: 50.0
       min_acceleration: 0.0
       max_acceleration: 5.0
       min_deceleration: 0.0
-      max_deceleration: 5.0
+      max_deceleration: 8.0
       # min_jerk: 0.0
       # max_jerk: 1000.0
     steering:
       min_position: -1.57
       max_position: 1.57
       min_velocity: 0.0
-      max_velocity: 22.5
+      max_velocity: 1.0
       min_acceleration: 0.0
-      max_acceleration: 5.0
+      max_acceleration: 50.0
 
     # cmd_vel input
-    cmd_vel_timeout: 550 # In milliseconds. Timeout to stop if no cmd_vel is received
-    use_stamped_vel: False # Set to True if using TwistStamped.
+    cmd_vel_timeout: 1000 # In milliseconds. Timeout to stop if no cmd_vel is received
+    use_stamped_vel: false # Set to True if using TwistStamped.
 
     # Debug
-    publish_ackermann_command: True # Publishes AckermannDrive. The speed does not comply to the msg definition, it the wheel angular speed in rad/s.
+    publish_ackermann_command: true # Publishes AckermannDrive. The speed does not comply to the msg definition, it the wheel angular speed in rad/s.
