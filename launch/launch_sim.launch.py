@@ -19,7 +19,7 @@ def generate_launch_description():
 
     package_name='warehouse_bot' #<--- CHANGE ME
     pkg_path = os.path.join(get_package_share_directory('warehouse_bot'))
-    rviz_file = os.path.join(pkg_path,'config','test2.rviz')
+    rviz_file = os.path.join(pkg_path,'config','localization.rviz')
 
     rsp = IncludeLaunchDescription(
                 PythonLaunchDescriptionSource([os.path.join(
@@ -42,7 +42,7 @@ def generate_launch_description():
 
     load_tricycle_controller = Node(
         package="controller_manager",
-        executable="spawner.py",
+        executable="spawner",
         arguments=["tricycle_controller"],
         output="screen"
     )
@@ -50,7 +50,7 @@ def generate_launch_description():
 
     joint_broad_spawner = Node(
         package="controller_manager",
-        executable="spawner.py",
+        executable="spawner",
         arguments=["joint_state_broadcaster"],
     )
 
