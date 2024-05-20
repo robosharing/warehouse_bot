@@ -16,7 +16,7 @@
 
 9. source install/local_setup.bash
 
-(FOR GAZEBO VISUALISATION)
+(FOR GAZEBO VISUALISATION без AMCL)
 
 10. ros2 launch warehouse_bot launch_sim.launch.py 
 
