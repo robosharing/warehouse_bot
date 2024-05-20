@@ -14,7 +14,7 @@
 
 8. colcon build --symlink-install
 
-9. source install/setup.bash
+9. source install/local_setup.bash
 
 (FOR GAZEBO VISUALISATION)
 
@@ -66,4 +66,15 @@ move with teleop twist keyboard:
 
 for launch in world
 
-15. ros2 warehouse_bot launch_sim.launch.py world:=./src/warehouse_bot/world/test.world
+15. ros2 launch warehouse_bot launch_sim.launch.py world:=./src/warehouse_bot/world/test.world
+
+for launch localization 
+
+16. ros2 launch warehouse_bot localization_launch.py
+
+set initial pose, and run navigation 
+
+17. ros2 run twist_mux twist_mux --ros-args --params-file ./src/warehouse_bot/config/twist_mux.yaml -r cmd_vel_out:=/tricycle_controller/cmd_vel
+
+18. ros2 launch warehouse_bot navigation_launch.py
+
