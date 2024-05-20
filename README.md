@@ -1,4 +1,4 @@
-1. install ROS2    (in install.txt)
+1. install ROS2 with dependenses NEED ALL   (in install.txt)
 
 2. mkdir ware_ws
 
