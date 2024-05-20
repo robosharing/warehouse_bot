@@ -67,7 +67,7 @@ FOR LAUNCH IN WORLD WITH AMCL NAV2
 
 for launch in world
 
-15. ros2 launch warehouse_bot launch_sim.launch.py world:=./src/warehouse_bot/world/test.world
+15. ros2 launch warehouse_bot launch_sim.launch.py world:=./src/warehouse_bot/world/t.world
 
 for launch localization 
 
