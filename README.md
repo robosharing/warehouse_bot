@@ -63,6 +63,7 @@ move with teleop twist keyboard:
 
 ===================================================
 
+FOR LAUNCH IN WORLD WITH AMCL NAV2
 
 for launch in world
 
