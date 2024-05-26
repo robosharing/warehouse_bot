@@ -13,14 +13,12 @@
             <geometry>
                 <cylinder radius="0.05" length="0.04"/>
             </geometry>
-            <material name="black"/>
         </visual>
         <visual>
             <origin xyz="0 0 -0.05"/>
             <geometry>
                 <cylinder radius="0.01" length="0.2"/>
             </geometry>
-            <material name="black"/>
         </visual>
         <collision>
             <geometry>
@@ -37,8 +35,6 @@
 
 
     <gazebo reference="laser_frame">
-        <material>Gazebo/Black</material>
-
         <sensor name="laser" type="ray">
             <pose> 0 0 0 0 0 0 </pose>
             <visualize>false</visualize>

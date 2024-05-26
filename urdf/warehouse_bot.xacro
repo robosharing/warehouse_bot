@@ -166,7 +166,7 @@
 
 
 
-  <link name="Intel_Realsense_D435_1">
+  <!-- <link name="Intel_Realsense_D435_1">
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="0.01"/>
@@ -224,9 +224,9 @@
         <mesh filename="file://$(find warehouse_bot)/meshes/Intel_Realsense_D435_3.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
-  </link>
+  </link> -->
 
-  <!-- <link name="line_lidar_1">
+  <link name="line_lidar_1">
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="1"/>
@@ -244,8 +244,8 @@
         <mesh filename="file://$(find warehouse_bot)/meshes/16line_lidar_1.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
-  </link> -->
-
+  </link>
+<!-- 
   <link name="mid-360-asm_1">
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -264,7 +264,7 @@
         <mesh filename="file://$(find warehouse_bot)/meshes/mid-360-asm_1.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
-  </link>
+  </link> -->
 
   <!-- <link name="laser_frame_under">
     <inertial>
@@ -314,7 +314,7 @@
 
 
   
-  <joint name="left_rs_joint" type="fixed">
+  <!-- <joint name="left_rs_joint" type="fixed">
     <origin xyz="-0.46 0.2 0.052" rpy="0 0 3.14"/>
     <parent link="chassis"/>
     <child link="Intel_Realsense_D435_1"/>
@@ -338,13 +338,13 @@
     <origin xyz="1.175 0.0 1.68" rpy="0 0 0"/>
     <parent link="chassis"/>
     <child link="mid-360-asm_1"/>
-  </joint> 
+  </joint>  -->
 
-  <!-- <joint name="16line_lidar_joint" type="fixed">
+  <joint name="16line_lidar_joint" type="fixed">
     <origin xyz="1.1 0.0 2.25" rpy="0 0 0"/>
     <parent link="chassis"/>
     <child link="line_lidar_1"/>
-  </joint> -->
+  </joint>
 <!-- 
   <joint name="laser_joint1" type="fixed">
     <origin xyz="1.6 0.0 0.02" rpy="0 0 0"/>

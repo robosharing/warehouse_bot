@@ -19,7 +19,7 @@ def generate_launch_description():
 
     package_name='warehouse_bot' #<--- CHANGE ME
     pkg_path = os.path.join(get_package_share_directory('warehouse_bot'))
-    rviz_file = os.path.join(pkg_path,'config','localization.rviz')
+    rviz_file = os.path.join(pkg_path,'config','test2.rviz')
 
     rsp = IncludeLaunchDescription(
                 PythonLaunchDescriptionSource([os.path.join(
