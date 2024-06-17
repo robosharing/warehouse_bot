@@ -10,15 +10,21 @@
 
 6. git clone
 
-7. cd .. ..
+7. cd livox_ros_driver2
 
-8. colcon build --symlink-install
+8. ./build.sh humble
 
-9. source install/local_setup.bash
+9. cd .. ..
+
+10. colcon build 
+
+11. source install/local_setup.bash
 
 (FOR GAZEBO VISUALISATION без AMCL)
 
-10. ros2 launch warehouse_bot launch_sim.launch.py 
+10. ros2 launch warehouse_bot launch_sim.launch.py
+
+11. ros2 launch warehouse_bot ros2_control.launch.py
 
 move with teleop twist keyboard:
 
