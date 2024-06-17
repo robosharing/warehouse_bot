@@ -1,0 +1,7 @@
+image: /home/kaisar/warehouse_ws/src/warehouse_bot/config/test1.pgm
+mode: trinary
+resolution: 0.05
+origin: [-32.5, -13.5, 0]
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.25

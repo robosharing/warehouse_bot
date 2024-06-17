@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro"  name="robot">
+
+
+
+    <xacro:include filename="$(find warehouse_bot)/urdf/_d435.urdf2.xacro" />
+    <xacro:include filename="$(find warehouse_bot)/urdf/_d435.urdf1.xacro" />
+    <xacro:include filename="$(find warehouse_bot)/urdf/_d435.urdf3.xacro" />
+    <xacro:include filename="$(find ros2_livox_simulation)/urdf/mid360.xacro" />
+    <xacro:include filename="warehouse_bot.xacro" />
+    <xacro:include filename="ros2_control.xacro" />
+    <xacro:include filename="gazebo_control.xacro" />
+    
+</robot>
