@@ -258,12 +258,6 @@
     <origin xyz="1.0 0.0 1.77" rpy="0 2.2 3.14" />
   </xacro:sensor_d435_3>  
 
-  <!-- <joint name="mid360_joint" type="fixed">
-    <origin xyz="1.175 0.0 1.68" rpy="0 0 0"/>
-    <parent link="chassis"/>
-    <child link="mid-360-asm_1"/>
-  </joint>  -->
-
   <joint name="16line_lidar_joint" type="fixed">
     <origin xyz="1.1 0.0 2.24" rpy="0 0 0"/>
     <parent link="chassis"/>
@@ -275,10 +269,5 @@
     <parent link="chassis"/>
     <child link="laser_frame_under"/>
   </joint> 
-
-  <xacro:mid360 name="livox" parent="base_link" topic="mid360">
-    <origin xyz="1.175 0.0 1.67" rpy="3.14 0 0"/>
-  </xacro:mid360>
-  
 
 </robot>
