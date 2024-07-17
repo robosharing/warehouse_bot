@@ -13,6 +13,8 @@ cd ./ware_ws
 colcon build 
 source install/local_setup.bash
 ```
+open new terminal (we need source /opt/ros/humble/setup.bash, not source /opt/ros/humble/setup.sh)
+
 (FOR GAZEBO VISUALISATION без AMCL)
 ```bash
 ros2 launch warehouse_bot launch_sim.launch.py
