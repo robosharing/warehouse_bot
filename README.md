@@ -6,7 +6,7 @@ make workspace and colcon build:
 mkdir -p ware_ws/src
 cd ./ware_ws/src
 git clone https://github.com/robosharing/warehouse_bot.git .
-cd ./warehouse_bot/livox_ros_driver2
+cd ./livox_ros_driver2
 source /opt/ros/humble/setup.sh
 ./build.sh humble
 cd ./ware_ws
