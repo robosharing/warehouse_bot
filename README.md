@@ -1,7 +1,7 @@
 install ROS2 with dependenses NEED ALL (in install.txt)
 
 make workspace and colcon build:
-bash
+
 ```bash
 mkdir -p ware_ws/src
 cd ./ware_ws/src
@@ -67,5 +67,5 @@ set initial pose, and run navigation
 ros2 run twist_mux twist_mux --ros-args --params-file ./src/warehouse_bot/config/twist_mux.yaml -r cmd_vel_out:=/tricycle_controller/cmd_vel
 ```
 ```bash
-18. ros2 launch warehouse_bot navigation_launch.py
+ros2 launch warehouse_bot navigation_launch.py
 ```
