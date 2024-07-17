@@ -8,9 +8,9 @@ cd ./ware_ws/src
 git clone https://github.com/robosharing/warehouse_bot.git .
 cd ./livox_ros_driver2
 source /opt/ros/humble/setup.sh
-./build.sh humble
+./build.sh humble (там будут предупреждения, их игнорируем)
 cd ./ware_ws
-colcon build 
+colcon build (несколько раз, пока без ошибки не исчезнут)
 source install/local_setup.bash
 ```
 open new terminal (we need source /opt/ros/humble/setup.bash, not source /opt/ros/humble/setup.sh)
