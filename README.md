@@ -1,4 +1,6 @@
-1. install ROS2 with dependenses NEED ALL (in install.txt)
+install ROS2 with dependenses NEED ALL (in install.txt)
+
+make workspace and colcon build:
 bash
 ```bash
 mkdir -p ware_ws/src
