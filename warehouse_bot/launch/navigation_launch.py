@@ -111,7 +111,7 @@ def generate_launch_description():
     
     declare_mask_yaml_file_cmd = DeclareLaunchArgument(
         'mask',
-        default_value='/home/kaisar/ware_ws/src/warehouse_bot/config/lanes.yaml',
+        default_value=os.path.join(bringup_dir, 'config', 'lanes.yaml'),
         description='Full path to filter mask yaml file to load')
         
 
