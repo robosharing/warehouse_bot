@@ -19,7 +19,7 @@ def generate_launch_description():
 
     package_name='warehouse_bot' #<--- CHANGE ME
     pkg_path = os.path.join(get_package_share_directory('warehouse_bot'))
-    rviz_file = os.path.join(pkg_path,'config','test2.rviz')
+    rviz_file = os.path.join(pkg_path,'config','nav2_config_preferred_lanes.rviz')
 
     rsp = IncludeLaunchDescription(
                 PythonLaunchDescriptionSource([os.path.join(
@@ -72,5 +72,5 @@ def generate_launch_description():
         spawn_entity,
         # load_tricycle_controller,
         # joint_broad_spawner,
-        # rviz_node
+        rviz_node
     ])
