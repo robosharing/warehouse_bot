@@ -15,28 +15,16 @@ source install/local_setup.bash
 ```
 open new terminal (we need source /opt/ros/humble/setup.bash, not source /opt/ros/humble/setup.sh)
 
-(FOR GAZEBO VISUALISATION без AMCL)
+(картография)
 ```bash
 ros2 launch warehouse_bot launch_sim.launch.py
 ros2 launch warehouse_bot ros2_control.launch.py
+ros2 launch slam_toolbox online_async_launch.py params_file:=./src/warehouse_bot/config/mapper_params_online_async.yaml use_sim_time:=true 
 ```
-move with teleop twist keyboard:
+двигаемся и строим карту:
 ```bash
 ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/tricycle_controller/cmd_vel
 ```
-(FOR SLAM)
-```bash
-ros2 launch slam_toolbox online_async_launch.py params_file:=./src/warehouse_bot/config/mapper_params_online_async.yaml use_sim_time:=true 
-```
-(TWIX_MUX FOR NAV2)
-```bash
-ros2 run twist_mux twist_mux --ros-args --params-file ./src/warehouse_bot/config/twist_mux.yaml -r cmd_vel_out:=/tricycle_controller/cmd_vel 
-```
-(FOR NAV2)
-```bash
-ros2 launch nav2_bringup navigation_launch.py use_sim_time:=true
-```
-
 ====================================================
 
 инструкция для GAZEBO 
@@ -53,8 +41,7 @@ ros2 launch nav2_bringup navigation_launch.py use_sim_time:=true
 
 
 ===================================================
-
-FOR LAUNCH IN WORLD WITH AMCL NAV2
+НАВИГАЦИЯ:
 
 for launch in world
 ```bash
@@ -64,7 +51,9 @@ for launch localization
 ```bash
 ros2 launch warehouse_bot localization_launch.py
 ```
+
 set initial pose, and run navigation 
+
 ```bash
 ros2 run twist_mux twist_mux --ros-args --params-file ./src/warehouse_bot/config/twist_mux.yaml -r cmd_vel_out:=/tricycle_controller/cmd_vel
 ```
