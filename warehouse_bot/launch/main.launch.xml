@@ -14,7 +14,8 @@
             <arg name="yaw_spawn" value="0.78535"/>
     </include>
 
-    <!-- <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
             <arg name="robot_name" value="robot_2"/>
             <arg name="robot_file" value="robot.xacro"/>
             <arg name="x_spawn" value="2"/>
@@ -23,6 +24,1084 @@
             <arg name="roll_spawn" value="0.0"/>
             <arg name="pitch_spawn" value="0.0"/>
             <arg name="yaw_spawn" value="0.78535"/>
-    </include> -->
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_3"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="4"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_4"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="6"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_5"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="8"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_6"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="10"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+        <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_7"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="12"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_8"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="14"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_9"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="16"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_10"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="18"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_11"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="20"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_12"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="22"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_13"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="24"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_14"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="26"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_15"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="28"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_16"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="30"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+        <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_17"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="32"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_18"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="34"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_19"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="36"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_20"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="38"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_21"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="40"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_22"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="42"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_23"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="44"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_24"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="46"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_25"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="48"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_26"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="50"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+        <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_27"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="52"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_28"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="54"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_29"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="56"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_30"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="58"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_31"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="60"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_32"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="62"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_33"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="64"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_34"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="66"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_35"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="68"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_36"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="70"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+        <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_37"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="72"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_38"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="74"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_39"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="76"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_40"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="78"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_41"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="80"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_42"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="82"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_43"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="84"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_44"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="86"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_45"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="88"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_46"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="90"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+        <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_47"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="92"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_48"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="94"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_49"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="96"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_50"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="98"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_51"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="100"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_52"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="102"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_53"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="104"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_54"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="106"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_55"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="108"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_56"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="110"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+        <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_57"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="112"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_58"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="114"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_59"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="116"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_60"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="118"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_61"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="120"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_62"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="122"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_63"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="124"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_64"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="126"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_65"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="128"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_66"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="130"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+        <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_67"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="132"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_68"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="134"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_69"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="136"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_70"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="138"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_71"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="140"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_72"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="142"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_73"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="144"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_74"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="146"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_75"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="148"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_76"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="150"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+        <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_77"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="152"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_78"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="154"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_79"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="156"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_80"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="158"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_81"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="160"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_82"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="162"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_83"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="164"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_84"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="166"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_85"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="168"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_86"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="170"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_87"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="172"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+        <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_88"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="174"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_89"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="176"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_90"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="178"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_91"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="180"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_92"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="182"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_94"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="184"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_95"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="186"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_96"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="188"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_97"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="190"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_98"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="192"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+        <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_99"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="194"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_100"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="196"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
+
+    <include file="$(find-pkg-share warehouse_bot)/launch/spawn_with_control.launch.xml">
+            <arg name="robot_name" value="robot_101"/>
+            <arg name="robot_file" value="robot.xacro"/>
+            <arg name="x_spawn" value="198"/>
+            <arg name="y_spawn" value="0.0"/>
+            <arg name="z_spawn" value="0.06"/>
+            <arg name="roll_spawn" value="0.0"/>
+            <arg name="pitch_spawn" value="0.0"/>
+            <arg name="yaw_spawn" value="0.78535"/>
+    </include>
 
 </launch>
