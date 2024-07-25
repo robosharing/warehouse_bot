@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = -Dlivox_lidar_sdk_shared_EXPORTS
 
-CXX_INCLUDES = -I/home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../include -I/home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../3rdparty -I/home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../3rdparty/spdlog -I/home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/.
+CXX_INCLUDES = -I/home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../include -I/home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../3rdparty -I/home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../3rdparty/spdlog -I/home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/.
 
 CXX_FLAGS =  -pthread -fPIC -Wall -std=gnu++11
 

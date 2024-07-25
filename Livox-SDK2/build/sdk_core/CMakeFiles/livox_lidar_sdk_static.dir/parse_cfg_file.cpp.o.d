@@ -1,8 +1,8 @@
 sdk_core/CMakeFiles/livox_lidar_sdk_static.dir/parse_cfg_file.cpp.o: \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/parse_cfg_file.cpp \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/parse_cfg_file.cpp \
  /usr/include/stdc-predef.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/parse_cfg_file.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../include/livox_lidar_def.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/parse_cfg_file.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../include/livox_lidar_def.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -18,16 +18,16 @@ sdk_core/CMakeFiles/livox_lidar_sdk_static.dir/parse_cfg_file.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../3rdparty/rapidjson/document.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../3rdparty/rapidjson/document.h \
  /usr/include/c++/11/limits \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/cpu_defines.h \
  /usr/include/c++/11/new /usr/include/c++/11/bits/exception.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../3rdparty/rapidjson/encodedstream.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../3rdparty/rapidjson/memorystream.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../3rdparty/rapidjson/stream.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../3rdparty/rapidjson/rapidjson.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../3rdparty/rapidjson/encodedstream.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../3rdparty/rapidjson/memorystream.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../3rdparty/rapidjson/stream.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../3rdparty/rapidjson/rapidjson.h \
  /usr/include/c++/11/cstdlib /usr/include/stdlib.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h \
  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
@@ -61,10 +61,10 @@ sdk_core/CMakeFiles/livox_lidar_sdk_static.dir/parse_cfg_file.cpp.o: \
  /usr/include/c++/11/bits/std_abs.h /usr/include/c++/11/cstring \
  /usr/include/string.h /usr/include/strings.h /usr/include/inttypes.h \
  /usr/include/c++/11/cassert /usr/include/assert.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../3rdparty/rapidjson/encodings.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../3rdparty/rapidjson/internal/meta.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../3rdparty/rapidjson/internal/../rapidjson.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../3rdparty/rapidjson/internal/strfunc.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../3rdparty/rapidjson/encodings.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../3rdparty/rapidjson/internal/meta.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../3rdparty/rapidjson/internal/../rapidjson.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../3rdparty/rapidjson/internal/strfunc.h \
  /usr/include/c++/11/cwchar /usr/include/wchar.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/types/wint_t.h \
@@ -72,16 +72,16 @@ sdk_core/CMakeFiles/livox_lidar_sdk_static.dir/parse_cfg_file.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
  /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../3rdparty/rapidjson/internal/../stream.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../3rdparty/rapidjson/internal/../rapidjson.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../3rdparty/rapidjson/reader.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../3rdparty/rapidjson/allocators.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../3rdparty/rapidjson/internal/clzll.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../3rdparty/rapidjson/internal/stack.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../3rdparty/rapidjson/internal/../stream.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../3rdparty/rapidjson/internal/../rapidjson.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../3rdparty/rapidjson/reader.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../3rdparty/rapidjson/allocators.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../3rdparty/rapidjson/internal/clzll.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../3rdparty/rapidjson/internal/stack.h \
  /usr/include/c++/11/cstddef \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../3rdparty/rapidjson/internal/../allocators.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../3rdparty/rapidjson/internal/swap.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../3rdparty/rapidjson/internal/strtod.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../3rdparty/rapidjson/internal/../allocators.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../3rdparty/rapidjson/internal/swap.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../3rdparty/rapidjson/internal/strtod.h \
  /usr/include/c++/11/climits \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/syslimits.h \
@@ -92,13 +92,13 @@ sdk_core/CMakeFiles/livox_lidar_sdk_static.dir/parse_cfg_file.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../3rdparty/rapidjson/internal/biginteger.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../3rdparty/rapidjson/internal/diyfp.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../3rdparty/rapidjson/internal/clzll.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../3rdparty/rapidjson/internal/ieee754.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../3rdparty/rapidjson/internal/pow10.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../3rdparty/rapidjson/error/error.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../3rdparty/rapidjson/error/../rapidjson.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../3rdparty/rapidjson/internal/biginteger.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../3rdparty/rapidjson/internal/diyfp.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../3rdparty/rapidjson/internal/clzll.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../3rdparty/rapidjson/internal/ieee754.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../3rdparty/rapidjson/internal/pow10.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../3rdparty/rapidjson/error/error.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../3rdparty/rapidjson/error/../rapidjson.h \
  /usr/include/c++/11/iterator \
  /usr/include/c++/11/bits/stl_iterator_base_types.h \
  /usr/include/c++/11/type_traits \
@@ -179,9 +179,9 @@ sdk_core/CMakeFiles/livox_lidar_sdk_static.dir/parse_cfg_file.cpp.o: \
  /usr/include/c++/11/typeinfo /usr/include/c++/11/bits/nested_exception.h \
  /usr/include/c++/11/bits/streambuf.tcc /usr/include/c++/11/utility \
  /usr/include/c++/11/bits/stl_relops.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../3rdparty/rapidjson/filereadstream.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../3rdparty/rapidjson/stringbuffer.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/comm/define.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../3rdparty/rapidjson/filereadstream.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../3rdparty/rapidjson/stringbuffer.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/comm/define.h \
  /usr/include/c++/11/memory /usr/include/c++/11/bits/stl_uninitialized.h \
  /usr/include/c++/11/bits/stl_tempbuf.h \
  /usr/include/c++/11/bits/stl_raw_storage_iter.h \
@@ -213,10 +213,10 @@ sdk_core/CMakeFiles/livox_lidar_sdk_static.dir/parse_cfg_file.cpp.o: \
  /usr/include/c++/11/bits/basic_ios.tcc \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
  /usr/include/c++/11/bits/istream.tcc \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/base/logging.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../3rdparty/spdlog/spdlog/spdlog.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../3rdparty/spdlog/spdlog/common.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../3rdparty/spdlog/spdlog/tweakme.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/base/logging.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../3rdparty/spdlog/spdlog/spdlog.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../3rdparty/spdlog/spdlog/common.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../3rdparty/spdlog/spdlog/tweakme.h \
  /usr/include/c++/11/chrono /usr/include/c++/11/ratio \
  /usr/include/c++/11/ctime /usr/include/c++/11/bits/parse_numbers.h \
  /usr/include/c++/11/unordered_map /usr/include/c++/11/bits/hashtable.h \
@@ -224,10 +224,10 @@ sdk_core/CMakeFiles/livox_lidar_sdk_static.dir/parse_cfg_file.cpp.o: \
  /usr/include/c++/11/bits/enable_special_members.h \
  /usr/include/c++/11/bits/unordered_map.h \
  /usr/include/c++/11/bits/erase_if.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../3rdparty/spdlog/spdlog/details/null_mutex.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../3rdparty/spdlog/spdlog/fmt/fmt.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../3rdparty/spdlog/spdlog/fmt/bundled/core.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../3rdparty/spdlog/spdlog/fmt/bundled/format.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../3rdparty/spdlog/spdlog/details/null_mutex.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../3rdparty/spdlog/spdlog/fmt/fmt.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../3rdparty/spdlog/spdlog/fmt/bundled/core.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../3rdparty/spdlog/spdlog/fmt/bundled/format.h \
  /usr/include/c++/11/algorithm /usr/include/c++/11/bits/stl_algo.h \
  /usr/include/c++/11/bits/algorithmfwd.h \
  /usr/include/c++/11/bits/stl_heap.h \
@@ -241,9 +241,9 @@ sdk_core/CMakeFiles/livox_lidar_sdk_static.dir/parse_cfg_file.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
  /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../3rdparty/spdlog/spdlog/fmt/bundled/core.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../3rdparty/spdlog/spdlog/fmt/bundled/format-inl.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../3rdparty/spdlog/spdlog/fmt/bundled/format.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../3rdparty/spdlog/spdlog/fmt/bundled/core.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../3rdparty/spdlog/spdlog/fmt/bundled/format-inl.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../3rdparty/spdlog/spdlog/fmt/bundled/format.h \
  /usr/include/c++/11/cstdarg /usr/include/c++/11/locale \
  /usr/include/c++/11/bits/locale_facets_nonio.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/time_members.h \
@@ -251,17 +251,17 @@ sdk_core/CMakeFiles/livox_lidar_sdk_static.dir/parse_cfg_file.cpp.o: \
  /usr/include/libintl.h /usr/include/c++/11/bits/codecvt.h \
  /usr/include/c++/11/bits/locale_facets_nonio.tcc \
  /usr/include/c++/11/bits/locale_conv.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../3rdparty/spdlog/spdlog/details/registry.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../3rdparty/spdlog/spdlog/details/periodic_worker.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../3rdparty/spdlog/spdlog/details/registry.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../3rdparty/spdlog/spdlog/details/periodic_worker.h \
  /usr/include/c++/11/condition_variable \
  /usr/include/c++/11/bits/std_mutex.h \
  /usr/include/c++/11/bits/unique_lock.h /usr/include/c++/11/mutex \
  /usr/include/c++/11/thread /usr/include/c++/11/bits/std_thread.h \
  /usr/include/c++/11/bits/this_thread_sleep.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../3rdparty/spdlog/spdlog/logger.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../3rdparty/spdlog/spdlog/formatter.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../3rdparty/spdlog/spdlog/details/log_msg.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../3rdparty/spdlog/spdlog/details/os.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../3rdparty/spdlog/spdlog/logger.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../3rdparty/spdlog/spdlog/formatter.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../3rdparty/spdlog/spdlog/details/log_msg.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../3rdparty/spdlog/spdlog/details/os.h \
  /usr/include/x86_64-linux-gnu/sys/stat.h \
  /usr/include/x86_64-linux-gnu/bits/stat.h \
  /usr/include/x86_64-linux-gnu/bits/struct_stat.h \
@@ -292,17 +292,17 @@ sdk_core/CMakeFiles/livox_lidar_sdk_static.dir/parse_cfg_file.cpp.o: \
  /usr/include/x86_64-linux-gnu/asm/unistd.h \
  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
  /usr/include/x86_64-linux-gnu/bits/syscall.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../3rdparty/spdlog/spdlog/sinks/sink.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../3rdparty/spdlog/spdlog/details/pattern_formatter.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../3rdparty/spdlog/spdlog/details/fmt_helper.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../3rdparty/spdlog/spdlog/details/logger_impl.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../3rdparty/spdlog/spdlog/sinks/ansicolor_sink.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../3rdparty/spdlog/spdlog/details/console_globals.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../3rdparty/spdlog/spdlog/version.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../3rdparty/spdlog/spdlog/sinks/stdout_color_sinks.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../3rdparty/spdlog/spdlog/sinks/rotating_file_sink.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../3rdparty/spdlog/spdlog/details/file_helper.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../3rdparty/spdlog/spdlog/sinks/base_sink.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../3rdparty/spdlog/spdlog/sinks/sink.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../3rdparty/spdlog/spdlog/details/pattern_formatter.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../3rdparty/spdlog/spdlog/details/fmt_helper.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../3rdparty/spdlog/spdlog/details/logger_impl.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../3rdparty/spdlog/spdlog/sinks/ansicolor_sink.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../3rdparty/spdlog/spdlog/details/console_globals.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../3rdparty/spdlog/spdlog/version.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../3rdparty/spdlog/spdlog/sinks/stdout_color_sinks.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../3rdparty/spdlog/spdlog/sinks/rotating_file_sink.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../3rdparty/spdlog/spdlog/details/file_helper.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../3rdparty/spdlog/spdlog/sinks/base_sink.h \
  /usr/include/c++/11/map /usr/include/c++/11/bits/stl_tree.h \
  /usr/include/c++/11/bits/stl_map.h \
  /usr/include/c++/11/bits/stl_multimap.h

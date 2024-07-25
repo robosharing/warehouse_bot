@@ -1,4 +1,4 @@
-# Install script for directory: /home/kaisar/ws_livox/src/Livox-SDK2/samples/livox_lidar_rmc_time_sync
+# Install script for directory: /home/kaisar/ware_ws/src/Livox-SDK2/samples/livox_lidar_rmc_time_sync
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

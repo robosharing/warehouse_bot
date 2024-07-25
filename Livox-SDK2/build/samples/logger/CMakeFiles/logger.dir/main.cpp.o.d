@@ -1,7 +1,7 @@
 samples/logger/CMakeFiles/logger.dir/main.cpp.o: \
- /home/kaisar/ws_livox/src/Livox-SDK2/samples/logger/main.cpp \
+ /home/kaisar/ware_ws/src/Livox-SDK2/samples/logger/main.cpp \
  /usr/include/stdc-predef.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../include/livox_lidar_def.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../include/livox_lidar_def.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -17,9 +17,9 @@ samples/logger/CMakeFiles/logger.dir/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../include/livox_lidar_api.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../include/livox_lidar_api.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h \
- /home/kaisar/ws_livox/src/Livox-SDK2/sdk_core/../include/livox_lidar_def.h \
+ /home/kaisar/ware_ws/src/Livox-SDK2/sdk_core/../include/livox_lidar_def.h \
  /usr/include/unistd.h /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
  /usr/include/x86_64-linux-gnu/bits/environments.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h \

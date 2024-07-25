@@ -1,76 +1,236 @@
+#!/usr/bin/env python3
+#
+# Copyright 2023 RoadBalance Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# 
+# sudo apt install ros-foxy-jackal-simulator 
+
 import os
+
+from osrf_pycommon.terminal_color import ansi
 
 from ament_index_python.packages import get_package_share_directory
 
-
 from launch import LaunchDescription
-from launch.actions import IncludeLaunchDescription
+from launch.event_handlers import OnProcessExit
 from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch.actions import IncludeLaunchDescription, DeclareLaunchArgument, RegisterEventHandler
+from launch.conditions import IfCondition, UnlessCondition
+from launch.substitutions import Command, FindExecutable, LaunchConfiguration, PathJoinSubstitution
+
+from launch.actions import TimerAction
 
 from launch_ros.actions import Node
-from launch.actions import SetEnvironmentVariable
+from launch_ros.substitutions import FindPackageShare
 
+import xacro
 
 def generate_launch_description():
 
+    use_sim_time = LaunchConfiguration('use_sim_time')
+    use_ros2_control = LaunchConfiguration('use_ros2_control')
 
-    # Include the robot_state_publisher launch file, provided by our own package. Force sim time to be enabled
-    # !!! MAKE SURE YOU SET THE PACKAGE NAME CORRECTLY !!!
+    gazebo_model_path = os.path.join(get_package_share_directory('warehouse_bot'), 'models')
+    if 'GAZEBO_MODEL_PATH' in os.environ:
+        os.environ['GAZEBO_MODEL_PATH'] += ":" + gazebo_model_path
+    else :
+        os.environ['GAZEBO_MODEL_PATH'] = gazebo_model_path
+    print(ansi("yellow"), "If it's your 1st time to download Gazebo model on your computer, it may take few minutes to finish.", ansi("reset"))
 
-    package_name='warehouse_bot' #<--- CHANGE ME
+    # gazebo
+    pkg_gazebo_ros = FindPackageShare(package='gazebo_ros').find('gazebo_ros')   
     pkg_path = os.path.join(get_package_share_directory('warehouse_bot'))
-    rviz_file = os.path.join(pkg_path,'config','nav2_config_preferred_lanes.rviz')
+    world_path = os.path.join(pkg_path, 'world', 't.world')
 
-    rsp = IncludeLaunchDescription(
-                PythonLaunchDescriptionSource([os.path.join(
-                    get_package_share_directory(package_name),'launch','rsp.launch.py'
-                )]), launch_arguments={'use_sim_time': 'true'}.items()
+    # launch configuration
+    use_rviz = LaunchConfiguration('use_rviz')
+
+    declare_use_rviz = DeclareLaunchArgument(
+        name='use_rviz',
+        default_value='True',
+        description='Whether to start RVIZ')
+
+    # Start Gazebo server
+    start_gazebo_server_cmd = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(os.path.join(pkg_gazebo_ros, 'launch', 'gzserver.launch.py')),
+        launch_arguments={'world': world_path}.items()
     )
 
-    # Include the Gazebo launch file, provided by the gazebo_ros package
-    gazebo = IncludeLaunchDescription(
-                PythonLaunchDescriptionSource([os.path.join(
-                    get_package_share_directory('gazebo_ros'), 'launch', 'gazebo.launch.py')]),
-             )
+    # Start Gazebo client    
+    start_gazebo_client_cmd = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(os.path.join(pkg_gazebo_ros, 'launch', 'gzclient.launch.py'))
+    )
 
-    # Run the spawner node from the gazebo_ros package. The entity name doesn't really matter if you only have a single robot.
-    spawn_entity = Node(package='gazebo_ros', executable='spawn_entity.py',
-                        arguments=['-topic', 'robot_description',
-                                   '-entity', 'my_bot'],
-                        output='screen')
-    
 
-    load_tricycle_controller = Node(
+    xacro_file = os.path.join(pkg_path,'urdf','robot.urdf.xacro')
+    # robot_description_config = xacro.process_file(xacro_file).toxml()
+    robot_description_config = Command(['xacro ', xacro_file, ' use_ros2_control:=', use_ros2_control, ' sim_mode:=', use_sim_time])
+
+
+    params = {'robot_description': robot_description_config, 'use_sim_time': use_sim_time}
+
+    robot_state_publisher = Node(
+        package='robot_state_publisher',
+        executable='robot_state_publisher',
+        output='screen',
+        parameters=[params]
+    )
+
+    # Joint State Publisher
+    joint_state_publisher = Node(
+        package='joint_state_publisher',
+        executable='joint_state_publisher',
+        name='joint_state_publisher'
+    )
+
+    # Spawn Robot
+    spawn_entity = Node(
+        package='gazebo_ros',
+        executable='spawn_entity.py',
+        arguments=['-topic', 'robot_description',
+                    '-x', '0.0',
+                    '-y', '0.0',
+                    '-z', '0.06',
+                    '-Y', '0.78535',
+                    '-entity', 'rlcar'
+                ],
+        output='screen'
+    )
+
+    # ROS 2 controller
+    load_forward_position_controller = Node(
         package="controller_manager",
         executable="spawner",
-        arguments=["tricycle_controller"],
-        output="screen"
+        arguments=["forward_position_controller"],
+        output="screen",
     )
 
+    load_velocity_controller = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["velocity_controller"],
+        output="screen",
+    )
 
-    joint_broad_spawner = Node(
+    load_joint_state_broadcaster = Node(
         package="controller_manager",
         executable="spawner",
         arguments=["joint_state_broadcaster"],
+        output="screen",
     )
 
-       # Add the RViz2 node with your configuration file
-    rviz_node = Node(
+    # Car controller launch
+    rlcar_gazebo_controller = Node(
+        package='rlcar_gazebo_controller',
+        executable='rlcar_gazebo_controller',
+        output='screen',
+        parameters=[],
+    )
+
+    rviz_config_file = os.path.join(pkg_path, 'config', 'nav2_config_preferred_lanes.rviz')
+
+    # Launch RViz
+    rviz = Node(
+        condition=IfCondition(use_rviz),
         package='rviz2',
         executable='rviz2',
         name='rviz2',
         output='screen',
-        arguments=['-d', rviz_file]
+        arguments=['-d', rviz_config_file]
     )
 
+    # car-like robot odometry node 
+    rlcar_gazebo_odometry = Node(
+        package='rlcar_gazebo_odometry',
+        executable='rlcar_gazebo_odometry',
+        name='rlcar_gazebo_odometry',
+        output='log',
+        parameters=[{
+            "verbose" : False,
+            'publish_rate' : 50,
+            'open_loop' : False,
+            'has_imu_heading' : True,
+            'is_gazebo' : True,
+            'wheel_radius' : 0.075,
+            'base_frame_id' : "base_footprint",
+            'odom_frame_id' : "odom",
+            'enable_odom_tf' : True,
+        }],
+    )
 
+    # rqt robot steering
+    rqt_robot_steering = Node(
+        package='rqt_robot_steering',
+        executable='rqt_robot_steering',
+        name='rqt_robot_steering',
+        output='screen'
+    )
 
-    # Launch them all!
     return LaunchDescription([
-        rsp,
-        gazebo,
+        declare_use_rviz,
+
+        DeclareLaunchArgument(
+            'use_sim_time',
+            default_value='false',
+            description='Use sim time if true'),
+        
+        DeclareLaunchArgument(
+            'use_ros2_control',
+            default_value='true',
+            description='Use ros2_control if true'),
+        
+        RegisterEventHandler(
+            event_handler=OnProcessExit(
+                target_action=spawn_entity,
+                on_exit=[load_joint_state_broadcaster],
+            )
+        ),
+        RegisterEventHandler(
+            event_handler=OnProcessExit(
+                target_action=load_joint_state_broadcaster,
+                on_exit=[load_forward_position_controller],
+            )
+        ),
+        RegisterEventHandler(
+            event_handler=OnProcessExit(
+                target_action=load_forward_position_controller,
+                on_exit=[load_velocity_controller],
+            )
+        ),
+        RegisterEventHandler(
+            event_handler=OnProcessExit(
+                target_action=load_velocity_controller,
+                on_exit=[rlcar_gazebo_controller],
+            )
+        ),
+        RegisterEventHandler(
+            event_handler=OnProcessExit(
+                target_action=load_velocity_controller,
+                on_exit=[rlcar_gazebo_odometry],
+            )
+        ),
+        RegisterEventHandler(
+            event_handler=OnProcessExit(
+                target_action=load_velocity_controller,
+                on_exit=[rviz],
+            )
+        ),
+
+        start_gazebo_server_cmd,
+        start_gazebo_client_cmd,
+        robot_state_publisher,
+        joint_state_publisher,
         spawn_entity,
-        # load_tricycle_controller,
-        # joint_broad_spawner,
-        rviz_node
+        rqt_robot_steering,
     ])

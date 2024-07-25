@@ -74,7 +74,7 @@
 				<stddev>${noise_stddev}</stddev>
 			  </noise>
 			</ray>
-          <visualize>false</visualize>
+          <visualize>true</visualize>
 		  <samples>${samples}</samples>
 		  <downsample>1</downsample>
 		  <csv_file_name>$(find ros2_livox_simulation)/scan_mode/mid360.csv</csv_file_name>
