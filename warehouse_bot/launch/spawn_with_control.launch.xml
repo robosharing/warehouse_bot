@@ -26,9 +26,9 @@
         <arg name="yaw_spawn" value="$(var yaw_spawn)"/>
     </include>
     
-    <!-- <include file="$(find-pkg-share warehouse_bot)/launch/static_odom_to_world.launch.py">
+    <include file="$(find-pkg-share warehouse_bot)/launch/static_odom_to_world.launch.py">
         <arg name="robot_name" value="$(var robot_name)"/>
-    </include> -->
+    </include>
     
     <include file="$(find-pkg-share warehouse_bot)/launch/start_control.launch.py">
         <arg name="robot_name" value="$(var robot_name)"/>
