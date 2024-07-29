@@ -1,3 +1,5 @@
+Симуляция робота и склада в Gazebo
+
 install ROS2 with dependenses NEED ALL ([in install.txt](https://github.com/robosharing/warehouse_bot/blob/main/install.txt))
 
 make workspace and colcon build:
