@@ -23,7 +23,7 @@ find_package(urdf REQUIRED)
 
 # Install other directories
 install(
-  DIRECTORY config urdf launch meshes src world models robots_config
+  DIRECTORY config urdf launch meshes world models robots_config
   DESTINATION share/${PROJECT_NAME}
 )
 
