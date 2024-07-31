@@ -6,7 +6,7 @@ make workspace and colcon build:
 
 ```bash
 mkdir -p ware_ws/src
-cd ./ware_ws/src
+cd ~/ware_ws/src
 git clone https://github.com/robosharing/warehouse_bot.git .
 cd ./Livox-SDK2/
 rm -rf build
@@ -14,10 +14,10 @@ mkdir build
 cd build
 cmake .. && make -j
 sudo make install
-cd ~/ware_git/src/livox_ros_driver2
+cd ~/ware_ws/src/livox_ros_driver2
 source /opt/ros/humble/setup.sh
 ./build.sh humble (там будут предупреждения, их игнорируем)
-cd ./ware_ws
+cd ~/ware_ws
 colcon build (несколько раз, пока без предупреждения не исчезнут)
 source /opt/ros/humble/setup.bash
 source install/local_setup.bash
