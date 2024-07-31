@@ -48,3 +48,9 @@ ros2 launch warehouse_bot localization_launch.py
 ```bash
 ros2 launch warehouse_bot milti_spawn_robots.py num_robots:=<num>
 ```
+
+УПРАВЛЯТЬ КАКИМ ТО РОБОТОМ
+
+```bash
+ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/robot_<num_robot>/cmd_vel
+```
