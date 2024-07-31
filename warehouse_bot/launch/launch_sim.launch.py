@@ -38,9 +38,6 @@ import xacro
 
 def generate_launch_description():
 
-    use_sim_time = LaunchConfiguration('use_sim_time')
-    use_ros2_control = LaunchConfiguration('use_ros2_control')
-
     gazebo_model_path = os.path.join(get_package_share_directory('warehouse_bot'), 'models')
     if 'GAZEBO_MODEL_PATH' in os.environ:
         os.environ['GAZEBO_MODEL_PATH'] += ":" + gazebo_model_path
@@ -73,12 +70,19 @@ def generate_launch_description():
     )
 
 
-    xacro_file = os.path.join(pkg_path,'urdf','robot.urdf.xacro')
-    # robot_description_config = xacro.process_file(xacro_file).toxml()
-    robot_description_config = Command(['xacro ', xacro_file, ' use_ros2_control:=', use_ros2_control, ' sim_mode:=', use_sim_time])
+    # Get URDF via xacro
+    robot_description_content = Command(
+        [
+            PathJoinSubstitution([FindExecutable(name="xacro")]),
+            " ",
+            PathJoinSubstitution(
+                [FindPackageShare("warehouse_bot"), "urdf", "robot.urdf.xacro"]
+            ),
+        ]
+    )
 
 
-    params = {'robot_description': robot_description_config, 'use_sim_time': use_sim_time}
+    params = {'robot_description': robot_description_content}
 
     robot_state_publisher = Node(
         package='robot_state_publisher',
@@ -138,7 +142,7 @@ def generate_launch_description():
         parameters=[],
     )
 
-    rviz_config_file = os.path.join(pkg_path, 'config', 'nav2_config_preferred_lanes.rviz')
+    rviz_config_file = os.path.join(pkg_path, 'config', 'nav2_default_view.rviz')
 
     # Launch RViz
     rviz = Node(
@@ -180,16 +184,6 @@ def generate_launch_description():
     return LaunchDescription([
         declare_use_rviz,
 
-        DeclareLaunchArgument(
-            'use_sim_time',
-            default_value='false',
-            description='Use sim time if true'),
-        
-        DeclareLaunchArgument(
-            'use_ros2_control',
-            default_value='true',
-            description='Use ros2_control if true'),
-        
         RegisterEventHandler(
             event_handler=OnProcessExit(
                 target_action=spawn_entity,
@@ -220,12 +214,12 @@ def generate_launch_description():
                 on_exit=[rlcar_gazebo_odometry],
             )
         ),
-        RegisterEventHandler(
-            event_handler=OnProcessExit(
-                target_action=load_velocity_controller,
-                on_exit=[rviz],
-            )
-        ),
+        # RegisterEventHandler(
+        #     event_handler=OnProcessExit(
+        #         target_action=load_velocity_controller,
+        #         on_exit=[rviz],
+        #     )
+        # ),
 
         start_gazebo_server_cmd,
         start_gazebo_client_cmd,
