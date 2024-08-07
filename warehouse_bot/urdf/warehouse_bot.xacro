@@ -67,7 +67,7 @@
       <parent link="chassis" />
       <child link="front_steering_hinge_link" />
       <axis xyz="0 0 1" />
-      <limit lower="-0.7853" upper="0.7853" effort="10" velocity="100" />
+      <limit lower="-1.57" upper="1.57" effort="10" velocity="100" />
     </joint>
 
     <!-- Front Wheel Link -->

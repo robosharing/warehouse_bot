@@ -1,15 +1,15 @@
 #!/usr/bin/python3
 
 import os
-import xacro
+import xacro # type: ignore
 from launch import LaunchDescription
-from launch.actions import IncludeLaunchDescription, OpaqueFunction, RegisterEventHandler, DeclareLaunchArgument, TimerAction, LogInfo
-from launch.launch_description_sources import PythonLaunchDescriptionSource
-from launch.substitutions import LaunchConfiguration
-from launch.event_handlers import OnProcessExit
-from ament_index_python.packages import get_package_share_directory
-from launch_ros.actions import Node
-from launch_ros.substitutions import FindPackageShare
+from launch.actions import IncludeLaunchDescription, OpaqueFunction, RegisterEventHandler, DeclareLaunchArgument, TimerAction, LogInfo # type: ignore
+from launch.launch_description_sources import PythonLaunchDescriptionSource # type: ignore
+from launch.substitutions import LaunchConfiguration # type: ignore
+from launch.event_handlers import OnProcessExit # type: ignore
+from ament_index_python.packages import get_package_share_directory # type: ignore
+from launch_ros.actions import Node # type: ignore
+from launch_ros.substitutions import FindPackageShare # type: ignore
 
 def spawn_controllers_setup(context, *args, **kwargs):
     robot_name = kwargs.get('robot_name')
@@ -93,14 +93,13 @@ def spawn_controllers_setup(context, *args, **kwargs):
             on_exit=[rlcar_gazebo_controller]
         )
     )
+
     rlcar_gazebo_odometry_handler = RegisterEventHandler(
         event_handler=OnProcessExit(
-            target_action=spawn_controller_3,
+            target_action=rlcar_gazebo_controller_handler,
             on_exit=[odometry_node]
         )
     )
-
-
 
     return [
         spawn_controller_1,
@@ -168,6 +167,7 @@ def robot_state_publisher_setup(context, *args, **kwargs):
 
     return [robot_state_publisher_node]
 
+
 def generate_robot_spawn_descriptions(context):
     warehouse_bot_dir = get_package_share_directory('warehouse_bot')
     num_robots = int(LaunchConfiguration('num_robots').perform(context))
@@ -195,6 +195,7 @@ def generate_robot_spawn_descriptions(context):
         })
 
         spawn_controllers_action = OpaqueFunction(function=spawn_controllers_setup, kwargs={'robot_name': robot_name})
+    
 
         delay_action = TimerAction(
             period=i * 10.0,  # задержка в секундах между спауном роботов и запуском контроллеров

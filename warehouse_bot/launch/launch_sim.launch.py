@@ -142,7 +142,7 @@ def generate_launch_description():
         parameters=[],
     )
 
-    rviz_config_file = os.path.join(pkg_path, 'config', 'nav2_default_view.rviz')
+    rviz_config_file = os.path.join(pkg_path, 'config', 'nav2_config_preferred_lanes.rviz')
 
     # Launch RViz
     rviz = Node(
@@ -214,12 +214,12 @@ def generate_launch_description():
                 on_exit=[rlcar_gazebo_odometry],
             )
         ),
-        # RegisterEventHandler(
-        #     event_handler=OnProcessExit(
-        #         target_action=load_velocity_controller,
-        #         on_exit=[rviz],
-        #     )
-        # ),
+        RegisterEventHandler(
+            event_handler=OnProcessExit(
+                target_action=load_velocity_controller,
+                on_exit=[rviz],
+            )
+        ),
 
         start_gazebo_server_cmd,
         start_gazebo_client_cmd,

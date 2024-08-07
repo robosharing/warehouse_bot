@@ -34,10 +34,10 @@ class RLCarGazeboController : public rclcpp::Node {
 private:
   bool verbose = false;
 
-  double L = 0.276;
-  double T = 0.1734;
+  double L = 1.1;
+  double T = 0.4;
   double maxsteer_inside = 0.7853;
-  double wheel_radius = 0.05;
+  double wheel_radius = 0.075;
   double max_wheel_turn_speed = 167;
 
   double R_Min_interior;
@@ -78,6 +78,9 @@ private:
       RCLCPP_INFO(this->get_logger(), "linear_velocity=%f", linear_velocity);
       RCLCPP_INFO(this->get_logger(), "angular_velocity=%f", angular_velocity);
     }
+    if (angular_velocity != 0.0 && linear_velocity == 0.0) {
+            linear_velocity = 0.2;
+        }
 
     if(angular_velocity != 0.0){
       double steering_radius_raw = abs(linear_velocity / angular_velocity);
