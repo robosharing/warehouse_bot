@@ -38,7 +38,7 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard
 НАВИГАЦИЯ:
 
 ```bash
-ros2 launch warehouse_bot navigation_launch.py use_sim_time:=true
+ros2 launch warehouse_bot nav2.launch.py use_sim_time:=true
 ros2 launch warehouse_bot launch_sim.launch.py
 ros2 launch warehouse_bot localization_launch.py
 ```
