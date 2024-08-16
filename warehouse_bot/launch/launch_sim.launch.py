@@ -1,88 +1,54 @@
 #!/usr/bin/env python3
-#
-# Copyright 2023 RoadBalance Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# 
-# sudo apt install ros-foxy-jackal-simulator 
 
 import os
-
 from osrf_pycommon.terminal_color import ansi
-
 from ament_index_python.packages import get_package_share_directory
-
 from launch import LaunchDescription
-from launch.event_handlers import OnProcessExit
+from launch.actions import IncludeLaunchDescription, DeclareLaunchArgument, RegisterEventHandler, EmitEvent
 from launch.launch_description_sources import PythonLaunchDescriptionSource
-from launch.actions import IncludeLaunchDescription, DeclareLaunchArgument, RegisterEventHandler
-from launch.conditions import IfCondition, UnlessCondition
-from launch.substitutions import Command, FindExecutable, LaunchConfiguration, PathJoinSubstitution
-
-from launch.actions import TimerAction
-
+from launch.event_handlers import OnProcessExit
+from launch.events import Shutdown
 from launch_ros.actions import Node
-from launch_ros.substitutions import FindPackageShare
-
-import xacro
+from launch.substitutions import Command, FindExecutable, LaunchConfiguration, PathJoinSubstitution
 
 def generate_launch_description():
 
-    gazebo_model_path = os.path.join(get_package_share_directory('warehouse_bot'), 'models')
-    if 'GAZEBO_MODEL_PATH' in os.environ:
-        os.environ['GAZEBO_MODEL_PATH'] += ":" + gazebo_model_path
-    else :
-        os.environ['GAZEBO_MODEL_PATH'] = gazebo_model_path
-    print(ansi("yellow"), "If it's your 1st time to download Gazebo model on your computer, it may take few minutes to finish.", ansi("reset"))
+    # Common paths
+    pkg_warehouse_bot = get_package_share_directory('warehouse_bot')
+    pkg_gazebo_ros = get_package_share_directory('gazebo_ros')
+    pkg_robosense_description = get_package_share_directory('robosense_description')
 
-    # gazebo
-    pkg_gazebo_ros = FindPackageShare(package='gazebo_ros').find('gazebo_ros')   
-    pkg_path = os.path.join(get_package_share_directory('warehouse_bot'))
-    world_path = os.path.join(pkg_path, 'world', 't.world')
+    # Set up environment variables for Gazebo
+    gazebo_model_path = os.path.join(pkg_warehouse_bot, 'models')
+    os.environ['GAZEBO_MODEL_PATH'] = os.environ.get('GAZEBO_MODEL_PATH', '') + ":" + gazebo_model_path
+    print(ansi("yellow"), "If it's your 1st time downloading Gazebo model, it may take a few minutes to finish.", ansi("reset"))
 
-    # launch configuration
+    # Launch configurations
     use_rviz = LaunchConfiguration('use_rviz')
+    declare_use_rviz = DeclareLaunchArgument('use_rviz', default_value='True', description='Whether to start RVIZ')
 
-    declare_use_rviz = DeclareLaunchArgument(
-        name='use_rviz',
-        default_value='True',
-        description='Whether to start RVIZ')
+    gpu = LaunchConfiguration('gpu')
+    declare_gpu_cmd = DeclareLaunchArgument('gpu', default_value='False', description='Whether to use Gazebo gpu_ray or ray')
 
-    # Start Gazebo server
+    # Paths
+    world_path = os.path.join(pkg_warehouse_bot, 'world', 't.world')
+    xacro_path = os.path.join(pkg_warehouse_bot, 'urdf', 'robot.urdf.xacro')
+    rviz_config_file = os.path.join(pkg_warehouse_bot, 'config', 'nav2_config_preferred_lanes.rviz')
+    robosense_rviz_config_file = os.path.join(pkg_robosense_description, 'rviz', 'example.rviz')
+
+    # Robot description
+    robot_description_content = Command([PathJoinSubstitution([FindExecutable(name="xacro")]), " ", xacro_path, ' gpu:=', gpu])
+    params = {'robot_description': robot_description_content}
+
+    # Nodes and commands
     start_gazebo_server_cmd = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(os.path.join(pkg_gazebo_ros, 'launch', 'gzserver.launch.py')),
         launch_arguments={'world': world_path}.items()
     )
 
-    # Start Gazebo client    
     start_gazebo_client_cmd = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(os.path.join(pkg_gazebo_ros, 'launch', 'gzclient.launch.py'))
     )
-
-
-    # Get URDF via xacro
-    robot_description_content = Command(
-        [
-            PathJoinSubstitution([FindExecutable(name="xacro")]),
-            " ",
-            PathJoinSubstitution(
-                [FindPackageShare("warehouse_bot"), "urdf", "robot.urdf.xacro"]
-            ),
-        ]
-    )
-
-
-    params = {'robot_description': robot_description_content}
 
     robot_state_publisher = Node(
         package='robot_state_publisher',
@@ -91,28 +57,20 @@ def generate_launch_description():
         parameters=[params]
     )
 
-    # Joint State Publisher
     joint_state_publisher = Node(
         package='joint_state_publisher',
         executable='joint_state_publisher',
         name='joint_state_publisher'
     )
 
-    # Spawn Robot
     spawn_entity = Node(
         package='gazebo_ros',
         executable='spawn_entity.py',
         arguments=['-topic', 'robot_description',
-                    '-x', '0.0',
-                    '-y', '0.0',
-                    '-z', '0.06',
-                    '-Y', '0.78535',
-                    '-entity', 'rlcar'
-                ],
+                   '-x', '0.0', '-y', '0.0', '-z', '0.06', '-Y', '0.78535', '-entity', 'rlcar'],
         output='screen'
     )
 
-    # ROS 2 controller
     load_forward_position_controller = Node(
         package="controller_manager",
         executable="spawner",
@@ -134,7 +92,6 @@ def generate_launch_description():
         output="screen",
     )
 
-    # Car controller launch
     rlcar_gazebo_controller = Node(
         package='rlcar_gazebo_controller',
         executable='rlcar_gazebo_controller',
@@ -142,38 +99,24 @@ def generate_launch_description():
         parameters=[],
     )
 
-    rviz_config_file = os.path.join(pkg_path, 'config', 'nav2_config_preferred_lanes.rviz')
-
-    # Launch RViz
-    rviz = Node(
-        condition=IfCondition(use_rviz),
-        package='rviz2',
-        executable='rviz2',
-        name='rviz2',
-        output='screen',
-        arguments=['-d', rviz_config_file]
-    )
-
-    # car-like robot odometry node 
     rlcar_gazebo_odometry = Node(
         package='rlcar_gazebo_odometry',
         executable='rlcar_gazebo_odometry',
         name='rlcar_gazebo_odometry',
         output='log',
         parameters=[{
-            "verbose" : False,
-            'publish_rate' : 50,
-            'open_loop' : False,
-            'has_imu_heading' : True,
-            'is_gazebo' : True,
-            'wheel_radius' : 0.075,
-            'base_frame_id' : "base_footprint",
-            'odom_frame_id' : "odom",
-            'enable_odom_tf' : True,
+            "verbose": False,
+            'publish_rate': 50,
+            'open_loop': False,
+            'has_imu_heading': True,
+            'is_gazebo': True,
+            'wheel_radius': 0.075,
+            'base_frame_id': "base_footprint",
+            'odom_frame_id': "odom",
+            'enable_odom_tf': True,
         }],
     )
 
-    # rqt robot steering
     rqt_robot_steering = Node(
         package='rqt_robot_steering',
         executable='rqt_robot_steering',
@@ -181,9 +124,30 @@ def generate_launch_description():
         output='screen'
     )
 
+    start_rviz_cmd = Node(
+        package='rviz2',
+        executable='rviz2',
+        arguments=['-d', rviz_config_file],
+        output='screen'
+    )
+
+    exit_event_handler = RegisterEventHandler(
+        event_handler=OnProcessExit(
+            target_action=start_rviz_cmd,
+            on_exit=EmitEvent(event=Shutdown(reason='rviz exited'))
+        )
+    )
+
+    # Build the launch description
     return LaunchDescription([
         declare_use_rviz,
-
+        declare_gpu_cmd,
+        start_gazebo_server_cmd,
+        start_gazebo_client_cmd,
+        robot_state_publisher,
+        joint_state_publisher,
+        spawn_entity,
+        rqt_robot_steering,
         RegisterEventHandler(
             event_handler=OnProcessExit(
                 target_action=spawn_entity,
@@ -217,14 +181,8 @@ def generate_launch_description():
         RegisterEventHandler(
             event_handler=OnProcessExit(
                 target_action=load_velocity_controller,
-                on_exit=[rviz],
+                on_exit=[start_rviz_cmd],
             )
         ),
-
-        start_gazebo_server_cmd,
-        start_gazebo_client_cmd,
-        robot_state_publisher,
-        joint_state_publisher,
-        spawn_entity,
-        rqt_robot_steering,
+        exit_event_handler
     ])
