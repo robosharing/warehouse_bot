@@ -124,8 +124,15 @@ private:
     /// Frame to use for odometry and odom tf:
     std::string odom_frame_id_;
 
+    std::string imu_topic;  // Добавляем объявление переменной imu_topic
+
     /// Whether to publish odometry to tf or not:
     bool enable_odom_tf_;
+
+    std::string clock_topic_; 
+
+    std::string lr_wheel_joint_name_;  // Имя соединения для левого заднего колеса
+    std::string rr_wheel_joint_name_;  // Имя соединения для правого заднего колеса
 
     /// Number of wheel joints:
     size_t wheel_joints_size_;

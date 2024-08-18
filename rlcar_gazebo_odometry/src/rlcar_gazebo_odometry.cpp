@@ -67,11 +67,21 @@ RLCarOdometry::RLCarOdometry() : Node("ackermann_odometry")
   base_frame_id_ = declare_parameter("base_frame_id", "base_link");
   RCLCPP_INFO(get_logger(), "base_frame_id_ : %s", base_frame_id_.c_str());
 
+  imu_topic = declare_parameter("imu_topic", "imu/data");
+  RCLCPP_INFO(get_logger(), "IMU Topic : %s", imu_topic.c_str());
+
   odom_frame_id_ = declare_parameter("odom_frame_id", "odom");
   RCLCPP_INFO(get_logger(), "odom_frame_id_ : %s", odom_frame_id_.c_str());
 
   enable_odom_tf_ = declare_parameter("enable_odom_tf", true);
   RCLCPP_INFO(get_logger(), "enable_odom_tf_ : %s", enable_odom_tf_ == true ? "true" : "false");
+
+  auto clock_topic = declare_parameter("clock_topic", "clock");
+  RCLCPP_INFO(get_logger(), "Clock Topic : %s", clock_topic.c_str());
+
+    // Задаем имена соединений через параметры
+  lr_wheel_joint_name_ = declare_parameter<std::string>("lr_wheel_joint_name", "lr_wheel_joint");
+  rr_wheel_joint_name_ = declare_parameter<std::string>("rr_wheel_joint_name", "rr_wheel_joint");
 
   const double ws_h = wheel_separation_h_multiplier * wheel_separation_h;
   const double wr = wheel_radius_multiplier * wheel_radius;
@@ -93,10 +103,9 @@ RLCarOdometry::RLCarOdometry() : Node("ackermann_odometry")
 
   if (is_gazebo_ == true)
     clock_sub_ = this->create_subscription<Clock>(
-        "clock", rclcpp::QoS(1).best_effort(),
-        [this](const Clock::SharedPtr msg) -> void
-        {
-          gazebo_clock_.clock = msg->clock;
+        clock_topic, rclcpp::QoS(1).best_effort(),
+        [this](const Clock::SharedPtr msg) -> void {
+            gazebo_clock_.clock = msg->clock;
         });
   else
     encoder_sub_ = this->create_subscription<Int64>(
@@ -108,7 +117,7 @@ RLCarOdometry::RLCarOdometry() : Node("ackermann_odometry")
 
   if (has_imu_heading_ == true)
     imu_sub_ = this->create_subscription<Imu>(
-        "imu/data", rclcpp::QoS(10).best_effort(),
+        imu_topic, rclcpp::QoS(10).best_effort(),
         std::bind(&RLCarOdometry::imuSubCallback, this, std::placeholders::_1));
   else
     steering_angle_sub_ = this->create_subscription<Float64>(
@@ -137,10 +146,10 @@ void RLCarOdometry::jointstateCallback(const JointState::SharedPtr msg)
     if (msg->position[i] == 0)
       break;
 
-    if (strcmp(msg->name[i].c_str(), "lr_wheel_joint") == 0)
-      left_rear_wheel_joint = msg->position[i];
-    if (strcmp(msg->name[i].c_str(), "rr_wheel_joint") == 0)
-      right_rear_wheel_joint = msg->position[i];
+        if (msg->name[i] == lr_wheel_joint_name_)
+            left_rear_wheel_joint = msg->position[i];
+        if (msg->name[i] == rr_wheel_joint_name_)
+            right_rear_wheel_joint = msg->position[i];
   }
 
   rear_wheel_pos = (left_rear_wheel_joint + right_rear_wheel_joint) / 2;
