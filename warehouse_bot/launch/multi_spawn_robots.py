@@ -393,11 +393,14 @@ def generate_robot_spawn_descriptions(context):
     num_robots = int(LaunchConfiguration('num_robots').perform(context))
     x_offset = 2.0  # расстояние между роботами по оси x
 
+
     launch_descriptions = []
 
     for i in range(num_robots):
         x_spawn_value = float(LaunchConfiguration('x_spawn').perform(context)) + i * x_offset
         robot_name = f'robot_{i + 1}'
+        params_file_name = f'nav2_params_{i + 1}.yaml' 
+        params_file_path = os.path.join(warehouse_bot_dir, 'config', params_file_name)
 
                # Формируем имя файла параметров на основе имени робота
 
@@ -422,6 +425,11 @@ def generate_robot_spawn_descriptions(context):
 
         spawn_controllers_action = OpaqueFunction(function=spawn_controllers_setup, kwargs={'robot_name': robot_name})
 
+        amcl_node = generate_amcl_node(
+            config_yaml_file=params_file_path,  # Передаем путь к файлу параметров
+            namespace=robot_name
+        )
+
         # Delayed launch of other actions
         other_actions_delay = TimerAction(
             period= 0.0,  # Delay in seconds for the rest of the actions
@@ -429,6 +437,7 @@ def generate_robot_spawn_descriptions(context):
                      robot_state_publisher_action,
                      spawn_robot_action, 
                      spawn_controllers_action,
+                     amcl_node
                      ]
         )
 
@@ -442,8 +451,7 @@ def generate_launch_description():
     world_path = os.path.join(warehouse_bot_dir, 'world', 't.world')
     pkg_gazebo_ros = FindPackageShare(package='gazebo_ros').find('gazebo_ros')
 
-    params_file_name = 'nav2_params_1.yaml' 
-    params_file_path = os.path.join(warehouse_bot_dir, 'config', params_file_name)
+
     # Установка пути к моделям Gazebo
     gazebo_model_path = os.path.join(warehouse_bot_dir, 'models')
     if 'GAZEBO_MODEL_PATH' in os.environ:
@@ -469,10 +477,7 @@ def generate_launch_description():
     lifecycle_nodes = ['map_server', 'robot_1/amcl']
     
 
-    amcl_node = generate_amcl_node(
-            config_yaml_file=params_file_path,  # Передаем путь к файлу параметров
-            namespace='robot_1'
-        )
+
 
     # Создаем узлы map_server и lifecycle_manager
     map_server_node = generate_map_server_node(map_yaml_file)
@@ -496,7 +501,6 @@ def generate_launch_description():
         # start_gazebo_client_cmd,
         map_server_node,
         lifecycle_manager_node,
-        amcl_node,
         OpaqueFunction(function=generate_robot_spawn_descriptions)
     ]
 
