@@ -36,9 +36,7 @@ def nav2_setup(context, *args, **kwargs):
     remappings = [
                 ('/tf', 'tf'),
                 ('/tf_static', 'tf_static'),
-                ('/scan2', 'robot_1/scan2'),
-                ('/odom', 'robot_1/odom'),  # Перенаправляем топик
-                ('/map', 'robot_1/map')
+                ('/robot_1/odom','/odom')
                 ]
 
     param_substitutions = {
@@ -50,7 +48,7 @@ def nav2_setup(context, *args, **kwargs):
 
     configured_params = RewrittenYaml(
         source_file=params_file,
-        root_key=namespace,
+        # root_key=namespace,
         param_rewrites=param_substitutions,
         convert_types=True
     )
@@ -138,75 +136,62 @@ def nav2_setup(context, *args, **kwargs):
         ),
     ]
 
-def localization_setup(context, *args, **kwargs):
-    robot_name = kwargs.get('robot_name')
-    namespace = robot_name
+# def localization_setup(context, *args, **kwargs):
+#     robot_name = kwargs.get('robot_name')
+#     params_file_path = kwargs.get('params_file_path')
 
-    # Get the launch directory
-    my_nav_dir = get_package_share_directory('warehouse_bot')
-    my_param_dir = os.path.join(my_nav_dir, 'config')    
-    my_param_file = 'nav2_params_1.yaml'
-    my_map_dir = os.path.join(my_nav_dir, 'config')
-    my_map_file = 'warehouse_map.yaml'
+#     remappings = [
+#                 ('/tf', 'tf'),
+#                 ('/tf_static', 'tf_static'),
+#                 ]
 
-    map_yaml_file = os.path.join(my_map_dir, my_map_file)
-    use_sim_time = LaunchConfiguration('use_sim_time')
-    autostart = LaunchConfiguration('autostart')
-    params_file = os.path.join(my_param_dir, my_param_file)
+#     return [
+#         Node(
+#             package='nav2_amcl',
+#             executable='amcl',
+#             namespace = robot_name,
+#             name='amcl',
+#             output='screen',
+#             parameters=[params_file_path],
+#             remappings=remappings
+#         )
+#     ]
 
-    lifecycle_nodes = ['map_server', 'amcl']
-
-    remappings = [
-                ('/tf', 'tf'),
-                ('/tf_static', 'tf_static'),
-                ('/scan2', 'robot_1/scan2'),
-                ('/odom', 'robot_1/odom'),  # Перенаправляем топик
-                ('/map', 'robot_1/map')
-                ]
-
-    param_substitutions = {
-        'use_sim_time': use_sim_time,
-        'yaml_filename': map_yaml_file
-    }
-
-    configured_params = RewrittenYaml(
-        source_file=params_file,
-        root_key=namespace,
-        param_rewrites=param_substitutions,
-        convert_types=True
+def generate_amcl_node(config_yaml_file, namespace):
+    return Node(
+        package='nav2_amcl',
+        executable='amcl',
+        namespace=namespace,
+        name='amcl',
+        output='screen',
+        parameters=[config_yaml_file  # Передаем путь к YAML файлу
+        ]
     )
 
-    return [
-        Node(
-            package='nav2_map_server',
-            executable='map_server',
-            namespace=namespace,
-            name='map_server',
-            output='screen',
-            parameters=[configured_params],
-            remappings=remappings
-        ),
-        Node(
-            package='nav2_amcl',
-            executable='amcl',
-            namespace=namespace,
-            name='amcl',
-            output='screen',
-            parameters=[configured_params],
-            remappings=remappings
-        ),
-        Node(
-            package='nav2_lifecycle_manager',
-            executable='lifecycle_manager',
-            namespace=namespace,
-            name='lifecycle_manager_localization',
-            output='screen',
-            parameters=[{
-                'autostart': autostart,
-                'node_names': lifecycle_nodes
-            }]
-        )
-    ]
+def generate_map_server_node(map_yaml_file):
+    return Node(
+        package='nav2_map_server',
+        executable='map_server',
+        name='map_server',
+        output='screen',
+        parameters=[ {'use_sim_time': True},
+                     {'yaml_filename': map_yaml_file},  # Передаем путь к YAML файлу
+                     {'frame_id' : "map"},
+                     {'topic_name': "map"}],
+    )
+
+
+def generate_lifecycle_manager_node(lifecycle_nodes):
+    return Node(
+        package='nav2_lifecycle_manager',
+        executable='lifecycle_manager',
+        name='lifecycle_manager_localization',
+        output='screen',
+        parameters=[{'use_sim_time': True},
+                    {'autostart': True},
+                    {'bond_timeout': 0.0},
+                    {'node_names': lifecycle_nodes}]
+    )
 
 def spawn_controllers_setup(context, *args, **kwargs):
     robot_name = kwargs.get('robot_name')
@@ -301,6 +286,33 @@ def spawn_controllers_setup(context, *args, **kwargs):
             on_exit=[odometry_node]
         )
     )
+    fleet_client = Node(
+                package='free_fleet_client_ros2',
+                executable='free_fleet_client_ros2',
+                name=f"{robot_name}_ff_client_node",
+                namespace=robot_name,
+                output='both',
+                parameters=[
+                    {'fleet_name': 'v1'},
+                    {'robot_name': robot_name},
+                    {'robot_model': 'cloudy'},
+                    {'level_name': 'L1'},
+                    {'dds_domain': 42},
+                    {'max_dist_to_first_waypoint': 10.00},
+                    {'map_frame': 'map'},
+                    {'robot_frame': f'{robot_name}/base_footprint'},
+                    {'nav2_server_name': f'/{robot_name}/navigate_to_pose'},
+                    {'battery_state_topic': f'/{robot_name}/battery_state'},
+                    {'update_frequency': 20.0},
+                    {'publish_frequency': 2.0},
+                    {'use_sim_time': False}
+                ]
+            )
+    battery_state = Node(
+            package="robot_control",
+            executable="battery_simulator",
+            namespace=robot_name,
+        )
 
 
 
@@ -309,7 +321,9 @@ def spawn_controllers_setup(context, *args, **kwargs):
         forward_position_controller_handler,
         velocity_controller_handler,
         rlcar_gazebo_controller_handler,
-        rlcar_gazebo_odometry_handler
+        rlcar_gazebo_odometry_handler,
+        fleet_client,
+        battery_state
     ]
 
 def spawn_robot_setup(context, *args, **kwargs):
@@ -385,10 +399,14 @@ def generate_robot_spawn_descriptions(context):
         x_spawn_value = float(LaunchConfiguration('x_spawn').perform(context)) + i * x_offset
         robot_name = f'robot_{i + 1}'
 
+               # Формируем имя файла параметров на основе имени робота
+
         robot_state_publisher_action = OpaqueFunction(function=robot_state_publisher_setup, kwargs={
             'robot_name': robot_name,
             'robot_file': LaunchConfiguration('robot_file').perform(context)
         })
+
+                # Настройка remappings для каждого робота
 
         spawn_robot_action = OpaqueFunction(function=spawn_robot_setup, kwargs={
             'robot_name': robot_name,
@@ -400,31 +418,21 @@ def generate_robot_spawn_descriptions(context):
             'yaw_spawn': LaunchConfiguration('yaw_spawn').perform(context)
         })
 
+                # Создаем amcl_node для каждого робота
+
         spawn_controllers_action = OpaqueFunction(function=spawn_controllers_setup, kwargs={'robot_name': robot_name})
-
-        nav2_action = OpaqueFunction(function=nav2_setup, kwargs={'robot_name': robot_name})
-
-        localization_action = OpaqueFunction(function=localization_setup, kwargs={'robot_name': robot_name})
-
-        # Immediate launch of nav2_action
-        nav2_delay_action = TimerAction(
-            period=0.0,  # No delay for nav2_action
-            actions=[LogInfo(msg=f'Starting Nav2 for robot {robot_name}'),
-                     nav2_action]
-        )
 
         # Delayed launch of other actions
         other_actions_delay = TimerAction(
-            period= 20.0,  # Delay in seconds for the rest of the actions
+            period= 0.0,  # Delay in seconds for the rest of the actions
             actions=[LogInfo(msg=f'Spawning and setting up controllers for robot {robot_name}'),
                      robot_state_publisher_action,
                      spawn_robot_action, 
                      spawn_controllers_action,
-                    #  localization_action
                      ]
         )
 
-        launch_descriptions.append(nav2_delay_action)
+        # launch_descriptions.append(nav2_delay_action)
         launch_descriptions.append(other_actions_delay)
 
     return launch_descriptions
@@ -434,6 +442,8 @@ def generate_launch_description():
     world_path = os.path.join(warehouse_bot_dir, 'world', 't.world')
     pkg_gazebo_ros = FindPackageShare(package='gazebo_ros').find('gazebo_ros')
 
+    params_file_name = 'nav2_params_1.yaml' 
+    params_file_path = os.path.join(warehouse_bot_dir, 'config', params_file_name)
     # Установка пути к моделям Gazebo
     gazebo_model_path = os.path.join(warehouse_bot_dir, 'models')
     if 'GAZEBO_MODEL_PATH' in os.environ:
@@ -454,6 +464,19 @@ def generate_launch_description():
     start_gazebo_client_cmd = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(os.path.join(pkg_gazebo_ros, 'launch', 'gzclient.launch.py'))
     )
+    map_yaml_file = os.path.join(warehouse_bot_dir, 'config', 'warehouse_map.yaml')
+    # Настройка параметров для map_server и lifecycle_manager
+    lifecycle_nodes = ['map_server', 'robot_1/amcl']
+    
+
+    amcl_node = generate_amcl_node(
+            config_yaml_file=params_file_path,  # Передаем путь к файлу параметров
+            namespace='robot_1'
+        )
+
+    # Создаем узлы map_server и lifecycle_manager
+    map_server_node = generate_map_server_node(map_yaml_file)
+    lifecycle_manager_node = generate_lifecycle_manager_node(lifecycle_nodes)
 
     declare_arguments = [
         SetEnvironmentVariable('RCUTILS_LOGGING_BUFFERED_STREAM', '1'),
@@ -466,22 +489,14 @@ def generate_launch_description():
         DeclareLaunchArgument('pitch_spawn', default_value='0.0'),
         DeclareLaunchArgument('yaw_spawn', default_value='0.78535'),
         DeclareLaunchArgument('num_robots', default_value='1'),
-        DeclareLaunchArgument('use_sim_time', default_value='false'),
-        DeclareLaunchArgument('autostart', default_value='true', description='Automatically start the lifecycle manager'),
-        DeclareLaunchArgument('params_file', default_value=os.path.join(warehouse_bot_dir, 'config', 'nav2_params_1.yaml')),
-        DeclareLaunchArgument('default_bt_xml_filename', default_value=os.path.join(warehouse_bot_dir, 'config', 'navigate_w_recovery_and_replanning_only_if_path_becomes_invalid.xml')),
-        DeclareLaunchArgument('map_subscribe_transient_local', default_value='true'),
-        DeclareLaunchArgument('namespace', default_value='', description='Top-level namespace'),
-        DeclareLaunchArgument('map', default_value=os.path.join(warehouse_bot_dir, 'config', 'warehouse_map.yaml'), description='[localize] Full path to map yaml file to load'),
-        DeclareLaunchArgument(
-            'params_file',
-            default_value=os.path.join(warehouse_bot_dir,'config', 'nav2_params_1.yaml'),
-            description='Full path to the ROS2 parameters file to use'),
     ]
 
     launch_descriptions = [
         start_gazebo_server_cmd,
-        start_gazebo_client_cmd,
+        # start_gazebo_client_cmd,
+        map_server_node,
+        lifecycle_manager_node,
+        amcl_node,
         OpaqueFunction(function=generate_robot_spawn_descriptions)
     ]
 

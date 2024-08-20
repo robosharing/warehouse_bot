@@ -173,7 +173,7 @@
         <child link="$(arg robot_name)_imu_link"/>
     </joint>
 
-    <link name="$(arg robot_name)_line_lidar_1">
+    <!-- <link name="$(arg robot_name)_line_lidar_1">
         <inertial>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <mass value="1"/>
@@ -191,7 +191,7 @@
                 <mesh filename="file://$(find warehouse_bot)/meshes/16line_lidar_1.stl" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision>
-    </link>
+    </link> -->
 
     <link name="$(arg robot_name)_laser_frame_under">
         <inertial>
@@ -239,11 +239,11 @@
         <child link="$(arg robot_name)_fork_1"/>
     </joint>
 
-    <joint name="$(arg robot_name)_16line_lidar_joint" type="fixed">
+    <!-- <joint name="$(arg robot_name)_16line_lidar_joint" type="fixed">
         <origin xyz="1.1 0.0 2.24" rpy="0 0 0"/>
         <parent link="$(arg robot_name)_chassis"/>
         <child link="$(arg robot_name)_line_lidar_1"/>
-    </joint>
+    </joint> -->
 
     <joint name="$(arg robot_name)_laser_joint1" type="fixed">
         <origin xyz="1.6 0.0 0.02" rpy="0 0 0"/>
