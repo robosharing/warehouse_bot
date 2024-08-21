@@ -250,5 +250,7 @@
         <parent link="$(arg robot_name)_chassis"/>
         <child link="$(arg robot_name)_laser_frame_under"/>
     </joint> 
+    
   <xacro:robot_gazebo_systems robot_name="$(arg robot_name)"/>
+  <xacro:robot_gazebo_plugins robot_name="$(arg robot_name)"/>
 </robot>

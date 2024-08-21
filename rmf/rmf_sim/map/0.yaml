@@ -1,4 +1,4 @@
-building_name: ware
+building_name: v1
 levels:
   L1:
     lanes:
@@ -21,9 +21,9 @@ levels:
       - 2
       - {speed_limit: 0}
     vertices:
-    - - 104.287
-      - -571.302
-      - {is_charger: true, is_parking_spot: true, name: AGV1, spawn_robot_name: AGV1,
+    - - 0.0
+      - 0.0
+      - {is_charger: true, is_parking_spot: true, name: robot_1, spawn_robot_name: robot_1,
         spawn_robot_type: cloudy}
     - - 588.529
       - -571.302
