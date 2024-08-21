@@ -306,7 +306,7 @@ def spawn_controllers_setup(context, *args, **kwargs):
                     {'battery_state_topic': f'/{robot_name}/battery_state'},
                     {'update_frequency': 20.0},
                     {'publish_frequency': 2.0},
-                    {'use_sim_time': False}
+                    {'use_sim_time': True}
                 ]
             )
     battery_state = Node(

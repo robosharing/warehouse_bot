@@ -26,7 +26,7 @@ levels:
       - {is_charger: true, is_parking_spot: true, name: robot_1, spawn_robot_name: robot_1,
         spawn_robot_type: cloudy}
     - - 588.529
-      - -571.302
+      - 0.0
       - {is_holding_point: false, name: r1}
     - - 588.529
       - -1006.435

@@ -34,7 +34,7 @@ class SimplePathPlanner(Node):
 
         self.target_position = None
 
-        self.cmd_vel_publisher = self.create_publisher(Twist, 'cmd_vel', 10)
+        self.cmd_vel_publisher = self.create_publisher(Twist, '/robot_1/cmd_vel', 10)
 
         self.timer = self.create_timer(0.1, self.control_loop)
 
