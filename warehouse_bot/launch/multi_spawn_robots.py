@@ -136,26 +136,6 @@ def nav2_setup(context, *args, **kwargs):
         ),
     ]
 
-# def localization_setup(context, *args, **kwargs):
-#     robot_name = kwargs.get('robot_name')
-#     params_file_path = kwargs.get('params_file_path')
-
-#     remappings = [
-#                 ('/tf', 'tf'),
-#                 ('/tf_static', 'tf_static'),
-#                 ]
-
-#     return [
-#         Node(
-#             package='nav2_amcl',
-#             executable='amcl',
-#             namespace = robot_name,
-#             name='amcl',
-#             output='screen',
-#             parameters=[params_file_path],
-#             remappings=remappings
-#         )
-#     ]
 
 def generate_amcl_node(config_yaml_file, namespace):
     return Node(
@@ -324,8 +304,8 @@ def spawn_controllers_setup(context, *args, **kwargs):
         velocity_controller_handler,
         rlcar_gazebo_controller_handler,
         rlcar_gazebo_odometry_handler,
-        fleet_client,
-        battery_state
+        #fleet_client,
+        #battery_state
     ]
 
 def spawn_robot_setup(context, *args, **kwargs):
@@ -393,14 +373,14 @@ def robot_state_publisher_setup(context, *args, **kwargs):
         name=robot_state_publisher_name,
         emulate_tty=True,
         parameters=[{
-            'use_sim_time': False,
+            'use_sim_time': True,
             'robot_description': xml
         }],
         remappings=[
             ("/robot_description", robot_description_topic_name),
             ("/joint_states", joint_state_topic_name),
-            # ("/scan", scan_state_topic_name),  # Remapping scan topic
-            # ("/imu/data", imu_state_topic_name)  # Remapping IMU topic
+            ("/scan", scan_state_topic_name),  # Remapping scan topic
+            ("/imu/data", imu_state_topic_name)  # Remapping IMU topic
         ],
         output="screen"
     )
@@ -466,7 +446,7 @@ def generate_robot_spawn_descriptions(context):
             spawn_robot_action,
             spawn_controllers_action,
             # amcl_node
-            robot_control
+            #robot_control
         ]
 
         if i == 0:
@@ -550,9 +530,9 @@ def generate_launch_description():
     launch_descriptions = [
         start_gazebo_server_cmd,
         start_gazebo_client_cmd,
-        map_server_node,
-        lifecycle_manager_node,
-        amcl_node,
+        # map_server_node,
+        # lifecycle_manager_node,
+        # amcl_node,
         # amcl_node2,
         OpaqueFunction(function=generate_robot_spawn_descriptions)
     ]

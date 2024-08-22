@@ -126,6 +126,13 @@ bt_navigator_navigate_to_pose_rclcpp_node:
 controller_server:
   ros__parameters:
     controller_frequency: 30.0
+    goal_checker_plugins: ["goal_checker"]
+    controller_plugins: ["FollowPath"]
+    goal_checker:
+      plugin: "nav2_controller::SimpleGoalChecker"
+      xy_goal_tolerance: 0.25
+      yaw_goal_tolerance: 0.25
+      stateful: True
     FollowPath:
         plugin: "nav2_mppi_controller::MPPIController"
         time_steps: 56
@@ -372,11 +379,11 @@ behavior_server:
     cycle_frequency: 10.0
     recovery_plugins: ["spin", "backup", "wait", "drive_on_heading"]
     spin:
-      plugin: "nav2_recoveries/Spin"
+      plugin: "nav2_behaviors/Spin"
     backup:
-      plugin: "nav2_recoveries/BackUp"
+      plugin: "nav2_behaviors/BackUp"
     wait:
-      plugin: "nav2_recoveries/Wait"
+      plugin: "nav2_behaviors/Wait"
     drive_on_heading:
       plugin: "nav2_behaviors/DriveOnHeading"
     global_frame: odom

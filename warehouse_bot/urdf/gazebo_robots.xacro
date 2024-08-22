@@ -91,8 +91,7 @@
                 </ray>
                 <plugin name="laser_controller_${robot_name}" filename="libgazebo_ros_ray_sensor.so">
                     <ros>
-                        <namespace>${robot_name}</namespace>
-                        <argument>~/out:=scan</argument>
+                        <argument>~/out:=/${robot_name}/scan</argument>
                     </ros>
                     <output_type>sensor_msgs/LaserScan</output_type>
                     <frame_name>${robot_name}_laser_frame_under</frame_name>
