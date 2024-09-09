@@ -16,7 +16,7 @@ def generate_launch_description():
     # Common paths
     pkg_warehouse_bot = get_package_share_directory('warehouse_bot')
     pkg_gazebo_ros = get_package_share_directory('gazebo_ros')
-    pkg_robosense_description = get_package_share_directory('robosense_description')
+    # pkg_robosense_description = get_package_share_directory('robosense_description')
 
     # Set up environment variables for Gazebo
     gazebo_model_path = os.path.join(pkg_warehouse_bot, 'models')
@@ -34,7 +34,7 @@ def generate_launch_description():
     world_path = os.path.join(pkg_warehouse_bot, 'world', 't.world')
     xacro_path = os.path.join(pkg_warehouse_bot, 'urdf', 'robot.urdf.xacro')
     rviz_config_file = os.path.join(pkg_warehouse_bot, 'config', 'nav2_config_preferred_lanes.rviz')
-    robosense_rviz_config_file = os.path.join(pkg_robosense_description, 'rviz', 'example.rviz')
+    # robosense_rviz_config_file = os.path.join(pkg_robosense_description, 'rviz', 'example.rviz')
 
     # Robot description
     robot_description_content = Command([PathJoinSubstitution([FindExecutable(name="xacro")]), " ", xacro_path, ' gpu:=', gpu])
@@ -143,11 +143,11 @@ def generate_launch_description():
         declare_use_rviz,
         declare_gpu_cmd,
         start_gazebo_server_cmd,
-        start_gazebo_client_cmd,
+        # start_gazebo_client_cmd,
         robot_state_publisher,
         joint_state_publisher,
         spawn_entity,
-        rqt_robot_steering,
+        # rqt_robot_steering,
         RegisterEventHandler(
             event_handler=OnProcessExit(
                 target_action=spawn_entity,

@@ -96,7 +96,7 @@
         </sensor>
 
     </gazebo>
-        <gazebo reference="imu_link">
+         <!--   <gazebo reference="imu_link">
         <gravity>true</gravity>
         <sensor name="imu_sensor" type="imu">
         <always_on>true</always_on>
@@ -107,7 +107,7 @@
             <topicName>imu</topicName>
             <bodyName>imu_link</bodyName>
             <updateRateHZ>100.0</updateRateHZ>
-            <!-- <gaussianNoise>0.0</gaussianNoise> -->
+            <gaussianNoise>0.0</gaussianNoise> 
             <xyzOffset>0 0 0</xyzOffset>
             <rpyOffset>0 0 0</rpyOffset>
             <frameName>imu_link</frameName>
@@ -119,6 +119,6 @@
         </plugin>
         <pose>0 0 0 0 0 0</pose>
         </sensor>
-    </gazebo>
+    </gazebo> -->
     
 </robot>

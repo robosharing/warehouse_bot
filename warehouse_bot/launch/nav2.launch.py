@@ -28,7 +28,7 @@ def generate_launch_description():
     my_nav_dir = get_package_share_directory('warehouse_bot')
     my_param_dir = os.path.join(my_nav_dir, 'config')
     my_param_file = 'nav2_params.yaml'
-    my_bt_file ='navigate_w_recovery_and_replanning_only_if_path_becomes_invalid.xml'
+    my_bt_file ='navigate_w_replanning_and_recovery.xml'
 
     namespace = LaunchConfiguration('namespace')
     use_sim_time = LaunchConfiguration('use_sim_time')
