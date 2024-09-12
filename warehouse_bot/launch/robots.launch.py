@@ -13,12 +13,13 @@ import xacro
 
 def generate_launch_description():
     ld = LaunchDescription()
+    
 
     # Robots list with their positions
     robots = [
         {'name': 'robot1', 'x_pose': '0', 'y_pose': '0', 'z_pose': '0.06', 'Y_pose': '0.78535'},
-        {'name': 'robot2', 'x_pose': '10', 'y_pose': '0', 'z_pose': '0.06', 'Y_pose': '0.78535'},
-        {'name': 'robot3', 'x_pose': '20', 'y_pose': '0', 'z_pose': '0.06', 'Y_pose': '0.78535'},        
+        {'name': 'robot2', 'x_pose': '30', 'y_pose': '0', 'z_pose': '0.06', 'Y_pose': '0.78535'},
+        {'name': 'robot3', 'x_pose': '60', 'y_pose': '0', 'z_pose': '0.06', 'Y_pose': '0.78535'},        
         # {'name': 'robot4', 'x_pose': '30', 'y_pose': '0', 'z_pose': '0.06', 'Y_pose': '0.78535'},
         # {'name': 'robot5', 'x_pose': '0', 'y_pose': '10', 'z_pose': '0.06', 'Y_pose': '0.78535'},
         # {'name': 'robot6', 'x_pose': '10', 'y_pose': '10', 'z_pose': '0.06', 'Y_pose': '0.78535'},
@@ -111,7 +112,7 @@ def generate_launch_description():
     
     # ld.add_action(map_server)
     # ld.add_action(map_server_lifecyle)
-    remappings = [('/tf', 'tf'), ('/tf_static', 'tf_static')]
+    remappings = [('/tf', 'tf'), ('/tf_static', 'tf_static'), ('/scan2', 'scan2')]
     # Launch robots
     last_action = None
     for robot in robots:
@@ -151,6 +152,7 @@ def generate_launch_description():
             namespace=namespace,
             output='screen',
             parameters=[params],
+            # remappings=remappings
         )
 
         spawn_entity = Node(
@@ -241,7 +243,7 @@ def generate_launch_description():
                 {'max_dist_to_first_waypoint': 10.00},
                 {'map_frame': 'map'},
                 {'robot_frame': 'base_footprint'},
-                {'nav2_server_name': '/navigate_to_pose'},
+                {'nav2_server_name': namespace + '/navigate_to_pose'},
                 {'battery_state_topic': '/battery_state'},
                 {'update_frequency': 20.0},
                 {'publish_frequency': 2.0},
@@ -291,7 +293,7 @@ def generate_launch_description():
         robot_actions = GroupAction([
             SetRemap(src="/tf", dst="tf"),
             SetRemap(src="/tf_static", dst="tf_static"),
-            SetRemap(src="/scan2", dst="scan2"),
+            # SetRemap(src="/scan2", dst="scan2"),
             spawn_entity,
             robot_state_publisher,
             odometry_node,            
@@ -299,7 +301,7 @@ def generate_launch_description():
             # spawn_controller_2,
             # spawn_controller_3,
 
-            # battery_state,
+            #battery_state,
             # robot_control
             # rlcar_gazebo_controller,
         ])
@@ -307,11 +309,10 @@ def generate_launch_description():
         controllers_action = GroupAction([
             SetRemap(src="/tf", dst="tf"),
             SetRemap(src="/tf_static", dst="tf_static"),
-            SetRemap(src="/scan2", dst="scan2"),
             spawn_controller_1,
             spawn_controller_2,
             spawn_controller_3,
-            # rlcar_gazebo_controller,
+            rlcar_gazebo_controller,
         ])
 
         # Create a initial pose topic publish call
@@ -331,7 +332,6 @@ def generate_launch_description():
         rviz_action = GroupAction([
             SetRemap(src="/tf", dst="tf"),
             SetRemap(src="/tf_static", dst="tf_static"),
-            SetRemap(src="/scan2", dst="scan2"),
             rviz,
             # initial_pose_cmd
 
@@ -339,7 +339,6 @@ def generate_launch_description():
         nav2_actions = GroupAction([
                 SetRemap(src="/tf", dst="tf"),
                 SetRemap(src="/tf_static", dst="tf_static"),
-                SetRemap(src="/scan2", dst="scan2"),
                 bringup_cmd,
                 initial_pose_cmd
 
@@ -348,7 +347,6 @@ def generate_launch_description():
         rmf_actions = GroupAction([
             SetRemap(src="/tf", dst="tf"),
             SetRemap(src="/tf_static", dst="tf_static"),
-            SetRemap(src="/scan2", dst="scan2"),
             fleet_client,
             # robot_control
         ])
@@ -356,20 +354,15 @@ def generate_launch_description():
         if last_action is None:
             ld.add_action(robot_actions)
             ld.add_action(controllers_action)
-            # ld.add_action(spawn_controller_2)
-            # ld.add_action(spawn_controller_3)
             ld.add_action(rviz_action)
             ld.add_action(nav2_actions)
-            # ld.add_action(rmf_actions)
+            ld.add_action(rmf_actions)
         else:
             spawn_event_handler = RegisterEventHandler(
                 event_handler=OnProcessExit(
                     target_action=last_action,
                     on_exit=[
-                                #   spawn_controller_3,
-                                #   spawn_controller_2,
-                                #   spawn_controller_1,
-                                # rmf_actions,
+                                rmf_actions,
                                 nav2_actions,
                                 rviz_action,
                                 controllers_action,
