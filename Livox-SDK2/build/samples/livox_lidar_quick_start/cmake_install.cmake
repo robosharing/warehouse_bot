@@ -1,4 +1,4 @@
-# Install script for directory: /home/kaisar/w_ws/src/Livox-SDK2/samples/livox_lidar_quick_start
+# Install script for directory: /home/kaisar/test/src/Livox-SDK2/samples/livox_lidar_quick_start
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

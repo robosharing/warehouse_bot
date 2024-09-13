@@ -1,7 +1,7 @@
 sdk_core/CMakeFiles/livox_lidar_sdk_static.dir/upgrade_manager.cpp.o: \
- /home/kaisar/w_ws/src/Livox-SDK2/sdk_core/upgrade_manager.cpp \
+ /home/kaisar/test/src/Livox-SDK2/sdk_core/upgrade_manager.cpp \
  /usr/include/stdc-predef.h \
- /home/kaisar/w_ws/src/Livox-SDK2/sdk_core/upgrade_manager.h \
+ /home/kaisar/test/src/Livox-SDK2/sdk_core/upgrade_manager.h \
  /usr/include/c++/11/functional \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -169,15 +169,15 @@ sdk_core/CMakeFiles/livox_lidar_sdk_static.dir/upgrade_manager.cpp.o: \
  /usr/include/c++/11/bits/stl_vector.h \
  /usr/include/c++/11/bits/stl_bvector.h \
  /usr/include/c++/11/bits/vector.tcc \
- /home/kaisar/w_ws/src/Livox-SDK2/sdk_core/upgrade/livox_lidar_upgrader.h \
+ /home/kaisar/test/src/Livox-SDK2/sdk_core/upgrade/livox_lidar_upgrader.h \
  /usr/include/c++/11/thread /usr/include/c++/11/bits/std_thread.h \
  /usr/include/c++/11/bits/this_thread_sleep.h /usr/include/c++/11/chrono \
  /usr/include/c++/11/ratio /usr/include/c++/11/limits \
  /usr/include/c++/11/ctime /usr/include/c++/11/bits/parse_numbers.h \
- /home/kaisar/w_ws/src/Livox-SDK2/sdk_core/upgrade/firmware.h \
- /home/kaisar/w_ws/src/Livox-SDK2/sdk_core/../3rdparty/FastCRC/FastCRC.h \
+ /home/kaisar/test/src/Livox-SDK2/sdk_core/upgrade/firmware.h \
+ /home/kaisar/test/src/Livox-SDK2/sdk_core/../3rdparty/FastCRC/FastCRC.h \
  /usr/include/inttypes.h /usr/include/c++/11/cstddef \
- /home/kaisar/w_ws/src/Livox-SDK2/sdk_core/upgrade/../comm/define.h \
+ /home/kaisar/test/src/Livox-SDK2/sdk_core/upgrade/../comm/define.h \
  /usr/include/c++/11/atomic \
- /home/kaisar/w_ws/src/Livox-SDK2/sdk_core/../include/livox_lidar_def.h \
- /home/kaisar/w_ws/src/Livox-SDK2/sdk_core/upgrade/firmware.h
+ /home/kaisar/test/src/Livox-SDK2/sdk_core/../include/livox_lidar_def.h \
+ /home/kaisar/test/src/Livox-SDK2/sdk_core/upgrade/firmware.h

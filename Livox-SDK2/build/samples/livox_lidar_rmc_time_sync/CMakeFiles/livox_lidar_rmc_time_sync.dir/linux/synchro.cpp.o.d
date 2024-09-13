@@ -1,7 +1,7 @@
 samples/livox_lidar_rmc_time_sync/CMakeFiles/livox_lidar_rmc_time_sync.dir/linux/synchro.cpp.o: \
- /home/kaisar/w_ws/src/Livox-SDK2/samples/livox_lidar_rmc_time_sync/linux/synchro.cpp \
+ /home/kaisar/test/src/Livox-SDK2/samples/livox_lidar_rmc_time_sync/linux/synchro.cpp \
  /usr/include/stdc-predef.h \
- /home/kaisar/w_ws/src/Livox-SDK2/samples/livox_lidar_rmc_time_sync/linux/../synchro.h \
+ /home/kaisar/test/src/Livox-SDK2/samples/livox_lidar_rmc_time_sync/linux/../synchro.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \

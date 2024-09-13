@@ -9,7 +9,7 @@
     <xacro:include filename="$(find robosense_description)/urdf/RS-16.urdf.xacro"/> -->
     <xacro:include filename="$(find warehouse_bot)/urdf/materials.xacro" />
     <xacro:include filename="$(find warehouse_bot)/urdf/macros.xacro" />
-    <xacro:include filename="$(find warehouse_bot)/urdf/ros2_control.xacro" />
+    <!-- <xacro:include filename="$(find warehouse_bot)/urdf/ros2_control.xacro" /> -->
     <xacro:include filename="$(find warehouse_bot)/urdf/warehouse_bot.xacro" />
 
     <xacro:include filename="$(find warehouse_bot)/urdf/gazebo_control.xacro" /> 

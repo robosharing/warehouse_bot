@@ -28,7 +28,7 @@ def generate_launch_description():
     my_nav_dir = get_package_share_directory('warehouse_bot')
     my_param_dir = os.path.join(my_nav_dir, 'config')    
     my_param_file = 'nav2_params.yaml'
-    my_map_dir = os.path.join(my_nav_dir, 'config')
+    my_map_dir = os.path.join(my_nav_dir, 'maps')
     my_map_file = 'warehouse_map.yaml'
 
     namespace = LaunchConfiguration('namespace')

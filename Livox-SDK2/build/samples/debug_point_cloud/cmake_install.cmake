@@ -1,4 +1,4 @@
-# Install script for directory: /home/kaisar/w_ws/src/Livox-SDK2/samples/debug_point_cloud
+# Install script for directory: /home/kaisar/test/src/Livox-SDK2/samples/debug_point_cloud
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

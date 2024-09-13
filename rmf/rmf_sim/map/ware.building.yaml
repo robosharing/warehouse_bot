@@ -1,7 +1,7 @@
 coordinate_system: reference_image
 crowd_sim:
   agent_groups:
-    - {agents_name: [], agents_number: 0, group_id: 0, profile_selector: external_agent, state_selector: external_static, x: 0, y: 0}
+    - {agents_name: [robot1, robot2, robot3], agents_number: 3, group_id: 0, profile_selector: external_agent, state_selector: external_static, x: 0, y: 0}
   agent_profiles:
     - {ORCA_tau: 1, ORCA_tauObst: 0.40000000000000002, class: 1, max_accel: 0, max_angle_vel: 0, max_neighbors: 10, max_speed: 0, name: external_agent, neighbor_dist: 5, obstacle_set: 1, pref_speed: 0, r: 0.25}
   enable: 0
@@ -21,14 +21,10 @@ levels:
     elevation: 0
     lanes:
       - [0, 1, {bidirectional: [4, true], demo_mock_floor_name: [1, ""], demo_mock_lift_name: [1, ""], graph_idx: [2, 0], orientation: [1, ""], speed_limit: [3, 0]}]
-      - [1, 2, {bidirectional: [4, true], demo_mock_floor_name: [1, ""], demo_mock_lift_name: [1, ""], graph_idx: [2, 0], orientation: [1, ""], speed_limit: [3, 0]}]
-      - [2, 3, {bidirectional: [4, true], demo_mock_floor_name: [1, ""], demo_mock_lift_name: [1, ""], graph_idx: [2, 0], orientation: [1, ""], speed_limit: [3, 0]}]
     layers:
       {}
     vertices:
-      - [0.0, 0.0, 0, robot_1, {is_charger: [4, true], is_parking_spot: [4, true], spawn_robot_name: [1, robot_1], spawn_robot_type: [1, cloudy]}]
-      - [588.529, 0.0, 0, r1, {is_holding_point: [4, false]}]
-      - [588.529, 1006.4349999999999, 0, r2, {is_holding_point: [4, false]}]
-      - [1068.203, 1006.4349999999999, 0, r3, {is_holding_point: [4, false]}]
+      - [258.72000000000003, 277.81299999999999, 0, robot1, {is_charger: [4, true], is_parking_spot: [4, true], spawn_robot_name: [1, robot1], spawn_robot_type: [1, cloudy]}]
+      - [405.08800000000002, 277.81299999999999, 0, r1, {is_holding_point: [4, false]}]
 lifts: {}
 name: v1

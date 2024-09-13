@@ -17,7 +17,7 @@
     <include file="$(find-pkg-share rmf_sim)/fleet_adapter.xml">
       <arg name="fleet_name" value="$(var fleet_name)"/>
       <arg name="use_sim_time" value="$(var use_sim_time)"/>
-      <arg name="nav_graph_file" value="$(find-pkg-share rmf_sim)/map/0.yaml" />
+      <arg name="nav_graph_file" value="$(find-pkg-share rmf_sim)/map/ware/nav_graphs/0.yaml" />
     </include>
   </group>
 

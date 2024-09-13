@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/kaisar/w_ws/src/Livox-SDK2/samples/lidar_cmd_observer/../../3rdparty -I/home/kaisar/w_ws/src/Livox-SDK2/sdk_core/../include
+CXX_INCLUDES = -I/home/kaisar/test/src/Livox-SDK2/samples/lidar_cmd_observer/../../3rdparty -I/home/kaisar/test/src/Livox-SDK2/sdk_core/../include
 
 CXX_FLAGS =  -pthread -pthread -std=gnu++11
 

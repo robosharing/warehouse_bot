@@ -31,7 +31,7 @@ def generate_launch_description():
     declare_gpu_cmd = DeclareLaunchArgument('gpu', default_value='False', description='Whether to use Gazebo gpu_ray or ray')
 
     # Paths
-    world_path = os.path.join(pkg_warehouse_bot, 'world', 't.world')
+    world_path = os.path.join(pkg_warehouse_bot, 'world', 'updated.world')
     xacro_path = os.path.join(pkg_warehouse_bot, 'urdf', 'robot.urdf.xacro')
     rviz_config_file = os.path.join(pkg_warehouse_bot, 'config', 'nav2_config_preferred_lanes.rviz')
     # robosense_rviz_config_file = os.path.join(pkg_robosense_description, 'rviz', 'example.rviz')
@@ -67,7 +67,7 @@ def generate_launch_description():
         package='gazebo_ros',
         executable='spawn_entity.py',
         arguments=['-topic', 'robot_description',
-                   '-x', '0.0', '-y', '0.0', '-z', '0.06', '-Y', '0.78535', '-entity', 'rlcar'],
+                   '-x', '10.0', '-y', '10.0', '-z', '0.06', '-Y', '0.78535', '-entity', 'rlcar'],
         output='screen'
     )
 
@@ -143,7 +143,7 @@ def generate_launch_description():
         declare_use_rviz,
         declare_gpu_cmd,
         start_gazebo_server_cmd,
-        # start_gazebo_client_cmd,
+        start_gazebo_client_cmd,
         robot_state_publisher,
         joint_state_publisher,
         spawn_entity,

@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/kaisar/w_ws/src/Livox-SDK2
+CMAKE_SOURCE_DIR = /home/kaisar/test/src/Livox-SDK2
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/kaisar/w_ws/src/Livox-SDK2/build
+CMAKE_BINARY_DIR = /home/kaisar/test/src/Livox-SDK2/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -132,14 +132,14 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/kaisar/w_ws/src/Livox-SDK2/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/kaisar/w_ws/src/Livox-SDK2/build/CMakeFiles /home/kaisar/w_ws/src/Livox-SDK2/build/samples/multi_lidars_upgrade//CMakeFiles/progress.marks
-	cd /home/kaisar/w_ws/src/Livox-SDK2/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 samples/multi_lidars_upgrade/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kaisar/w_ws/src/Livox-SDK2/build/CMakeFiles 0
+	cd /home/kaisar/test/src/Livox-SDK2/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/kaisar/test/src/Livox-SDK2/build/CMakeFiles /home/kaisar/test/src/Livox-SDK2/build/samples/multi_lidars_upgrade//CMakeFiles/progress.marks
+	cd /home/kaisar/test/src/Livox-SDK2/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 samples/multi_lidars_upgrade/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kaisar/test/src/Livox-SDK2/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/kaisar/w_ws/src/Livox-SDK2/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 samples/multi_lidars_upgrade/clean
+	cd /home/kaisar/test/src/Livox-SDK2/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 samples/multi_lidars_upgrade/clean
 .PHONY : clean
 
 # The main clean target
@@ -148,22 +148,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/kaisar/w_ws/src/Livox-SDK2/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 samples/multi_lidars_upgrade/preinstall
+	cd /home/kaisar/test/src/Livox-SDK2/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 samples/multi_lidars_upgrade/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/kaisar/w_ws/src/Livox-SDK2/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 samples/multi_lidars_upgrade/preinstall
+	cd /home/kaisar/test/src/Livox-SDK2/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 samples/multi_lidars_upgrade/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/kaisar/w_ws/src/Livox-SDK2/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/kaisar/test/src/Livox-SDK2/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 samples/multi_lidars_upgrade/CMakeFiles/multi_lidars_upgrade.dir/rule:
-	cd /home/kaisar/w_ws/src/Livox-SDK2/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 samples/multi_lidars_upgrade/CMakeFiles/multi_lidars_upgrade.dir/rule
+	cd /home/kaisar/test/src/Livox-SDK2/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 samples/multi_lidars_upgrade/CMakeFiles/multi_lidars_upgrade.dir/rule
 .PHONY : samples/multi_lidars_upgrade/CMakeFiles/multi_lidars_upgrade.dir/rule
 
 # Convenience name for target.
@@ -172,7 +172,7 @@ multi_lidars_upgrade: samples/multi_lidars_upgrade/CMakeFiles/multi_lidars_upgra
 
 # fast build rule for target.
 multi_lidars_upgrade/fast:
-	cd /home/kaisar/w_ws/src/Livox-SDK2/build && $(MAKE) $(MAKESILENT) -f samples/multi_lidars_upgrade/CMakeFiles/multi_lidars_upgrade.dir/build.make samples/multi_lidars_upgrade/CMakeFiles/multi_lidars_upgrade.dir/build
+	cd /home/kaisar/test/src/Livox-SDK2/build && $(MAKE) $(MAKESILENT) -f samples/multi_lidars_upgrade/CMakeFiles/multi_lidars_upgrade.dir/build.make samples/multi_lidars_upgrade/CMakeFiles/multi_lidars_upgrade.dir/build
 .PHONY : multi_lidars_upgrade/fast
 
 main.o: main.cpp.o
@@ -180,7 +180,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	cd /home/kaisar/w_ws/src/Livox-SDK2/build && $(MAKE) $(MAKESILENT) -f samples/multi_lidars_upgrade/CMakeFiles/multi_lidars_upgrade.dir/build.make samples/multi_lidars_upgrade/CMakeFiles/multi_lidars_upgrade.dir/main.cpp.o
+	cd /home/kaisar/test/src/Livox-SDK2/build && $(MAKE) $(MAKESILENT) -f samples/multi_lidars_upgrade/CMakeFiles/multi_lidars_upgrade.dir/build.make samples/multi_lidars_upgrade/CMakeFiles/multi_lidars_upgrade.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -188,7 +188,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	cd /home/kaisar/w_ws/src/Livox-SDK2/build && $(MAKE) $(MAKESILENT) -f samples/multi_lidars_upgrade/CMakeFiles/multi_lidars_upgrade.dir/build.make samples/multi_lidars_upgrade/CMakeFiles/multi_lidars_upgrade.dir/main.cpp.i
+	cd /home/kaisar/test/src/Livox-SDK2/build && $(MAKE) $(MAKESILENT) -f samples/multi_lidars_upgrade/CMakeFiles/multi_lidars_upgrade.dir/build.make samples/multi_lidars_upgrade/CMakeFiles/multi_lidars_upgrade.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -196,7 +196,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	cd /home/kaisar/w_ws/src/Livox-SDK2/build && $(MAKE) $(MAKESILENT) -f samples/multi_lidars_upgrade/CMakeFiles/multi_lidars_upgrade.dir/build.make samples/multi_lidars_upgrade/CMakeFiles/multi_lidars_upgrade.dir/main.cpp.s
+	cd /home/kaisar/test/src/Livox-SDK2/build && $(MAKE) $(MAKESILENT) -f samples/multi_lidars_upgrade/CMakeFiles/multi_lidars_upgrade.dir/build.make samples/multi_lidars_upgrade/CMakeFiles/multi_lidars_upgrade.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 # Help Target
@@ -226,6 +226,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/kaisar/w_ws/src/Livox-SDK2/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/kaisar/test/src/Livox-SDK2/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

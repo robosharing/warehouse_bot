@@ -34,7 +34,7 @@ class SimplePathPlanner(Node):
 
         self.target_position = None
 
-        self.cmd_vel_publisher = self.create_publisher(Twist, '/robot_1/cmd_vel', 10)
+        self.cmd_vel_publisher = self.create_publisher(Twist, '/robot1/cmd_vel', 10)
 
         self.timer = self.create_timer(0.1, self.control_loop)
 
@@ -89,7 +89,7 @@ class SimplePathPlanner(Node):
         new_transform = TransformStamped()
         new_transform.header.stamp = self.get_clock().now().to_msg()
         new_transform.header.frame_id = 'map'
-        new_transform.child_frame_id = f'{self.robot_name}_base_footprint'
+        new_transform.child_frame_id = f'{self.robot_name}.base_footprint'
         new_transform.transform.translation.x = float(self.current_position.x)
         new_transform.transform.translation.y = float(self.current_position.y)
         new_transform.transform.translation.z = float(self.current_position.z)
