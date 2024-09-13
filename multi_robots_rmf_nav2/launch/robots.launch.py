@@ -222,7 +222,7 @@ def generate_launch_description():
             executable='rlcar_gazebo_odometry',
             name = spawn_controller_5_name,
             namespace=namespace,
-            output='screen',
+            output='log',
             parameters=[{
                 "verbose": False,
                 'publish_rate': 50,
