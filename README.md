@@ -50,20 +50,20 @@ ros2 launch warehouse_bot localization_launch.py
 
 РИСУЕМ ТОЧКИ СПАВНА В РМФ
 
-'''bash
+```bash
 traffic-editor
-'''
+```
 
 
 ОБНОВЛЯЕМ КООРДИНАТЫ СПАВНА ИЗ РМФ
 ЗАПУСК МНОЖЕСТВА РОБОТОВ С НАВ2 И РМФ
 ЗАПУСК ВИЗУАЛИЗАЦИИ РМФ
 
-'''bash
+```bash
 ros2 run multi_robots_rmf_nav2 update_coordinate.py
 ros2 launch multi_robots_rmf_nav2 robots.launch.py
 ros2 launch rmf_sim warehouse_sim.launch.xml
-'''
+```
 
 
 УПРАВЛЯТЬ КАКИМ ТО РОБОТОМ
