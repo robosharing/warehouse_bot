@@ -3,50 +3,22 @@
 import os
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
-from launch.actions import IncludeLaunchDescription, RegisterEventHandler, DeclareLaunchArgument,GroupAction, ExecuteProcess, LogInfo
+from launch.actions import IncludeLaunchDescription, RegisterEventHandler, DeclareLaunchArgument, GroupAction, ExecuteProcess, LogInfo
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.event_handlers import OnProcessExit
 from launch.conditions import IfCondition
-from launch_ros.actions import Node, SetRemap, SetParameter
-from launch.substitutions import Command, FindExecutable, PathJoinSubstitution, LaunchConfiguration
+from launch_ros.actions import Node, SetRemap
+from launch.substitutions import LaunchConfiguration
 import xacro
 import yaml
 
 def generate_launch_description():
     ld = LaunchDescription()
-    robots_file_path = os.path.join(get_package_share_directory('multi_robots_rmf_nav2'), 'config', 'robots.yaml')  # Путь до файла
-    
+    # Путь до файла с конфигурацией роботов
+    robots_file_path = os.path.join(get_package_share_directory('multi_robots_rmf_nav2'), 'config', 'robots.yaml')
 
-    # Создаем пустой список роботовs
+    # Создаем пустой список роботов
     robots = []
-
-    # robots = [
-    # {'name': 'robot1', 'x_pose': '0', 'y_pose': '0', 'z_pose': '0.06', 'Y_pose': '0.78535'},
-    # # {'name': 'robot2', 'x_pose': '30', 'y_pose': '0', 'z_pose': '0.06', 'Y_pose': '0.78535'},
-    # # {'name': 'robot3', 'x_pose': '60', 'y_pose': '0', 'z_pose': '0.06', 'Y_pose': '0.78535'},        
-    # # {'name': 'robot4', 'x_pose': '30', 'y_pose': '0', 'z_pose': '0.06', 'Y_pose': '0.78535'},
-    # # {'name': 'robot5', 'x_pose': '0', 'y_pose': '10', 'z_pose': '0.06', 'Y_pose': '0.78535'},
-    # # {'name': 'robot6', 'x_pose': '10', 'y_pose': '10', 'z_pose': '0.06', 'Y_pose': '0.78535'},
-    # # {'name': 'robot7', 'x_pose': '20', 'y_pose': '10', 'z_pose': '0.06', 'Y_pose': '0.78535'},        
-    # # {'name': 'robot8', 'x_pose': '30', 'y_pose': '10', 'z_pose': '0.06', 'Y_pose': '0.78535'},
-    # # {'name': 'robot9', 'x_pose': '0', 'y_pose': '20', 'z_pose': '0.06', 'Y_pose': '0.78535'},
-    # # {'name': 'robot10', 'x_pose': '10', 'y_pose': '20', 'z_pose': '0.06', 'Y_pose': '0.78535'},
-    # # {'name': 'robot11', 'x_pose': '20', 'y_pose': '20', 'z_pose': '0.06', 'Y_pose': '0.78535'},        
-    # # {'name': 'robot12', 'x_pose': '30', 'y_pose': '20', 'z_pose': '0.06', 'Y_pose': '0.78535'},
-    # # {'name': 'robot13', 'x_pose': '0', 'y_pose': '30', 'z_pose': '0.06', 'Y_pose': '0.78535'},
-    # # {'name': 'robot14', 'x_pose': '10', 'y_pose': '30', 'z_pose': '0.06', 'Y_pose': '0.78535'},
-    # # {'name': 'robot15', 'x_pose': '20', 'y_pose': '30', 'z_pose': '0.06', 'Y_pose': '0.78535'},        
-    # # {'name': 'robot16', 'x_pose': '30', 'y_pose': '30', 'z_pose': '0.06', 'Y_pose': '0.78535'},
-    # # {'name': 'robot17', 'x_pose': '0', 'y_pose': '40', 'z_pose': '0.06', 'Y_pose': '0.78535'},
-    # # {'name': 'robot18', 'x_pose': '10', 'y_pose': '40', 'z_pose': '0.06', 'Y_pose': '0.78535'},
-    # # {'name': 'robot19', 'x_pose': '20', 'y_pose': '40', 'z_pose': '0.06', 'Y_pose': '0.78535'},        
-    # # {'name': 'robot20', 'x_pose': '30', 'y_pose': '40', 'z_pose': '0.06', 'Y_pose': '0.78535'},
-    # # {'name': 'robot21', 'x_pose': '0', 'y_pose': '50', 'z_pose': '0.06', 'Y_pose': '0.78535'},
-    # # {'name': 'robot22', 'x_pose': '10', 'y_pose': '50', 'z_pose': '0.06', 'Y_pose': '0.78535'},
-    # # {'name': 'robot23', 'x_pose': '20', 'y_pose': '50', 'z_pose': '0.06', 'Y_pose': '0.78535'},        
-    # # {'name': 'robot24', 'x_pose': '30', 'y_pose': '50', 'z_pose': '0.06', 'Y_pose': '0.78535'},                  
-    # # Add more robots if needed
-    # ]
 
     # Загрузка данных из YAML файла
     with open(robots_file_path, 'r') as file:
@@ -55,39 +27,53 @@ def generate_launch_description():
     # Добавление роботов из YAML файла в список
     robots.extend(yaml_data['robots'])
 
-    # Common paths
+    # Общие пути к файлам
     pkg_warehouse_bot = get_package_share_directory('multi_robots_rmf_nav2')
     pkg_gazebo_ros = get_package_share_directory('gazebo_ros')
     world_path = os.path.join(pkg_warehouse_bot, 'world', 'empty.world')
     xacro_path = os.path.join(pkg_warehouse_bot, 'urdf', 'robot.urdf.xacro')
     map_dir = os.path.join(pkg_warehouse_bot, 'maps', 'warehouse_map.yaml')
     rviz_config_file = os.path.join(pkg_warehouse_bot, 'rviz', 'multi_nav2_default_view.rviz')
-
-    # Display path to nav2_params.yaml
     params_file = os.path.join(pkg_warehouse_bot, 'config', 'nav2_params.yaml')
-    ld.add_action(LogInfo(msg=f"Path to nav2_params.yaml: {params_file}"))
 
-    # Check if the file exists and log a success message
+    # Проверка наличия файла nav2_params.yaml и вывод сообщения
+    ld.add_action(LogInfo(msg=f"Путь к nav2_params.yaml: {params_file}"))
     if os.path.exists(params_file):
-        ld.add_action(LogInfo(msg=f"Successfully loaded nav2_params.yaml from {params_file}"))
+        ld.add_action(LogInfo(msg=f"Файл nav2_params.yaml успешно загружен из {params_file}"))
     else:
-        ld.add_action(LogInfo(msg=f"Error: nav2_params.yaml not found at {params_file}"))
+        ld.add_action(LogInfo(msg=f"Ошибка: nav2_params.yaml не найден по пути {params_file}"))
 
-    # Declare arguments
+    # Объявление аргументов запуска
     enable_rviz = LaunchConfiguration('enable_rviz', default='true')
     declare_enable_rviz = DeclareLaunchArgument(
-        name='enable_rviz', default_value=enable_rviz, description='Enable RViz launch'
+        name='enable_rviz', default_value=enable_rviz, description='Запуск RViz'
     )
+
+    # Объявление аргумента для активации RMF координат
+    declare_enable_rmf_coordinates = DeclareLaunchArgument(
+        name='enable_rmf_coordinates', 
+        default_value='true',  # Установить значение по умолчанию здесь
+        description="Активировать RMF координаты"
+    )
+    ld.add_action(declare_enable_rmf_coordinates)
+
+    # Команда для запуска update_coordinate.py при условии активации RMF координат
+    update_coordinate_process = ExecuteProcess(
+        cmd=['ros2', 'run', 'multi_robots_rmf_nav2', 'update_coordinate.py'],
+        condition=IfCondition(LaunchConfiguration('enable_rmf_coordinates')),  # Использовать значение конфигурации
+        output='screen'
+    )
+    ld.add_action(update_coordinate_process)
 
     use_sim_time = LaunchConfiguration('use_sim_time', default='true')
     declare_use_sim_time = DeclareLaunchArgument(
-        name='use_sim_time', default_value=use_sim_time, description='Use simulator time'
+        name='use_sim_time', default_value=use_sim_time, description='Использовать симуляционное время'
     )
 
     ld.add_action(declare_use_sim_time)
     ld.add_action(declare_enable_rviz)
 
-    # Start Gazebo server and client
+    # Запуск серверной и клиентской частей Gazebo
     start_gazebo_server_cmd = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(os.path.join(pkg_gazebo_ros, 'launch', 'gzserver.launch.py')),
         launch_arguments={'world': world_path}.items()
@@ -98,74 +84,36 @@ def generate_launch_description():
     ld.add_action(start_gazebo_server_cmd)
     ld.add_action(start_gazebo_client_cmd)
 
-    # Set up map server and lifecycle manager
+    # Подготовка серверной карты и диспетчера жизненного цикла
     remappings = [('/tf', 'tf'), ('/tf_static', 'tf_static')]
-    map_server = Node(
-        package='nav2_map_server',
-        executable='map_server',
-        name='map_server',
-        output='screen',
-        parameters=[ {'use_sim_time': True},
-                     {'yaml_filename': map_dir},  # Передаем путь к YAML файлу
-                     {'frame_id' : "map"},
-                     {'topic_name':  "map"}
-                     ],
-        remappings=remappings
-    )
-
-    map_server_lifecyle=Node(package='nav2_lifecycle_manager',
-            executable='lifecycle_manager',
-            name='lifecycle_manager_map_server',
-            output='screen',
-            parameters=[{'use_sim_time': use_sim_time},
-                        {'autostart': True},
-                        {'node_names': ['map_server']}])
     
-    # ld.add_action(map_server)
-    # ld.add_action(map_server_lifecyle)
-    remappings = [('/tf', 'tf'), ('/tf_static', 'tf_static'), ('/scan2', 'scan2')]
-    # Launch robots
+    # Запуск роботов
     last_action = None
     for robot in robots:
         name = robot['name']
         namespace = '/' + robot['name']
 
-        robot_description_topic_name = "/" + name + "/robot_description"
-        joint_state_topic_name = "/" + name + "/joint_states"
-        scan_state_topic_name = "/" + name + "/scan"
-        imu_state_topic_name = "/" + name + "/imu/data"
-        robot_state_publisher_name = name + "_robot_state_publisher"
-        # Process the xacro file
+        # Публикация описания робота через xacro
         robot_desc = xacro.process_file(xacro_path).toxml()
         params = {'robot_description': robot_desc}
-        # Log the used paths and remappings
-        print(f"Starting robot_state_publisher for {name}")
-        # print(f"URDF file: {robot_desc}")
-        print(f"Robot description topic: {robot_description_topic_name}")
-        print(f"Joint states topic: {joint_state_topic_name}")
-        print(f"Scan topic: {scan_state_topic_name}")
-        print(f"IMU topic: {imu_state_topic_name}")
+        print(f"Запуск robot_state_publisher для {name}")
 
-
-        controller_manager_name = "/" + name + "/controller_manager"
-        spawn_controller_1_name = name + "_spawn_controller_joint_state_broadcaster"
-        spawn_controller_2_name = name + "_spawn_controller_forward_position_controller"
-        spawn_controller_3_name = name + "_spawn_controller_velocity_controller"
-        spawn_controller_4_name = name + "_spawn_controller_rlcar_gazebo_controller"
-        spawn_controller_5_name = name + "_spawn_controller_rlcar_gazebo_odometry"
-
-
-
-            # Robot state publisher node
+        # Узел публикации состояния робота
         robot_state_publisher = Node(
             package='robot_state_publisher',
             executable='robot_state_publisher',
             namespace=namespace,
             output='screen',
             parameters=[params],
-            # remappings=remappings
+        )    
+        joint_state_publisher = Node(
+            package='joint_state_publisher',
+            executable='joint_state_publisher',
+            name=f"{name}_joint_state_publisher",
+            namespace=namespace,
         )
 
+        # Запуск робота в Gazebo
         spawn_entity = Node(
             package='gazebo_ros',
             executable='spawn_entity.py',
@@ -179,13 +127,14 @@ def generate_launch_description():
                 '-robot_namespace', namespace,
             ],
             output='screen',
+            namespace=namespace,
         )
 
         # Контроллеры и другие узлы
         spawn_controller_1 = Node(
             package="controller_manager",
             executable="spawner",
-            name=spawn_controller_1_name,
+            name=f"{name}_spawn_controller_joint_state_broadcaster",
             namespace=namespace,
             arguments=["joint_state_broadcaster"],
             output="screen",
@@ -194,7 +143,7 @@ def generate_launch_description():
         spawn_controller_2 = Node(
             package="controller_manager",
             executable="spawner",
-            name=spawn_controller_2_name,
+            name=f"{name}_spawn_controller_forward_position_controller",
             namespace=namespace,
             arguments=["forward_position_controller"],
             output="screen",
@@ -203,7 +152,7 @@ def generate_launch_description():
         spawn_controller_3 = Node(
             package="controller_manager",
             executable="spawner",
-            name=spawn_controller_3_name,
+            name=f"{name}_spawn_controller_velocity_controller",
             namespace=namespace,
             arguments=["velocity_controller"],
             output="screen",
@@ -212,7 +161,7 @@ def generate_launch_description():
         rlcar_gazebo_controller = Node(
             package='rlcar_gazebo_controller',
             executable='rlcar_gazebo_controller',
-            name=spawn_controller_4_name,
+            name=f"{name}_spawn_controller_rlcar_gazebo_controller",
             namespace=namespace,
             output='screen'
         )
@@ -220,7 +169,7 @@ def generate_launch_description():
         odometry_node = Node(
             package='rlcar_gazebo_odometry',
             executable='rlcar_gazebo_odometry',
-            name = spawn_controller_5_name,
+            name=f"{name}_spawn_controller_rlcar_gazebo_odometry",
             namespace=namespace,
             output='log',
             parameters=[{
@@ -239,6 +188,48 @@ def generate_launch_description():
                 'enable_odom_tf': True,
             }]
         )
+
+        # Команда для запуска Nav2
+        bringup_cmd = IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(
+                os.path.join(pkg_warehouse_bot, 'launch', 'nav2', 'bringup_launch.py')),
+            launch_arguments={
+                'namespace': namespace,
+                'map': map_dir,
+                'use_namespace': 'True',
+                'params_file': params_file,
+                'autostart': 'true',
+                'use_sim_time': use_sim_time,
+                'log_level': 'warn',
+                'map_server': 'True'
+            }.items()
+        )
+
+        # Команда для запуска RViz
+        rviz = IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(os.path.join(pkg_warehouse_bot, 'launch', "rviz_launch.py")),
+            launch_arguments={
+                "namespace": namespace,
+                "use_namespace": 'true',
+                "rviz_config": rviz_config_file,
+            }.items()
+        )
+
+        # Публикация начальной позиции робота
+        message = '{header: {frame_id: map}, pose: {pose: {position: {x: ' + \
+            robot['x_pose'] + ', y: ' + robot['y_pose'] + \
+            ', z: 0.06}, orientation: {x: 0.0, y: 0.0, z: 0.0, w: 1.0000000}}, }}'
+        
+        initial_pose_cmd = ExecuteProcess(
+            cmd=[
+                'ros2', 'topic', 'pub', '-t', '3', '--qos-reliability', 'reliable', 
+                namespace + '/initialpose',
+                'geometry_msgs/PoseWithCovarianceStamped', message
+            ],
+            output='screen'
+        )
+
+        # Узел клиента RMF
         fleet_client = Node(
             package='free_fleet_client_ros2',
             executable='free_fleet_client_ros2',
@@ -255,133 +246,73 @@ def generate_launch_description():
                 {'map_frame': 'map'},
                 {'robot_frame': 'base_footprint'},
                 {'nav2_server_name': namespace + '/navigate_to_pose'},
-                {'battery_state_topic': '/battery_state'},
+                {'battery_state_topic': namespace + '/battery_state'},
                 {'update_frequency': 20.0},
                 {'publish_frequency': 2.0},
                 {'use_sim_time': True}
             ]
         )
-        battery_state = Node(
-                package="robot_control",
-                executable="battery_simulator",
-                namespace=namespace,
-        )
-        robot_control = Node(
-            package="robot_control",
-            executable="fake_action_server",
-            #name="simple_path_planner",
-            namespace=namespace,
-            parameters=[{"robot_name":name},
-                        {"initial_x": robot['x_pose']},
-                        {"initial_y":robot['y_pose']}],
-        )
 
-        bringup_cmd = IncludeLaunchDescription(
-            PythonLaunchDescriptionSource(
-                os.path.join(pkg_warehouse_bot, 'launch','nav2', 'bringup_launch.py')),
-            launch_arguments={
-                'namespace': namespace,
-                'map': os.path.join(pkg_warehouse_bot, 'maps', 'warehouse_map.yaml'),
-                'use_namespace': 'True',
-                'params_file': params_file,
-                'autostart': 'true',
-                'use_sim_time': use_sim_time,
-                'log_level': 'warn',
-                'map_server': 'True'
-            }.items()
-        )
-
-        rviz = IncludeLaunchDescription(
-            PythonLaunchDescriptionSource(os.path.join(pkg_warehouse_bot,'launch', "rviz_launch.py")),
-                launch_arguments={
-                    "namespace": namespace,
-                    "use_namespace": 'true',
-                    "rviz_config": os.path.join(pkg_warehouse_bot, 'rviz', 'multi_nav2_default_view.rviz'),
-                }.items()
-        )
-
-                # Group all related actions
+        # Группы действий для робота
         robot_actions = GroupAction([
             SetRemap(src="/tf", dst="tf"),
             SetRemap(src="/tf_static", dst="tf_static"),
             SetRemap(src="/scan2", dst="scan2"),
             spawn_entity,
             robot_state_publisher,
+            joint_state_publisher,
             odometry_node,            
-            #battery_state,
-            # robot_control
-            # rlcar_gazebo_controller,
         ])
 
         controllers_action = GroupAction([
             SetRemap(src="/tf", dst="tf"),
             SetRemap(src="/tf_static", dst="tf_static"),
+            SetRemap(src="/scan2", dst="scan2"),
             spawn_controller_1,
             spawn_controller_2,
             spawn_controller_3,
             rlcar_gazebo_controller,
         ])
 
-        # Create a initial pose topic publish call
-        message = '{header: {frame_id: map}, pose: {pose: {position: {x: ' + \
-            robot['x_pose'] + ', y: ' + robot['y_pose'] + \
-            ', z: 0.06}, orientation: {x: 0.0, y: 0.0, z: 0.0, w: 1.0000000}}, }}'
-        
-
-        initial_pose_cmd = ExecuteProcess(
-            cmd=[
-                'ros2', 'topic', 'pub', '-t', '3', '--qos-reliability', 'reliable', 
-                namespace + '/initialpose',  # Correctly concatenate the namespace with the topic name
-                'geometry_msgs/PoseWithCovarianceStamped', message
-            ],
-            output='screen'
-        )
-
-        rviz_action = GroupAction([
+        nav2_actions = GroupAction([
             SetRemap(src="/tf", dst="tf"),
             SetRemap(src="/tf_static", dst="tf_static"),
-            rviz,
-            # initial_pose_cmd
-
-        ])
-        nav2_actions = GroupAction([
-                SetRemap(src="/tf", dst="tf"),
-                SetRemap(src="/tf_static", dst="tf_static"),
-                bringup_cmd,
-                initial_pose_cmd
-
+            SetRemap(src="/scan2", dst="scan2"),
+            bringup_cmd,
+            initial_pose_cmd,
         ])
 
         rmf_actions = GroupAction([
             SetRemap(src="/tf", dst="tf"),
             SetRemap(src="/tf_static", dst="tf_static"),
+            SetRemap(src="/scan2", dst="scan2"),
             fleet_client,
-            # robot_control
         ])
 
+        # Условное добавление действий
         if last_action is None:
             ld.add_action(robot_actions)
             ld.add_action(controllers_action)
-            ld.add_action(rviz_action)
             ld.add_action(nav2_actions)
             ld.add_action(rmf_actions)
+            ld.add_action(rviz)
         else:
             spawn_event_handler = RegisterEventHandler(
                 event_handler=OnProcessExit(
                     target_action=last_action,
                     on_exit=[
-                                rmf_actions,
-                                nav2_actions,
-                                rviz_action,
-                                controllers_action,
-                                robot_actions,
-                                ],
+                        rviz,
+                        rmf_actions,
+                        nav2_actions,
+                        controllers_action,
+                        robot_actions,
+                        
+                        
+                    ],
                 )
             )
             ld.add_action(spawn_event_handler)
 
         last_action = spawn_entity
-        
-
 
     return ld

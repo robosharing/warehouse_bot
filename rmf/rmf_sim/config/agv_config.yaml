@@ -39,29 +39,40 @@ robots:
   # Here the user is expected to append the configuration for each robot in the
   # fleet.
   # Configuration for cleanerBotE_0
-  AGV1:
+  robot1:
     robot_config:
       max_delay: 15.0 # allowed seconds of delay of the current itinerary before it gets interrupted and replanned
     rmf_config:
       robot_state_update_frequency: 10.0
       start:
         map_name: "L1"
-        waypoint: "AGV1"
+        waypoint: "robot1"
         orientation: 0.0 # radians
       charger:
-        waypoint: "AGV1"
+        waypoint: "robot1"
   # Configuration for cleanerBotE_1
-  AGV2:
+  robot2:
     robot_config:
       max_delay: 15.0 # allowed seconds of delay of the current itinerary before it gets interrupted and replanned
     rmf_config:
       robot_state_update_frequency: 10.0
       start:
         map_name: "L1"
-        waypoint: "AGV2"
+        waypoint: "robot2"
         orientation: 0.0 # radians
       charger:
-        waypoint: "AGV2"
+        waypoint: "robot2"
+  robot3:
+    robot_config:
+      max_delay: 15.0 # allowed seconds of delay of the current itinerary before it gets interrupted and replanned
+    rmf_config:
+      robot_state_update_frequency: 10.0
+      start:
+        map_name: "L1"
+        waypoint: "robot3"
+        orientation: 0.0 # radians
+      charger:
+        waypoint: "robot3"
 
 #rmf_transform:
 #  mock_test_robot_map:
