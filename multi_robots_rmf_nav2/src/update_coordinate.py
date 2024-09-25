@@ -22,8 +22,8 @@ def update_robot_positions(input_file, output_file):
             # Формирование информации о роботе
             robot_info = {
                 'name': robot_name,
-                'x_pose': str(x),
-                'y_pose': '-' + str(y),
+                'x_pose': str(x/20),
+                'y_pose': '-' + str(y/20),
                 'z_pose': '0.06',
                 'Y_pose': '0.78535'
             }

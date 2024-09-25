@@ -1,4 +1,4 @@
-# Install script for directory: /home/kaisar/test/src/Livox-SDK2/samples
+# Install script for directory: /home/kasiar/ware_ws/src/Livox-SDK2/samples
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -44,12 +44,12 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/kaisar/test/src/Livox-SDK2/build/samples/livox_lidar_quick_start/cmake_install.cmake")
-  include("/home/kaisar/test/src/Livox-SDK2/build/samples/multi_lidars_upgrade/cmake_install.cmake")
-  include("/home/kaisar/test/src/Livox-SDK2/build/samples/logger/cmake_install.cmake")
-  include("/home/kaisar/test/src/Livox-SDK2/build/samples/debug_point_cloud/cmake_install.cmake")
-  include("/home/kaisar/test/src/Livox-SDK2/build/samples/lidar_cmd_observer/cmake_install.cmake")
-  include("/home/kaisar/test/src/Livox-SDK2/build/samples/livox_lidar_rmc_time_sync/cmake_install.cmake")
+  include("/home/kasiar/ware_ws/src/Livox-SDK2/build/samples/livox_lidar_quick_start/cmake_install.cmake")
+  include("/home/kasiar/ware_ws/src/Livox-SDK2/build/samples/multi_lidars_upgrade/cmake_install.cmake")
+  include("/home/kasiar/ware_ws/src/Livox-SDK2/build/samples/logger/cmake_install.cmake")
+  include("/home/kasiar/ware_ws/src/Livox-SDK2/build/samples/debug_point_cloud/cmake_install.cmake")
+  include("/home/kasiar/ware_ws/src/Livox-SDK2/build/samples/lidar_cmd_observer/cmake_install.cmake")
+  include("/home/kasiar/ware_ws/src/Livox-SDK2/build/samples/livox_lidar_rmc_time_sync/cmake_install.cmake")
 
 endif()
 

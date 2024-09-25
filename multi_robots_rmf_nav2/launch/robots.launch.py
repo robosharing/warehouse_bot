@@ -30,7 +30,7 @@ def generate_launch_description():
     # Общие пути к файлам
     pkg_warehouse_bot = get_package_share_directory('multi_robots_rmf_nav2')
     pkg_gazebo_ros = get_package_share_directory('gazebo_ros')
-    world_path = os.path.join(pkg_warehouse_bot, 'world', 'empty.world')
+    world_path = os.path.join(pkg_warehouse_bot, 'world', 'ware.world')
     xacro_path = os.path.join(pkg_warehouse_bot, 'urdf', 'robot.urdf.xacro')
     map_dir = os.path.join(pkg_warehouse_bot, 'maps', 'warehouse_map.yaml')
     rviz_config_file = os.path.join(pkg_warehouse_bot, 'rviz', 'multi_nav2_default_view.rviz')
@@ -48,22 +48,6 @@ def generate_launch_description():
     declare_enable_rviz = DeclareLaunchArgument(
         name='enable_rviz', default_value=enable_rviz, description='Запуск RViz'
     )
-
-    # Объявление аргумента для активации RMF координат
-    declare_enable_rmf_coordinates = DeclareLaunchArgument(
-        name='enable_rmf_coordinates', 
-        default_value='true',  # Установить значение по умолчанию здесь
-        description="Активировать RMF координаты"
-    )
-    ld.add_action(declare_enable_rmf_coordinates)
-
-    # Команда для запуска update_coordinate.py при условии активации RMF координат
-    update_coordinate_process = ExecuteProcess(
-        cmd=['ros2', 'run', 'multi_robots_rmf_nav2', 'update_coordinate.py'],
-        condition=IfCondition(LaunchConfiguration('enable_rmf_coordinates')),  # Использовать значение конфигурации
-        output='screen'
-    )
-    ld.add_action(update_coordinate_process)
 
     use_sim_time = LaunchConfiguration('use_sim_time', default='true')
     declare_use_sim_time = DeclareLaunchArgument(
@@ -121,7 +105,7 @@ def generate_launch_description():
                 '-topic', namespace + '/robot_description',
                 '-x', robot['x_pose'], 
                 '-y', robot['y_pose'], 
-                '-z', '0.06', 
+                '-z', '0.08', 
                 '-Y', '0.78535', 
                 '-entity', name,
                 '-robot_namespace', namespace,
@@ -217,8 +201,8 @@ def generate_launch_description():
 
         # Публикация начальной позиции робота
         message = '{header: {frame_id: map}, pose: {pose: {position: {x: ' + \
-            robot['x_pose'] + ', y: ' + robot['y_pose'] + \
-            ', z: 0.06}, orientation: {x: 0.0, y: 0.0, z: 0.0, w: 1.0000000}}, }}'
+                robot['x_pose'] + ', y: ' + robot['y_pose'] + \
+                ', z: 0.06}, orientation: {x: 0.0, y: 0.0, z: 0.3827, w: 0.9239}}, }}'
         
         initial_pose_cmd = ExecuteProcess(
             cmd=[

@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/kaisar/test/src/Livox-SDK2
+CMAKE_SOURCE_DIR = /home/kasiar/ware_ws/src/Livox-SDK2
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/kaisar/test/src/Livox-SDK2/build
+CMAKE_BINARY_DIR = /home/kasiar/ware_ws/src/Livox-SDK2/build
 
 # Include any dependencies generated for this target.
 include samples/debug_point_cloud/CMakeFiles/debug_point_cloud.dir/depend.make
@@ -72,16 +72,16 @@ include samples/debug_point_cloud/CMakeFiles/debug_point_cloud.dir/flags.make
 samples/debug_point_cloud/CMakeFiles/debug_point_cloud.dir/main.cpp.o: samples/debug_point_cloud/CMakeFiles/debug_point_cloud.dir/flags.make
 samples/debug_point_cloud/CMakeFiles/debug_point_cloud.dir/main.cpp.o: ../samples/debug_point_cloud/main.cpp
 samples/debug_point_cloud/CMakeFiles/debug_point_cloud.dir/main.cpp.o: samples/debug_point_cloud/CMakeFiles/debug_point_cloud.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kaisar/test/src/Livox-SDK2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object samples/debug_point_cloud/CMakeFiles/debug_point_cloud.dir/main.cpp.o"
-	cd /home/kaisar/test/src/Livox-SDK2/build/samples/debug_point_cloud && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT samples/debug_point_cloud/CMakeFiles/debug_point_cloud.dir/main.cpp.o -MF CMakeFiles/debug_point_cloud.dir/main.cpp.o.d -o CMakeFiles/debug_point_cloud.dir/main.cpp.o -c /home/kaisar/test/src/Livox-SDK2/samples/debug_point_cloud/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kasiar/ware_ws/src/Livox-SDK2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object samples/debug_point_cloud/CMakeFiles/debug_point_cloud.dir/main.cpp.o"
+	cd /home/kasiar/ware_ws/src/Livox-SDK2/build/samples/debug_point_cloud && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT samples/debug_point_cloud/CMakeFiles/debug_point_cloud.dir/main.cpp.o -MF CMakeFiles/debug_point_cloud.dir/main.cpp.o.d -o CMakeFiles/debug_point_cloud.dir/main.cpp.o -c /home/kasiar/ware_ws/src/Livox-SDK2/samples/debug_point_cloud/main.cpp
 
 samples/debug_point_cloud/CMakeFiles/debug_point_cloud.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/debug_point_cloud.dir/main.cpp.i"
-	cd /home/kaisar/test/src/Livox-SDK2/build/samples/debug_point_cloud && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kaisar/test/src/Livox-SDK2/samples/debug_point_cloud/main.cpp > CMakeFiles/debug_point_cloud.dir/main.cpp.i
+	cd /home/kasiar/ware_ws/src/Livox-SDK2/build/samples/debug_point_cloud && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kasiar/ware_ws/src/Livox-SDK2/samples/debug_point_cloud/main.cpp > CMakeFiles/debug_point_cloud.dir/main.cpp.i
 
 samples/debug_point_cloud/CMakeFiles/debug_point_cloud.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/debug_point_cloud.dir/main.cpp.s"
-	cd /home/kaisar/test/src/Livox-SDK2/build/samples/debug_point_cloud && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kaisar/test/src/Livox-SDK2/samples/debug_point_cloud/main.cpp -o CMakeFiles/debug_point_cloud.dir/main.cpp.s
+	cd /home/kasiar/ware_ws/src/Livox-SDK2/build/samples/debug_point_cloud && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kasiar/ware_ws/src/Livox-SDK2/samples/debug_point_cloud/main.cpp -o CMakeFiles/debug_point_cloud.dir/main.cpp.s
 
 # Object files for target debug_point_cloud
 debug_point_cloud_OBJECTS = \
@@ -94,18 +94,18 @@ samples/debug_point_cloud/debug_point_cloud: samples/debug_point_cloud/CMakeFile
 samples/debug_point_cloud/debug_point_cloud: samples/debug_point_cloud/CMakeFiles/debug_point_cloud.dir/build.make
 samples/debug_point_cloud/debug_point_cloud: sdk_core/liblivox_lidar_sdk_static.a
 samples/debug_point_cloud/debug_point_cloud: samples/debug_point_cloud/CMakeFiles/debug_point_cloud.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/kaisar/test/src/Livox-SDK2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable debug_point_cloud"
-	cd /home/kaisar/test/src/Livox-SDK2/build/samples/debug_point_cloud && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/debug_point_cloud.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/kasiar/ware_ws/src/Livox-SDK2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable debug_point_cloud"
+	cd /home/kasiar/ware_ws/src/Livox-SDK2/build/samples/debug_point_cloud && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/debug_point_cloud.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 samples/debug_point_cloud/CMakeFiles/debug_point_cloud.dir/build: samples/debug_point_cloud/debug_point_cloud
 .PHONY : samples/debug_point_cloud/CMakeFiles/debug_point_cloud.dir/build
 
 samples/debug_point_cloud/CMakeFiles/debug_point_cloud.dir/clean:
-	cd /home/kaisar/test/src/Livox-SDK2/build/samples/debug_point_cloud && $(CMAKE_COMMAND) -P CMakeFiles/debug_point_cloud.dir/cmake_clean.cmake
+	cd /home/kasiar/ware_ws/src/Livox-SDK2/build/samples/debug_point_cloud && $(CMAKE_COMMAND) -P CMakeFiles/debug_point_cloud.dir/cmake_clean.cmake
 .PHONY : samples/debug_point_cloud/CMakeFiles/debug_point_cloud.dir/clean
 
 samples/debug_point_cloud/CMakeFiles/debug_point_cloud.dir/depend:
-	cd /home/kaisar/test/src/Livox-SDK2/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/kaisar/test/src/Livox-SDK2 /home/kaisar/test/src/Livox-SDK2/samples/debug_point_cloud /home/kaisar/test/src/Livox-SDK2/build /home/kaisar/test/src/Livox-SDK2/build/samples/debug_point_cloud /home/kaisar/test/src/Livox-SDK2/build/samples/debug_point_cloud/CMakeFiles/debug_point_cloud.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/kasiar/ware_ws/src/Livox-SDK2/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/kasiar/ware_ws/src/Livox-SDK2 /home/kasiar/ware_ws/src/Livox-SDK2/samples/debug_point_cloud /home/kasiar/ware_ws/src/Livox-SDK2/build /home/kasiar/ware_ws/src/Livox-SDK2/build/samples/debug_point_cloud /home/kasiar/ware_ws/src/Livox-SDK2/build/samples/debug_point_cloud/CMakeFiles/debug_point_cloud.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : samples/debug_point_cloud/CMakeFiles/debug_point_cloud.dir/depend
 
