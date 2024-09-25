@@ -55,9 +55,15 @@ ros2 launch warehouse_bot localization_launch.py
 
 РИСУЕМ ТОЧКИ СПАВНА В РМФ
 
+
+
 ```bash
 traffic-editor
+
+здесь путь к карте такой: ~/ware_ws/src/rmf/rmf_sim/map/ware.building.yaml
 ```
+
+
 
 
 ОБНОВЛЯЕМ КООРДИНАТЫ СПАВНА ИЗ РМФ
