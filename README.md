@@ -1,7 +1,17 @@
 Симуляция робота и склада в Gazebo
 
-install ROS2 with dependenses NEED ALL ([in install.txt](https://github.com/robosharing/warehouse_bot/blob/main/install.txt))
-and rmf: https://github.com/open-rmf/rmf
+install ROS2 with dependenses NEED ALL ([in install.txt] (https://github.com/robosharing/warehouse_bot/blob/main/install.txt))
+
+and rmf:
+
+```bash
+sudo apt update && sudo apt install ros-dev-tools -y
+sudo rosdep init # run if first time using rosdep.
+rosdep update
+colcon mixin add default https://raw.githubusercontent.com/colcon/colcon-mixin-repository/master/index.yaml
+colcon mixin update default
+sudo apt update && sudo apt install ros-humble-rmf-dev
+```
 
 make workspace and colcon build:
 
