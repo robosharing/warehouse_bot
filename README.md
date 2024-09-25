@@ -92,3 +92,15 @@ ros2 launch rmf_sim warehouse_sim.launch.xml
 ```bash
 ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/robot_<robot_name>/cmd_vel
 ```
+
+
+отправить цель для RMF: 
+
+```bash
+ros2 run rmf_demos_tasks dispatch_go_to_place -F v1 -R robot1 -p r1 --use_sim_time
+```
+
+где
+ -F  имя флота
+ -R  имя робота
+ -p  конечная цель
