@@ -22,6 +22,11 @@ cd ~/ware_ws
 colcon build (несколько раз, пока без предупреждения не исчезнут)
 source /opt/ros/humble/setup.bash
 source install/local_setup.bash
+echo 'export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:/usr/local/lib/cmake/CycloneDDS' >> ~/.bashrc
+echo 'export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:~/ware_ws/src/multi_robots_rmf_nav2/models' >> ~/.bashrc
+Если CMake все еще не находит CycloneDDS, попробуйте явно указать путь в переменной CycloneDDS_DIR: 
+export CycloneDDS_DIR=/usr/local/lib/cmake/CycloneDDS
+source ~/.bashrc
 ```
 
 ЗАПУСК РОБОТА В МИРЕ СКЛАДА:
