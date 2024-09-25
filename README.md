@@ -101,6 +101,9 @@ ros2 run rmf_demos_tasks dispatch_go_to_place -F v1 -R robot1 -p r1 --use_sim_ti
 ```
 
 где
+
  -F  имя флота
+
  -R  имя робота
+
  -p  конечная цель
