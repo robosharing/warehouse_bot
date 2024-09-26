@@ -81,7 +81,7 @@ traffic-editor
 ЗАПУСК ВИЗУАЛИЗАЦИИ РМФ
 
 ```bash
-ros2 launch multi_robots_rmf_nav2 robots.launch.py
+ros2 launch multi_robots_rmf_nav2 sim.launch.py
 ros2 launch rmf_sim warehouse_sim.launch.xml
 ```
 
