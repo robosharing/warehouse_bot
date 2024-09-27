@@ -202,7 +202,7 @@ def generate_launch_description():
         # Публикация начальной позиции робота
         message = '{header: {frame_id: map}, pose: {pose: {position: {x: ' + \
                 robot['x_pose'] + ', y: ' + robot['y_pose'] + \
-                ', z: 0.06}, orientation: {x: 0.0, y: 0.0, z: -0.3827, w: 0.9239}}, }}'
+                ', z: 0.06}, orientation: {x: 0.0, y: 0.0, z: 0.3827, w: 0.9239}}, }}'
         
         initial_pose_cmd = ExecuteProcess(
             cmd=[

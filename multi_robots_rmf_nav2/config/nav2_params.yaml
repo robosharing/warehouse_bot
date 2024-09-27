@@ -380,7 +380,7 @@ behavior_server:
     footprint_topic: local_costmap/published_footprint
     cycle_frequency: 10.0
     recovery_plugins: [
-                      # "spin", 
+                      "spin", 
                       "backup",
                       "wait",
                       "drive_on_heading"]
