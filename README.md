@@ -56,14 +56,14 @@ echo 'export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:/usr/local/lib/cmake/CycloneDD
 echo 'export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:~/ware_ws/src/multi_robots_rmf_nav2/models' >> ~/.bashrc
 ```
 
-# Если CMake все еще не находит CycloneDDS, попробуйте явно указать путь в переменной CycloneDDS_DIR:
+### Если CMake все еще не находит CycloneDDS, попробуйте явно указать путь в переменной CycloneDDS_DIR:
 
 ```bash
 export CycloneDDS_DIR=/usr/local/lib/cmake/CycloneDDS
 source ~/.bashrc
 ```
 
-### Перезагрузка компьютера после выполнения вышеуказанных команд
+#### Перезагрузка компьютера после выполнения вышеуказанных команд
 
 ## Запуск робота в мире склада:
 
