@@ -63,21 +63,21 @@ export CycloneDDS_DIR=/usr/local/lib/cmake/CycloneDDS
 source ~/.bashrc
 ```
 
-# Перезагрузка компьютера после выполнения вышеуказанных команд
+### Перезагрузка компьютера после выполнения вышеуказанных команд
 
-# Запуск робота в мире склада:
+## Запуск робота в мире склада:
 
 ```bash
 ros2 launch warehouse_bot launch_sim.launch.py
 ```
 
-## Управление через клавиатуру:
+### Управление через клавиатуру:
 
 ```bash
 ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ```
 
-## Навигация:
+### Навигация:
 
 ```bash
 ros2 launch warehouse_bot nav2.launch.py use_sim_time:=true
@@ -85,8 +85,8 @@ ros2 launch warehouse_bot launch_sim.launch.py
 ros2 launch warehouse_bot localization_launch.py
 ```
 
-# Запуск множества роботов с RMF и Nav2:
-## Настройка точек спавна в RMF:
+## Запуск множества роботов с RMF и Nav2:
+### Настройка точек спавна в RMF:
 
 ```bash
 traffic-editor
@@ -95,20 +95,20 @@ traffic-editor
 ~/ware_ws/src/rmf/rmf_sim/map/ware.building.yaml
 ```
 
-## Обновление координат спавна из RMF и запуск множества роботов с Nav2 и RMF:
+### Обновление координат спавна из RMF и запуск множества роботов с Nav2 и RMF:
 
 ```bash
 ros2 launch multi_robots_rmf_nav2 sim.launch.py 
 ros2 launch rmf_sim warehouse_sim.launch.xml headless:=false
 ```
 
-## Управление конкретным роботом:
+### Управление конкретным роботом:
 
 ```bash
 ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/<robot_name>/cmd_vel
 ```
 
-## Отправка цели для RMF:
+### Отправка цели для RMF:
 
 ```bash
 ros2 run rmf_demos_tasks dispatch_go_to_place -F v1 -R robot1 -p r1 --use_sim_time
@@ -118,26 +118,26 @@ ros2 run rmf_demos_tasks dispatch_go_to_place -F v1 -R robot1 -p r1 --use_sim_ti
     -R — имя робота.
     -p — конечная цель.
 
-# Запуск RMF в веб-интерфейсе:
-## Запуск веб-интерфейса RMF:
+## Запуск RMF в веб-интерфейсе:
+### Запуск веб-интерфейса RMF:
 
 ```bash
 cd ware_ws/src/rmf-web/packages/dashboard
 pnpm start
 ```
 
-## Запуск роботов:
+### Запуск роботов:
 
 ```bash
 ros2 launch multi_robots_rmf_nav2 sim.launch.py
 ros2 launch rmf_sim warehouse_sim.launch.xml server_uri:="ws://localhost:8000/_internal"
 ```
 
-## Доступ к веб-интерфейсу:
+### Доступ к веб-интерфейсу:
 
-## Откройте браузер и перейдите по адресу: http://localhost:3000/robots
+### Откройте браузер и перейдите по адресу: http://localhost:3000/robots
 
-## На данный момент задача отправки целей через веб-интерфейс RMF в разработке, поэтому цели можно отправлять через ноду:
+### На данный момент задача отправки целей через веб-интерфейс RMF в разработке, поэтому цели можно отправлять через ноду:
 
 ```bash
 ros2 run rmf_demos_tasks dispatch_go_to_place -F v1 -R robot1 -p r1 --use_sim_time
