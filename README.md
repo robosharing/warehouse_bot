@@ -4,40 +4,29 @@
 
 Следуйте инструкциям, чтобы установить ROS2 с необходимыми зависимостями, как указано в [install.txt](https://github.com/robosharing/warehouse_bot/blob/main/install.txt).
 
-### Установка ROS2 и RMF:
+#### Установка ROS2 и RMF:
 
 ```bash
-sudo apt update && sudo apt install ros-dev-tools -y
-sudo rosdep init  # выполнить, если используете rosdep впервые.
-rosdep update
-colcon mixin add default https://raw.githubusercontent.com/colcon/colcon-mixin-repository/master/index.yaml
-colcon mixin update default
-sudo apt update && sudo apt install ros-humble-rmf-dev
-
-Создание рабочей области и сборка пакетов:
-
-bash
-
-# Создаем рабочую директорию и клонируем репозиторий
 mkdir -p ware_ws/src && cd $_
 git clone https://github.com/robosharing/warehouse_bot.git . -b develop-rmf
-
-# Сборка Livox SDK2
 cd Livox-SDK2 && rm -rf build && mkdir build && cd build
 cmake .. && make -j && sudo make install
-
-# Сборка драйвера для Livox
 cd ~/ware_ws/src/livox_ros_driver2 && source /opt/ros/humble/setup.sh
 ./build.sh humble  # игнорируем предупреждения
-
-# Сборка рабочих пакетов
 cd ~/ware_ws && colcon build  # до исчезновения предупреждений
-
-# Настройка окружения
 source /opt/ros/humble/setup.bash && source install/local_setup.bash
 rosdep update && rosdep install --from-paths src --ignore-src -r -y
+```
 
-Установка и настройка rmf_web:
+#### Настройка окружения
+
+```bash
+source /opt/ros/humble/setup.bash && source install/local_setup.bash
+rosdep update && rosdep install --from-paths src --ignore-src -r -y
+echo 'export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:/usr/local/lib/cmake/CycloneDDS' >> ~/.bashrc
+echo 'export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:~/ware_ws/src/multi_robots_rmf_nav2/models' >> ~/.bashrc
+```
+#### Установка и настройка rmf_web:
 
 ```bash
 curl -fsSL https://get.pnpm.io/install.sh | bash -
@@ -49,35 +38,28 @@ cd ware_ws/src/rmf-web
 pnpm install
 ```
 
-Настройка окружения:
-
-```bash
-echo 'export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:/usr/local/lib/cmake/CycloneDDS' >> ~/.bashrc
-echo 'export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:~/ware_ws/src/multi_robots_rmf_nav2/models' >> ~/.bashrc
-```
-
-### Если CMake все еще не находит CycloneDDS, попробуйте явно указать путь в переменной CycloneDDS_DIR:
+#### Если CMake все еще не находит CycloneDDS, попробуйте явно указать путь в переменной CycloneDDS_DIR:
 
 ```bash
 export CycloneDDS_DIR=/usr/local/lib/cmake/CycloneDDS
 source ~/.bashrc
 ```
 
-#### Перезагрузка компьютера после выполнения вышеуказанных команд
+##### Перезагрузка компьютера после выполнения вышеуказанных команд
 
-## Запуск робота в мире склада:
+### Запуск робота в мире склада:
 
 ```bash
 ros2 launch warehouse_bot launch_sim.launch.py
 ```
 
-### Управление через клавиатуру:
+#### Управление через клавиатуру:
 
 ```bash
 ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ```
 
-### Навигация:
+#### Навигация:
 
 ```bash
 ros2 launch warehouse_bot nav2.launch.py use_sim_time:=true
@@ -86,7 +68,7 @@ ros2 launch warehouse_bot localization_launch.py
 ```
 
 ## Запуск множества роботов с RMF и Nav2:
-### Настройка точек спавна в RMF:
+#### Настройка точек спавна в RMF:
 
 ```bash
 traffic-editor
@@ -95,20 +77,20 @@ traffic-editor
 ~/ware_ws/src/rmf/rmf_sim/map/ware.building.yaml
 ```
 
-### Обновление координат спавна из RMF и запуск множества роботов с Nav2 и RMF:
+#### Обновление координат спавна из RMF и запуск множества роботов с Nav2 и RMF:
 
 ```bash
 ros2 launch multi_robots_rmf_nav2 sim.launch.py 
 ros2 launch rmf_sim warehouse_sim.launch.xml headless:=false
 ```
 
-### Управление конкретным роботом:
+#### Управление конкретным роботом:
 
 ```bash
 ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/<robot_name>/cmd_vel
 ```
 
-### Отправка цели для RMF:
+#### Отправка цели для RMF:
 
 ```bash
 ros2 run rmf_demos_tasks dispatch_go_to_place -F v1 -R robot1 -p r1 --use_sim_time
@@ -119,25 +101,25 @@ ros2 run rmf_demos_tasks dispatch_go_to_place -F v1 -R robot1 -p r1 --use_sim_ti
     -p — конечная цель.
 
 ## Запуск RMF в веб-интерфейсе:
-### Запуск веб-интерфейса RMF:
+#### Запуск веб-интерфейса RMF:
 
 ```bash
 cd ware_ws/src/rmf-web/packages/dashboard
 pnpm start
 ```
 
-### Запуск роботов:
+#### Запуск роботов:
 
 ```bash
 ros2 launch multi_robots_rmf_nav2 sim.launch.py
 ros2 launch rmf_sim warehouse_sim.launch.xml server_uri:="ws://localhost:8000/_internal"
 ```
 
-### Доступ к веб-интерфейсу:
+#### Доступ к веб-интерфейсу:
 
-### Откройте браузер и перейдите по адресу: http://localhost:3000/robots
+#### Откройте браузер и перейдите по адресу: http://localhost:3000/robots
 
-### На данный момент задача отправки целей через веб-интерфейс RMF в разработке, поэтому цели можно отправлять через ноду:
+#### На данный момент задача отправки целей через веб-интерфейс RMF в разработке, поэтому цели можно отправлять через ноду:
 
 ```bash
 ros2 run rmf_demos_tasks dispatch_go_to_place -F v1 -R robot1 -p r1 --use_sim_time
