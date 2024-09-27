@@ -63,6 +63,8 @@ cd ware_ws/src/rmf-web
 pnpm install
 ```
 
+##### Перезагрузка компьютера после выполнения вышеуказанных команд
+
 #### Если CMake все еще не находит CycloneDDS, попробуйте явно указать путь в переменной CycloneDDS_DIR:
 
 ```bash
@@ -70,7 +72,7 @@ export CycloneDDS_DIR=/usr/local/lib/cmake/CycloneDDS
 source ~/.bashrc
 ```
 
-##### Перезагрузка компьютера после выполнения вышеуказанных команд
+
 
 ## Запуск робота в мире склада:
 
