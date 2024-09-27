@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <robot name="robot_1" xmlns:xacro="http://ros.org/wiki/xacro">
-
+    <xacro:arg name="gpu" default="false"/>
+    <xacro:property name="gpu" value="$(arg gpu)" />
     <material name="Black">
       <color rgba="0 0 0 1" />
     </material>
@@ -179,7 +180,7 @@
 
 
   
-  <link name="line_lidar_1">
+  <!-- <link name="line_lidar_1">
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="1"/>
@@ -197,7 +198,7 @@
         <mesh filename="file://$(find warehouse_bot)/meshes/16line_lidar_1.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
-  </link>
+  </link> -->
 
 
 
@@ -248,7 +249,7 @@
   </joint>
 
 
-  <!-- <xacro:sensor_d435_1 name="camera1" topics_ns="camera1" parent="chassis" publish_pointcloud="true">
+  <xacro:sensor_d435_1 name="camera1" topics_ns="camera1" parent="chassis" publish_pointcloud="true">
     <origin xyz="-0.46 0.19 0.05" rpy="0 0 3.14" />
   </xacro:sensor_d435_1>  
 
@@ -258,15 +259,15 @@
 
   <xacro:sensor_d435_3 name="camera3" topics_ns="camera3" parent="chassis" publish_pointcloud="true">
     <origin xyz="1.0 0.0 1.77" rpy="0 2.2 3.14" />
-  </xacro:sensor_d435_3>   -->
+  </xacro:sensor_d435_3>  
 
 
 
-  <joint name="16line_lidar_joint" type="fixed">
+  <!-- <joint name="16line_lidar_joint" type="fixed">
     <origin xyz="1.1 0.0 2.24" rpy="0 0 0"/>
     <parent link="chassis"/>
     <child link="line_lidar_1"/>
-  </joint>
+  </joint> -->
 
   <joint name="laser_joint1" type="fixed">
     <origin xyz="1.6 0.0 0.02" rpy="0 0 0"/>
@@ -274,9 +275,13 @@
     <child link="laser_frame_under"/>
   </joint> 
 
-  <!-- <xacro:mid360 name="livox" parent="chassis" topic="mid360">
+  <xacro:RS-16 parent="chassis" name="robosense" topic="/rs_points" hz="20" samples="360" gpu="${gpu}">
+    <origin xyz="1.1 0.0 2.24" rpy="0 0 0" />
+  </xacro:RS-16>
+
+  <xacro:mid360 name="livox" parent="chassis" topic="mid360">
     <origin xyz="1.175 0.0 1.67" rpy="3.14 0 0"/>
-  </xacro:mid360> -->
+  </xacro:mid360>
   
 
 </robot>

@@ -1,0 +1,5 @@
+robots:
+  - namespace: AGV1
+    initial_position:
+      x: 104.287
+      y: -571.302

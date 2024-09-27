@@ -36,7 +36,7 @@ private:
 
   double L = 1.1;
   double T = 0.4;
-  double maxsteer_inside = 0.7853;
+  double maxsteer_inside = 1.5708;
   double wheel_radius = 0.075;
   double max_wheel_turn_speed = 167;
 
@@ -50,6 +50,7 @@ private:
 
   double linear_velocity = 0.0;
   double angular_velocity = 0.0;
+  
   
   rclcpp::Publisher<Float64MultiArray>::SharedPtr steering_pub;
   rclcpp::Publisher<Float64MultiArray>::SharedPtr throttling_pub;
@@ -73,7 +74,6 @@ private:
   }
 
   void process_cmd_vel_data(){
-
     if(verbose){
       RCLCPP_INFO(this->get_logger(), "linear_velocity=%f", linear_velocity);
       RCLCPP_INFO(this->get_logger(), "angular_velocity=%f", angular_velocity);
@@ -136,7 +136,11 @@ private:
             (omega_turning_speed * distance_to_turning_point_front_wheel) / wheel_radius
         );
 
-        alfa_front_wheel = asin((omega_turning_speed * L) / linear_velocity);
+        // Изменено с asin на atan
+        alfa_front_wheel = atan((omega_turning_speed * L) / linear_velocity);
+
+        // Ограничение угла до 90 градусов
+        alfa_front_wheel = std::min(alfa_front_wheel, 1.5708); // 90 градусов в радианах
     } else {
         wheel_turning_speed_front_wheel = limit_wheel_speed(linear_velocity / wheel_radius);
         alfa_front_wheel = 0.0;

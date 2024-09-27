@@ -23,9 +23,10 @@ find_package(urdf REQUIRED)
 
 # Install other directories
 install(
-  DIRECTORY config urdf launch meshes world models robots_config
+  DIRECTORY config urdf launch meshes world models robots_config maps rviz
   DESTINATION share/${PROJECT_NAME}
 )
+
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)

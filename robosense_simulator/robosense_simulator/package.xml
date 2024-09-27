@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>robosense_simulator</name>
+  <version>1.0.0</version>
+  <description>
+    Metapackage allowing easy installation of Robosense simulation components.
+  </description>
+
+  <license>BSD</license>
+  <author>Jerome Justin</author>
+  <maintainer email="jerome.justin@sydney.edu.au">Jerome Justin</maintainer>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <exec_depend>robosense_description</exec_depend>
+  <exec_depend>robosense_gazebo_plugins</exec_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

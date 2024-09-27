@@ -11,13 +11,11 @@ controller_manager:
 
     forward_position_controller:
       type: forward_command_controller/ForwardCommandController
-
 forward_position_controller:
   ros__parameters:
     joints:
       - front_steering_hinge_joint
     interface_name: position
-
 velocity_controller:
   ros__parameters:
     joints:
@@ -29,7 +27,6 @@ velocity_controller:
     state_interfaces:
       - position
       - velocity
-
 joint_state_broadcaster:
   ros__parameters:
     joints:
@@ -40,3 +37,4 @@ joint_state_broadcaster:
     state_interfaces:
       - position
       - velocity
+
