@@ -4,20 +4,6 @@
 
 Следуйте инструкциям, чтобы установить ROS2 с необходимыми зависимостями, как указано в [install.txt](https://github.com/robosharing/warehouse_bot/blob/main/install.txt).
 
-#### Создание рабочего пространства:
-
-```bash
-mkdir -p ware_ws/src && cd $_
-git clone https://github.com/robosharing/warehouse_bot.git . -b develop-rmf
-cd Livox-SDK2 && rm -rf build && mkdir build && cd build
-cmake .. && make -j && sudo make install
-cd ~/ware_ws/src/livox_ros_driver2 && source /opt/ros/humble/setup.sh
-./build.sh humble  # игнорируем предупреждения
-cd ~/ware_ws && colcon build  # до исчезновения предупреждений
-source /opt/ros/humble/setup.bash && source install/local_setup.bash
-rosdep update && rosdep install --from-paths src --ignore-src -r -y
-```
-
 #### Устанавливаем rmf:
 
 ```bash
@@ -40,6 +26,20 @@ colcon mixin add default https://raw.githubusercontent.com/colcon/colcon-mixin-r
 colcon mixin update default
 
 sudo apt update && sudo apt install ros-humble-rmf-dev
+```
+
+#### Создание рабочего пространства:
+
+```bash
+mkdir -p ware_ws/src && cd $_
+git clone https://github.com/robosharing/warehouse_bot.git . -b develop-rmf
+cd Livox-SDK2 && rm -rf build && mkdir build && cd build
+cmake .. && make -j && sudo make install
+cd ~/ware_ws/src/livox_ros_driver2 && source /opt/ros/humble/setup.sh
+./build.sh humble  # игнорируем предупреждения
+cd ~/ware_ws && colcon build  # до исчезновения предупреждений
+source /opt/ros/humble/setup.bash && source install/local_setup.bash
+rosdep update && rosdep install --from-paths src --ignore-src -r -y
 ```
 
 #### Настройка окружения
