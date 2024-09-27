@@ -160,10 +160,10 @@ def generate_launch_description():
                 "verbose": False,
                 'publish_rate': 50,
                 'open_loop': False,
-                'has_imu_heading': False,
+                'has_imu_heading': True,
                 'is_gazebo': True,
                 'wheel_radius': 0.075,
-                'imu_topic': "/data/imu",
+                'imu_topic': f"{namespace}/imu",
                 'base_frame_id': "base_footprint",
                 'odom_frame_id': "odom",
                 'lr_wheel_joint_name': 'lr_wheel_joint',
@@ -241,7 +241,6 @@ def generate_launch_description():
         robot_actions = GroupAction([
             SetRemap(src="/tf", dst="tf"),
             SetRemap(src="/tf_static", dst="tf_static"),
-            SetRemap(src="/scan2", dst="scan2"),
             spawn_entity,
             robot_state_publisher,
             joint_state_publisher,
@@ -251,7 +250,6 @@ def generate_launch_description():
         controllers_action = GroupAction([
             SetRemap(src="/tf", dst="tf"),
             SetRemap(src="/tf_static", dst="tf_static"),
-            SetRemap(src="/scan2", dst="scan2"),
             spawn_controller_1,
             spawn_controller_2,
             spawn_controller_3,
@@ -261,7 +259,6 @@ def generate_launch_description():
         nav2_actions = GroupAction([
             SetRemap(src="/tf", dst="tf"),
             SetRemap(src="/tf_static", dst="tf_static"),
-            SetRemap(src="/scan2", dst="scan2"),
             bringup_cmd,
             initial_pose_cmd,
         ])
@@ -269,7 +266,6 @@ def generate_launch_description():
         rmf_actions = GroupAction([
             SetRemap(src="/tf", dst="tf"),
             SetRemap(src="/tf_static", dst="tf_static"),
-            SetRemap(src="/scan2", dst="scan2"),
             fleet_client,
         ])
 

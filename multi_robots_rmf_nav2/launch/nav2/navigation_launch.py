@@ -41,7 +41,7 @@ def generate_launch_description():
     # https://github.com/ros/robot_state_publisher/pull/30
     # TODO(orduno) Substitute with `PushNodeRemapping`
     #              https://github.com/ros2/launch_ros/issues/56
-    remappings = [("/tf", "tf"), ("/tf_static", "tf_static")]
+    remappings = [("/tf", "tf"), ("/tf_static", "tf_static"),('/scan2', [namespace, '/scan2'] )]
 
     # Create our own temporary YAML files that include substitutions
     param_substitutions = {"use_sim_time": use_sim_time, "autostart": autostart}
@@ -53,7 +53,7 @@ def generate_launch_description():
             # Set env var to print messages to stdout immediately
             SetEnvironmentVariable("RCUTILS_LOGGING_BUFFERED_STREAM", "1"),
             DeclareLaunchArgument("namespace", default_value="", description="Top-level namespace"),
-            DeclareLaunchArgument("use_sim_time", default_value="false", description="Use simulation (Gazebo) clock if true"),
+            DeclareLaunchArgument("use_sim_time", default_value="true", description="Use simulation (Gazebo) clock if true"),
             DeclareLaunchArgument("autostart", default_value="true", description="Automatically startup the nav2 stack"),
             DeclareLaunchArgument("params_file", default_value=os.path.join(bringup_dir, "params", "nav2_params.yaml"), description="Full path to the ROS2 parameters file to use"),
             Node(package="nav2_controller", executable="controller_server", output="screen", parameters=[configured_params], remappings=remappings),

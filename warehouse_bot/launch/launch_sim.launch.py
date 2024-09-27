@@ -147,7 +147,7 @@ def generate_launch_description():
         robot_state_publisher,
         joint_state_publisher,
         spawn_entity,
-        # rqt_robot_steering,
+        rqt_robot_steering,
         RegisterEventHandler(
             event_handler=OnProcessExit(
                 target_action=spawn_entity,
