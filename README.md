@@ -21,6 +21,7 @@ rosdep update && rosdep install --from-paths src --ignore-src -r -y
 #### Настройка окружения
 
 ```bash
+cd ~/ware_ws/
 source /opt/ros/humble/setup.bash && source install/local_setup.bash
 rosdep update && rosdep install --from-paths src --ignore-src -r -y
 echo 'export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:/usr/local/lib/cmake/CycloneDDS' >> ~/.bashrc
