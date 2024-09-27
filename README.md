@@ -4,7 +4,7 @@
 
 Следуйте инструкциям, чтобы установить ROS2 с необходимыми зависимостями, как указано в [install.txt](https://github.com/robosharing/warehouse_bot/blob/main/install.txt).
 
-#### Установка ROS2 и RMF:
+#### Создание рабочего пространства:
 
 ```bash
 mkdir -p ware_ws/src && cd $_
@@ -16,6 +16,30 @@ cd ~/ware_ws/src/livox_ros_driver2 && source /opt/ros/humble/setup.sh
 cd ~/ware_ws && colcon build  # до исчезновения предупреждений
 source /opt/ros/humble/setup.bash && source install/local_setup.bash
 rosdep update && rosdep install --from-paths src --ignore-src -r -y
+```
+
+#### Устанавливаем rmf:
+
+```bash
+sudo apt update && sudo apt install \
+  python3-pip \
+  curl \
+  python3-colcon-mixin \
+  ros-dev-tools \
+  -y
+
+sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list'
+wget https://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
+
+python3 -m pip install flask-socketio fastapi uvicorn datamodel_code_generator
+
+sudo rosdep init # run if first time using rosdep.
+rosdep update
+
+colcon mixin add default https://raw.githubusercontent.com/colcon/colcon-mixin-repository/master/index.yaml
+colcon mixin update default
+
+sudo apt update && sudo apt install ros-humble-rmf-dev
 ```
 
 #### Настройка окружения
