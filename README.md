@@ -147,3 +147,12 @@ ros2 launch rmf_sim warehouse_sim.launch.xml server_uri:="ws://localhost:8000/_i
 
 ```
 
+на данный момент таски из сайта rmf в разработке, поэтому отправляем цель через ноду:
+
+
+отправить цель для RMF: 
+
+```bash
+ros2 run rmf_demos_tasks dispatch_go_to_place -F v1 -R robot1 -p r1 --use_sim_time
+```
+
