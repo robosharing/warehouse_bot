@@ -13,6 +13,7 @@ colcon mixin update default
 sudo apt update && sudo apt install ros-humble-rmf-dev
 ```
 
+
 make workspace and colcon build:
 
 ```bash
@@ -32,11 +33,34 @@ cd ~/ware_ws
 colcon build (несколько раз, пока без предупреждения не исчезнут)
 source /opt/ros/humble/setup.bash
 source install/local_setup.bash
+sudo rosdep init
+rosdep update
+rosdep install --from-paths src --ignore-src -r -y
+```
+
+rmf_web:
+
+```bash
+curl -fsSL https://get.pnpm.io/install.sh | bash -
+pnpm env use --global 20
+pip3 install pipenv
+sudo apt install python3-venv
+
+cd ware_ws/src/rmf-web
+pnpm install
+
+```
+
+НАСТРАИВАЕМ ОКРУЖЕНИЕ
+
+```bash
 echo 'export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:/usr/local/lib/cmake/CycloneDDS' >> ~/.bashrc
 echo 'export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:~/ware_ws/src/multi_robots_rmf_nav2/models' >> ~/.bashrc
 Если CMake все еще не находит CycloneDDS, попробуйте явно указать путь в переменной CycloneDDS_DIR: 
 export CycloneDDS_DIR=/usr/local/lib/cmake/CycloneDDS
 source ~/.bashrc
+
+после этого перезапустить пк
 ```
 
 ЗАПУСК РОБОТА В МИРЕ СКЛАДА:
@@ -74,15 +98,13 @@ traffic-editor
 ```
 
 
-
-
 ОБНОВЛЯЕМ КООРДИНАТЫ СПАВНА ИЗ РМФ
 ЗАПУСК МНОЖЕСТВА РОБОТОВ С НАВ2 И РМФ
 ЗАПУСК ВИЗУАЛИЗАЦИИ РМФ
 
 ```bash
-ros2 launch multi_robots_rmf_nav2 sim.launch.py
-ros2 launch rmf_sim warehouse_sim.launch.xml
+ros2 launch multi_robots_rmf_nav2 sim.launch.py 
+ros2 launch rmf_sim warehouse_sim.launch.xml headless:=false
 ```
 
 
@@ -106,3 +128,22 @@ ros2 run rmf_demos_tasks dispatch_go_to_place -F v1 -R robot1 -p r1 --use_sim_ti
  -R  имя робота
 
  -p  конечная цель
+
+
+
+ЗАПУСК В WEB-RMF:
+
+запуск web-rmf:
+
+```bash
+cd ware_ws/src/rmf-web/packages/dashboard
+pnpm start
+```
+запускаем роботов:
+
+```bash
+ros2 launch multi_robots_rmf_nav2 sim.launch.py
+ros2 launch rmf_sim warehouse_sim.launch.xml server_uri:="ws://localhost:8000/_internal"
+
+```
+
