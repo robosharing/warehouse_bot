@@ -155,7 +155,7 @@ ros2 run rmf_demos_tasks dispatch_go_to_place -F v1 -R robot1 -p r1 --use_sim_ti
 
 ## ЗАПУСК С ДОКЕРА
 
-# билд докера:
+### билд докера:
 
 ```bash
 mkdir -p ware_ws/src && cd $_
@@ -164,7 +164,7 @@ docker build -t ware_sim .
 ```
 
 
-# запуск докера
+### запуск докера
 ```bash
 xhost +local:docker
 docker run -it \
@@ -176,13 +176,13 @@ docker run -it \
     ware_sim /bin/bash
 ```
 
-# внутри не забываем 
+### внутри не забываем 
 ```bash
 source /opt/ros/humble/setup.bash
 source /ware_ws/install/local_setup.bash
 ```
 
-# запускам теми же командами например
+### запускам теми же командами например
 ```bash
 запуск роботов
 
