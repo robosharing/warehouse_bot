@@ -70,17 +70,20 @@ def generate_launch_description():
 
     # Подготовка серверной карты и диспетчера жизненного цикла
     remappings = [('/tf', 'tf'), ('/tf_static', 'tf_static')]
-    
+
     # Запуск роботов
     last_action = None
     for robot in robots:
         name = robot['name']
         namespace = '/' + robot['name']
-
+        
         # Публикация описания робота через xacro
-        robot_desc = xacro.process_file(xacro_path).toxml()
-        params = {'robot_description': robot_desc}
-        print(f"Запуск robot_state_publisher для {name}")
+        robot_desc = xacro.process_file(
+            xacro_path,
+            mappings={'robot_name': name}
+        ).toxml()   
+        params = {'robot_description': robot_desc }
+        print(f"Запуск robot_state_publisher для {namespace}")
 
         # Узел публикации состояния робота
         robot_state_publisher = Node(
@@ -244,7 +247,8 @@ def generate_launch_description():
             spawn_entity,
             robot_state_publisher,
             joint_state_publisher,
-            odometry_node,            
+            odometry_node,     
+
         ])
 
         controllers_action = GroupAction([
@@ -253,7 +257,7 @@ def generate_launch_description():
             spawn_controller_1,
             spawn_controller_2,
             spawn_controller_3,
-            rlcar_gazebo_controller,
+            rlcar_gazebo_controller,       
         ])
 
         nav2_actions = GroupAction([
