@@ -37,7 +37,7 @@
 
     </ros2_control>
 
-    <gazebo>
+    <gazebo> 
         <plugin name="robot_gazebo_ros2_control" filename="libgazebo_ros2_control.so">
             <parameters>$(find warehouse_bot)/config/tricycle_drive_controller.yaml</parameters>
         </plugin>

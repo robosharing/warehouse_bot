@@ -31,6 +31,7 @@ levels:
       - [99, 100, {bidirectional: [4, true], demo_mock_floor_name: [1, ""], demo_mock_lift_name: [1, ""], graph_idx: [2, 0], orientation: [1, ""], speed_limit: [3, 0]}]
       - [100, 101, {bidirectional: [4, true], demo_mock_floor_name: [1, ""], demo_mock_lift_name: [1, ""], graph_idx: [2, 0], orientation: [1, ""], speed_limit: [3, 0]}]
       - [101, 1, {bidirectional: [4, true], demo_mock_floor_name: [1, ""], demo_mock_lift_name: [1, ""], graph_idx: [2, 0], orientation: [1, ""], speed_limit: [3, 0]}]
+      - [102, 103, {bidirectional: [4, true], demo_mock_floor_name: [1, ""], demo_mock_lift_name: [1, ""], graph_idx: [2, 0], orientation: [1, ""], speed_limit: [3, 0]}]
     layers:
       {}
     measurements:
@@ -139,6 +140,8 @@ levels:
       - [752.73900000000003, 1056.9480000000001, 0, ""]
       - [1115.971, 1059.0419999999999, 0, ""]
       - [1114.924, 818.28200000000004, 0, ""]
+      - [343.142, 413.93299999999999, 0, robot2, {is_charger: [4, true], is_parking_spot: [4, true], spawn_robot_name: [1, robot2], spawn_robot_type: [1, cloudy]}]
+      - [958.36900000000003, 413.93299999999999, 0, r2, {is_parking_spot: [4, true]}]
     walls:
       - [5, 6, {alpha: [3, 1], texture_height: [3, 2.5], texture_name: [1, default], texture_scale: [3, 1], texture_width: [3, 1]}]
       - [6, 7, {alpha: [3, 1], texture_height: [3, 2.5], texture_name: [1, default], texture_scale: [3, 1], texture_width: [3, 1]}]

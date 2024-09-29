@@ -1,17 +1,18 @@
 <?xml version="1.0"?>
 <robot name="robot_1" xmlns:xacro="http://ros.org/wiki/xacro">
-
-
+    <xacro:arg name="robot_name" default="robot1"/>
     <!-- <xacro:include filename="$(find ros2_livox_simulation)/urdf/mid360.xacro" />
     <xacro:include filename="$(find multi_robots_rmf_nav2)/urdf/_d435.urdf2.xacro" />
     <xacro:include filename="$(find multi_robots_rmf_nav2)/urdf/_d435.urdf1.xacro" />
     <xacro:include filename="$(find multi_robots_rmf_nav2)/urdf/_d435.urdf3.xacro" />
     <xacro:include filename="$(find robosense_description)/urdf/RS-16.urdf.xacro"/> -->
-    <xacro:include filename="$(find multi_robots_rmf_nav2)/urdf/materials.xacro" />
-    <xacro:include filename="$(find multi_robots_rmf_nav2)/urdf/macros.xacro" />
-    <xacro:include filename="$(find multi_robots_rmf_nav2)/urdf/ros2_control.xacro" />
-    <xacro:include filename="$(find multi_robots_rmf_nav2)/urdf/warehouse_bot.xacro" />
+    <!-- Определение аргумента для namespace с дефолтным значением -->
+    <xacro:include filename="$(find multi_robots_rmf_nav2)/urdf/materials.xacro"/>
+    <xacro:include filename="$(find multi_robots_rmf_nav2)/urdf/macros.xacro"/>
+    <xacro:include filename="$(find multi_robots_rmf_nav2)/urdf/warehouse_bot.xacro"/>
+    <xacro:include filename="$(find multi_robots_rmf_nav2)/urdf/gazebo_control.xacro"/>
+    <xacro:include filename="$(find multi_robots_rmf_nav2)/urdf/ros2_control.xacro"/>
 
-    <xacro:include filename="$(find multi_robots_rmf_nav2)/urdf/gazebo_control.xacro" /> 
-    
+    <xacro:robot_gazebo_systems robot_name="$(arg robot_name)"/>
+    <xacro:robot_gazebo_sensors robot_name="$(arg robot_name)"/>
 </robot>
