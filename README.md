@@ -151,3 +151,56 @@ ros2 launch rmf_sim warehouse_sim.launch.xml server_uri:="ws://localhost:8000/_i
 ```bash
 ros2 run rmf_demos_tasks dispatch_go_to_place -F v1 -R robot1 -p r1 --use_sim_time
 ```
+
+
+## ЗАПУСК С ДОКЕРА
+
+# билд докера:
+
+```bash
+mkdir -p ware_ws/src && cd $_
+git clone https://github.com/robosharing/warehouse_bot.git 
+docker build -t ware_sim .
+```
+
+
+# запуск докера
+```bash
+xhost +local:docker
+docker run -it \
+    --env="DISPLAY" \
+    --env="QT_X11_NO_MITSHM=1" \
+    --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
+    --env="XAUTHORITY=$XAUTH" \
+    --net=host \
+    ware_sim /bin/bash
+```
+
+# внутри не забываем 
+```bash
+source /opt/ros/humble/setup.bash
+source /ware_ws/install/local_setup.bash
+```
+
+# запускам теми же командами например
+```bash
+запуск роботов
+
+docker run -it \
+    --env="DISPLAY" \
+    --env="QT_X11_NO_MITSHM=1" \
+    --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
+    --net=host \
+    ware_sim /bin/bash -c -c "source /opt/ros/humble/setup.bash && source /ware_ws/install/local_setup.bash && export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/ware_ws/src/multi_robots_rmf_nav2/models && export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:/usr/local/lib/cmake/CycloneDDS && ros2 launch multi_robots_rmf_nav2 sim.launch.py"
+
+запуск флит адаптера с рвизом
+
+docker run -it \
+    --env="DISPLAY" \
+    --env="QT_X11_NO_MITSHM=1" \
+    --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
+    --net=host \
+    ware_sim /bin/bash -c -c "source /opt/ros/humble/setup.bash && source /ware_ws/install/local_setup.bash && export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/ware_ws/src/multi_robots_rmf_nav2/models && export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:/usr/local/lib/cmake/CycloneDDS && ros2 launch rmf_sim warehouse_sim.launch.xml headless:=false"
+
+и т.д.
+```
