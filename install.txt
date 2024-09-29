@@ -27,6 +27,6 @@
 
 ### НЕОБОХОДИМЫЕ ПАКЕТЫ ДЛЯ РАБОТЫ СИМУЛЯЦИИ
 
-sudo apt install gazebo ros-humble-ros2-control ros-humble-ros2-controllers ros-humble-gazebo-ros2-control ros-humble-xacro ros-humble-slam-toolbox ros-humble-nav2-bringup ros-humble-navigation2 ros-humble-camera-info-manager ros-humble-gazebo-plugins ros-humble-joint-state-publisher ros-humble-rqt-robot-steering ros-humble-gazebo-ros-pkgs ros-humble-rmw-cyclonedds-cpp ros-humble-cyclonedds 
+sudo apt install gazebo ros-humble-ros2-control ros-humble-ros2-controllers ros-humble-xacro ros-humble-slam-toolbox ros-humble-nav2-bringup ros-humble-navigation2 ros-humble-camera-info-manager ros-humble-gazebo-plugins ros-humble-joint-state-publisher ros-humble-rqt-robot-steering ros-humble-gazebo-ros-pkgs ros-humble-rmw-cyclonedds-cpp ros-humble-cyclonedds 
 
 
