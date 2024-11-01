@@ -1,0 +1,25 @@
+<?xml version='1.0' ?>
+
+<launch>
+  <arg name="use_sim_time" default="true"/>
+  <arg name="failover_mode" default="true"/>
+  <arg name="server_uri" default="http://localhost:8000/_internal"/> <!-- Добавьте эту строку -->
+  <!-- Common launch -->
+  <include file="$(find-pkg-share rmf_sim)/rmf.launch.xml">
+    <arg name="use_sim_time" value="$(var use_sim_time)"/>
+    <arg name="viz_config_file" value ="$(find-pkg-share rmf_sim)/config/def.rviz"/>
+    <arg name="config_file" value="$(find-pkg-share rmf_sim)/map/ware.building.yaml"/>
+  </include>
+
+  <!-- TinyRobot fleet adapter -->
+  <group> 
+    <let name="fleet_name" value="v1"/>
+    <include file="$(find-pkg-share rmf_sim)/fleet_adapter.xml">
+      <arg name="fleet_name" value="$(var fleet_name)"/>
+      <arg name="use_sim_time" value="$(var use_sim_time)"/>
+      <arg name="nav_graph_file" value="$(find-pkg-share rmf_sim)/map/ware/nav_graphs/0.yaml" />
+      <arg name="server_uri" value="$(var server_uri)"/>
+    </include>
+  </group>
+
+</launch>

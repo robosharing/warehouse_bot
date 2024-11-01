@@ -88,8 +88,12 @@ foreach(path ${traffic_editor_paths})
   # This will initiate both custom commands: ${output_world_path} and ${world_name}_crowdsim
   add_custom_target(generate_${world_name}_crowdsim ALL
     DEPENDS ${world_name}_crowdsim
-  )  
-
+  )
+    
+  install(PROGRAMS
+    src/update_coordinate.py
+    DESTINATION lib/${PROJECT_NAME}
+  )
 
 
   ##############################################################################

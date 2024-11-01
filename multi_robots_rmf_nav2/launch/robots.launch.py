@@ -216,29 +216,6 @@ def generate_launch_description():
             output='screen'
         )
 
-        # Узел клиента RMF
-        fleet_client = Node(
-            package='free_fleet_client_ros2',
-            executable='free_fleet_client_ros2',
-            name=f"{name}_ff_client_node",
-            namespace=namespace,
-            output='both',
-            parameters=[
-                {'fleet_name': 'v1'},
-                {'robot_name': name},
-                {'robot_model': 'cloudy'},
-                {'level_name': 'L1'},
-                {'dds_domain': 42},
-                {'max_dist_to_first_waypoint': 10.00},
-                {'map_frame': 'map'},
-                {'robot_frame': 'base_footprint'},
-                {'nav2_server_name': namespace + '/navigate_to_pose'},
-                {'battery_state_topic': namespace + '/battery_state'},
-                {'update_frequency': 20.0},
-                {'publish_frequency': 2.0},
-                {'use_sim_time': True}
-            ]
-        )
 
         # Группы действий для робота
         robot_actions = GroupAction([
@@ -267,18 +244,12 @@ def generate_launch_description():
             initial_pose_cmd,
         ])
 
-        rmf_actions = GroupAction([
-            SetRemap(src="/tf", dst="tf"),
-            SetRemap(src="/tf_static", dst="tf_static"),
-            fleet_client,
-        ])
 
         # Условное добавление действий
         if last_action is None:
             ld.add_action(robot_actions)
             ld.add_action(controllers_action)
             ld.add_action(nav2_actions)
-            ld.add_action(rmf_actions)
             ld.add_action(rviz)
         else:
             spawn_event_handler = RegisterEventHandler(
@@ -286,7 +257,6 @@ def generate_launch_description():
                     target_action=last_action,
                     on_exit=[
                         rviz,
-                        rmf_actions,
                         nav2_actions,
                         controllers_action,
                         robot_actions,

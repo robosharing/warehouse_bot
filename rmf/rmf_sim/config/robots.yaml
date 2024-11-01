@@ -1,0 +1,22 @@
+robots:
+  - name: robot1
+    x_pose: '0'
+    y_pose: '0'
+    z_pose: '0.06'
+    Y_pose: '0.78535'
+  # - name: robot2
+  #   x_pose: '0'
+  #   y_pose: '10'  
+  #   z_pose: '0.06'
+  #   Y_pose: '0.78535'
+  # - name: robot3
+  #   x_pose: '0'
+  #   y_pose: '20'
+  #   z_pose: '0.06'
+  #   Y_pose: '0.78535'
+  # - name: robot4
+  #   x_pose: '0'
+  #   y_pose: '40'
+  #   z_pose: '0.06'
+  #   Y_pose: '0.78535'
+  # # Добавьте другие роботы по мере необходимости
