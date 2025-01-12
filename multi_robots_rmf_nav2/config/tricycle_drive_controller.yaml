@@ -1,4 +1,4 @@
-robot1:  
+/**:  
   controller_manager:
     ros__parameters:
       update_rate: 100 # Hz
@@ -39,43 +39,376 @@ robot1:
         - position
         - velocity
 
-robot2:  
-  controller_manager:
-    ros__parameters:
-      update_rate: 100 # Hz
-      use_sim_time: true
+# robot2:  
+#   controller_manager:
+#     ros__parameters:
+#       update_rate: 100 # Hz
+#       use_sim_time: true
 
-      velocity_controller:
-        type: velocity_controllers/JointGroupVelocityController
+#       velocity_controller:
+#         type: velocity_controllers/JointGroupVelocityController
 
-      joint_state_broadcaster:
-        type: joint_state_broadcaster/JointStateBroadcaster
+#       joint_state_broadcaster:
+#         type: joint_state_broadcaster/JointStateBroadcaster
 
-      forward_position_controller:
-        type: forward_command_controller/ForwardCommandController
-  forward_position_controller:
-    ros__parameters:
-      joints:
-        - front_steering_hinge_joint
-      interface_name: position
-  velocity_controller:
-    ros__parameters:
-      joints:
-        - lr_wheel_joint
-        - rr_wheel_joint
-        - front_wheel_joint
-      command_interfaces:
-        - velocity
-      state_interfaces:
-        - position
-        - velocity
-  joint_state_broadcaster:
-    ros__parameters:
-      joints:
-        - front_steering_hinge_joint
-        - lr_wheel_joint
-        - rr_wheel_joint
-        - front_wheel_joint
-      state_interfaces:
-        - position
-        - velocity
+#       forward_position_controller:
+#         type: forward_command_controller/ForwardCommandController
+#   forward_position_controller:
+#     ros__parameters:
+#       joints:
+#         - front_steering_hinge_joint
+#       interface_name: position
+#   velocity_controller:
+#     ros__parameters:
+#       joints:
+#         - lr_wheel_joint
+#         - rr_wheel_joint
+#         - front_wheel_joint
+#       command_interfaces:
+#         - velocity
+#       state_interfaces:
+#         - position
+#         - velocity
+#   joint_state_broadcaster:
+#     ros__parameters:
+#       joints:
+#         - front_steering_hinge_joint
+#         - lr_wheel_joint
+#         - rr_wheel_joint
+#         - front_wheel_joint
+#       state_interfaces:
+#         - position
+#         - velocity
+
+# robot3:  
+#   controller_manager:
+#     ros__parameters:
+#       update_rate: 100 # Hz
+#       use_sim_time: true
+
+#       velocity_controller:
+#         type: velocity_controllers/JointGroupVelocityController
+
+#       joint_state_broadcaster:
+#         type: joint_state_broadcaster/JointStateBroadcaster
+
+#       forward_position_controller:
+#         type: forward_command_controller/ForwardCommandController
+#   forward_position_controller:
+#     ros__parameters:
+#       joints:
+#         - front_steering_hinge_joint
+#       interface_name: position
+#   velocity_controller:
+#     ros__parameters:
+#       joints:
+#         - lr_wheel_joint
+#         - rr_wheel_joint
+#         - front_wheel_joint
+#       command_interfaces:
+#         - velocity
+#       state_interfaces:
+#         - position
+#         - velocity
+#   joint_state_broadcaster:
+#     ros__parameters:
+#       joints:
+#         - front_steering_hinge_joint
+#         - lr_wheel_joint
+#         - rr_wheel_joint
+#         - front_wheel_joint
+#       state_interfaces:
+#         - position
+#         - velocity
+
+# robot4:  
+#   controller_manager:
+#     ros__parameters:
+#       update_rate: 100 # Hz
+#       use_sim_time: true
+
+#       velocity_controller:
+#         type: velocity_controllers/JointGroupVelocityController
+
+#       joint_state_broadcaster:
+#         type: joint_state_broadcaster/JointStateBroadcaster
+
+#       forward_position_controller:
+#         type: forward_command_controller/ForwardCommandController
+#   forward_position_controller:
+#     ros__parameters:
+#       joints:
+#         - front_steering_hinge_joint
+#       interface_name: position
+#   velocity_controller:
+#     ros__parameters:
+#       joints:
+#         - lr_wheel_joint
+#         - rr_wheel_joint
+#         - front_wheel_joint
+#       command_interfaces:
+#         - velocity
+#       state_interfaces:
+#         - position
+#         - velocity
+#   joint_state_broadcaster:
+#     ros__parameters:
+#       joints:
+#         - front_steering_hinge_joint
+#         - lr_wheel_joint
+#         - rr_wheel_joint
+#         - front_wheel_joint
+#       state_interfaces:
+#         - position
+#         - velocity
+# robot5:  
+#   controller_manager:
+#     ros__parameters:
+#       update_rate: 100 # Hz
+#       use_sim_time: true
+
+#       velocity_controller:
+#         type: velocity_controllers/JointGroupVelocityController
+
+#       joint_state_broadcaster:
+#         type: joint_state_broadcaster/JointStateBroadcaster
+
+#       forward_position_controller:
+#         type: forward_command_controller/ForwardCommandController
+#   forward_position_controller:
+#     ros__parameters:
+#       joints:
+#         - front_steering_hinge_joint
+#       interface_name: position
+#   velocity_controller:
+#     ros__parameters:
+#       joints:
+#         - lr_wheel_joint
+#         - rr_wheel_joint
+#         - front_wheel_joint
+#       command_interfaces:
+#         - velocity
+#       state_interfaces:
+#         - position
+#         - velocity
+#   joint_state_broadcaster:
+#     ros__parameters:
+#       joints:
+#         - front_steering_hinge_joint
+#         - lr_wheel_joint
+#         - rr_wheel_joint
+#         - front_wheel_joint
+#       state_interfaces:
+#         - position
+#         - velocity
+
+# robot6:  
+#   controller_manager:
+#     ros__parameters:
+#       update_rate: 100 # Hz
+#       use_sim_time: true
+
+#       velocity_controller:
+#         type: velocity_controllers/JointGroupVelocityController
+
+#       joint_state_broadcaster:
+#         type: joint_state_broadcaster/JointStateBroadcaster
+
+#       forward_position_controller:
+#         type: forward_command_controller/ForwardCommandController
+#   forward_position_controller:
+#     ros__parameters:
+#       joints:
+#         - front_steering_hinge_joint
+#       interface_name: position
+#   velocity_controller:
+#     ros__parameters:
+#       joints:
+#         - lr_wheel_joint
+#         - rr_wheel_joint
+#         - front_wheel_joint
+#       command_interfaces:
+#         - velocity
+#       state_interfaces:
+#         - position
+#         - velocity
+#   joint_state_broadcaster:
+#     ros__parameters:
+#       joints:
+#         - front_steering_hinge_joint
+#         - lr_wheel_joint
+#         - rr_wheel_joint
+#         - front_wheel_joint
+#       state_interfaces:
+#         - position
+#         - velocity
+
+
+
+# robot7:  
+#   controller_manager:
+#     ros__parameters:
+#       update_rate: 100 # Hz
+#       use_sim_time: true
+
+#       velocity_controller:
+#         type: velocity_controllers/JointGroupVelocityController
+
+#       joint_state_broadcaster:
+#         type: joint_state_broadcaster/JointStateBroadcaster
+
+#       forward_position_controller:
+#         type: forward_command_controller/ForwardCommandController
+#   forward_position_controller:
+#     ros__parameters:
+#       joints:
+#         - front_steering_hinge_joint
+#       interface_name: position
+#   velocity_controller:
+#     ros__parameters:
+#       joints:
+#         - lr_wheel_joint
+#         - rr_wheel_joint
+#         - front_wheel_joint
+#       command_interfaces:
+#         - velocity
+#       state_interfaces:
+#         - position
+#         - velocity
+#   joint_state_broadcaster:
+#     ros__parameters:
+#       joints:
+#         - front_steering_hinge_joint
+#         - lr_wheel_joint
+#         - rr_wheel_joint
+#         - front_wheel_joint
+#       state_interfaces:
+#         - position
+#         - velocity
+
+
+# robot8:  
+#   controller_manager:
+#     ros__parameters:
+#       update_rate: 100 # Hz
+#       use_sim_time: true
+
+#       velocity_controller:
+#         type: velocity_controllers/JointGroupVelocityController
+
+#       joint_state_broadcaster:
+#         type: joint_state_broadcaster/JointStateBroadcaster
+
+#       forward_position_controller:
+#         type: forward_command_controller/ForwardCommandController
+#   forward_position_controller:
+#     ros__parameters:
+#       joints:
+#         - front_steering_hinge_joint
+#       interface_name: position
+#   velocity_controller:
+#     ros__parameters:
+#       joints:
+#         - lr_wheel_joint
+#         - rr_wheel_joint
+#         - front_wheel_joint
+#       command_interfaces:
+#         - velocity
+#       state_interfaces:
+#         - position
+#         - velocity
+#   joint_state_broadcaster:
+#     ros__parameters:
+#       joints:
+#         - front_steering_hinge_joint
+#         - lr_wheel_joint
+#         - rr_wheel_joint
+#         - front_wheel_joint
+#       state_interfaces:
+#         - position
+#         - velocity
+
+
+
+# robot9:  
+#   controller_manager:
+#     ros__parameters:
+#       update_rate: 100 # Hz
+#       use_sim_time: true
+
+#       velocity_controller:
+#         type: velocity_controllers/JointGroupVelocityController
+
+#       joint_state_broadcaster:
+#         type: joint_state_broadcaster/JointStateBroadcaster
+
+#       forward_position_controller:
+#         type: forward_command_controller/ForwardCommandController
+#   forward_position_controller:
+#     ros__parameters:
+#       joints:
+#         - front_steering_hinge_joint
+#       interface_name: position
+#   velocity_controller:
+#     ros__parameters:
+#       joints:
+#         - lr_wheel_joint
+#         - rr_wheel_joint
+#         - front_wheel_joint
+#       command_interfaces:
+#         - velocity
+#       state_interfaces:
+#         - position
+#         - velocity
+#   joint_state_broadcaster:
+#     ros__parameters:
+#       joints:
+#         - front_steering_hinge_joint
+#         - lr_wheel_joint
+#         - rr_wheel_joint
+#         - front_wheel_joint
+#       state_interfaces:
+#         - position
+#         - velocity
+
+
+# robot10:  
+#   controller_manager:
+#     ros__parameters:
+#       update_rate: 100 # Hz
+#       use_sim_time: true
+
+#       velocity_controller:
+#         type: velocity_controllers/JointGroupVelocityController
+
+#       joint_state_broadcaster:
+#         type: joint_state_broadcaster/JointStateBroadcaster
+
+#       forward_position_controller:
+#         type: forward_command_controller/ForwardCommandController
+#   forward_position_controller:
+#     ros__parameters:
+#       joints:
+#         - front_steering_hinge_joint
+#       interface_name: position
+#   velocity_controller:
+#     ros__parameters:
+#       joints:
+#         - lr_wheel_joint
+#         - rr_wheel_joint
+#         - front_wheel_joint
+#       command_interfaces:
+#         - velocity
+#       state_interfaces:
+#         - position
+#         - velocity
+#   joint_state_broadcaster:
+#     ros__parameters:
+#       joints:
+#         - front_steering_hinge_joint
+#         - lr_wheel_joint
+#         - rr_wheel_joint
+#         - front_wheel_joint
+#       state_interfaces:
+#         - position
+#         - velocity

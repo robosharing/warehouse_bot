@@ -1,8 +1,8 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
     <xacro:macro  name="robot_gazebo_systems" params="robot_name">
-        <ros2_control name="${robot_name}_GazeboSystem" type="system">
+        <ros2_control name="${robot_name}_IgnitionSystem" type="system">
             <hardware>
-                <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+                <plugin>ign_ros2_control/IgnitionSystem</plugin>
             </hardware>
             <!-- velocity controller -->
             <joint name="lr_wheel_joint">
@@ -38,7 +38,7 @@
 
         <gazebo>
 
-            <plugin filename="libgazebo_ros2_control.so" name="${robot_name}_gazebo_ros2_control">
+            <plugin filename="ign_ros2_control-system" name="ign_ros2_control::IgnitionROS2ControlPlugin">
                 <ros>
                     <namespace>/${robot_name}</namespace>
                 </ros>

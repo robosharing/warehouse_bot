@@ -25,7 +25,7 @@ def generate_launch_description():
     ware_bot_start_launch_file = os.path.join(
         get_package_share_directory('multi_robots_rmf_nav2'),
         'launch',
-        'robots.launch.py'  # Используйте правильное имя launch файла с .py
+        'gazebo.launch.py'  # Используйте правильное имя launch файла с .py
     )
 
     # Включение launch файла после завершения ноды update_coordinate

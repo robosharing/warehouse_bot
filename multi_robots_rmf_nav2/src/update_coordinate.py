@@ -46,7 +46,7 @@ def update_robot_positions(input_file, output_file):
         yaml.dump(output_data, outfile, Dumper=IndentDumper, default_flow_style=False, sort_keys=False, indent=2)
 
 def main():
-    input_file_path = os.path.join(get_package_share_directory('multi_robots_rmf_nav2'), 'maps', 'ware.building.yaml')
+    input_file_path = '/maps/ware_test/ware.building.yaml'
     output_file_path = os.path.join(get_package_share_directory('multi_robots_rmf_nav2'), 'config', 'robots.yaml')
 
     update_robot_positions(input_file_path, output_file_path)
