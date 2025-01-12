@@ -1,11 +1,51 @@
 robots:
   - name: robot1
-    x_pose: '16.955000000000002'
-    y_pose: '-32.814800000000005'
+    x_pose: '5.02795'
+    y_pose: '-117.4931'
     z_pose: '0.06'
     Y_pose: '0.78535'
   - name: robot2
-    x_pose: '17.1571'
-    y_pose: '-20.696649999999998'
+    x_pose: '9.90755'
+    y_pose: '-117.2979'
+    z_pose: '0.06'
+    Y_pose: '0.78535'
+  - name: robot3
+    x_pose: '14.93355'
+    y_pose: '-117.46869999999998'
+    z_pose: '0.06'
+    Y_pose: '0.78535'
+  - name: robot4
+    x_pose: '20.0083'
+    y_pose: '-117.41990000000001'
+    z_pose: '0.06'
+    Y_pose: '0.78535'
+  - name: robot5
+    x_pose: '24.812'
+    y_pose: '-117.8833'
+    z_pose: '0.06'
+    Y_pose: '0.78535'
+  - name: robot6
+    x_pose: '30.41765'
+    y_pose: '-117.90474999999999'
+    z_pose: '0.06'
+    Y_pose: '0.78535'
+  - name: robot8
+    x_pose: '15.985'
+    y_pose: '-132.1569'
+    z_pose: '0.06'
+    Y_pose: '0.78535'
+  - name: robot9
+    x_pose: '21.6091'
+    y_pose: '-131.9349'
+    z_pose: '0.06'
+    Y_pose: '0.78535'
+  - name: robot10
+    x_pose: '27.4737'
+    y_pose: '-131.9349'
+    z_pose: '0.06'
+    Y_pose: '0.78535'
+  - name: robot7
+    x_pose: '10.49045'
+    y_pose: '-128.32735'
     z_pose: '0.06'
     Y_pose: '0.78535'
